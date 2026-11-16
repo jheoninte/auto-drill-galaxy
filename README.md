@@ -1,2 +1,3 @@
-# auto-drill-galaxy
-Continuation-ready idle mining prototype extracted from a Vertex AI planning session.
+# Auto Drill: Galaxy
+
+Continuation-ready idle mining package extracted from a Vertex AI planning session.
