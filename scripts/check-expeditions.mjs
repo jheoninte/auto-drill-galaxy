@@ -1,0 +1,101 @@
+import assert from 'node:assert/strict';
+import { createInitialState, hydrateState } from '../web-prototype/game/state.js';
+import { getPrestigeGate, getWaveConfig } from '../web-prototype/game/balance.js';
+import { advanceMining, advanceCombat, applyOfflineProgress, performPrestige } from '../web-prototype/game/systems.js';
+import { MILESTONES, CONTRACTS, claimExpeditionReward, getMilestoneProgress, recordExpeditionMining, recordExpeditionClear } from '../web-prototype/game/expeditions.js';
+import { upgradeWorkshop, selectWorkshopModule } from '../web-prototype/game/workshop.js';
+
+const state = createInitialState();
+const initial = JSON.stringify(state);
+assert.equal(claimExpeditionReward(state, 'milestone', 'first-rebirth').ok, false);
+assert.equal(JSON.stringify(state), initial);
+state.prestige.runs = 3;
+assert.equal(getPrestigeGate(state), 20);
+state.combat.wave = 18;
+assert.equal(performPrestige(state).ok, false);
+state.prestige.runs = 2;
+assert.equal(getPrestigeGate(state), 18);
+assert.equal(performPrestige(state).ok, true);
+assert.equal(getPrestigeGate(state), 20);
+
+// Re-entering a previously reached multiple of four cannot farm permanent hull.
+state.prestige.bestWave = 20;
+state.ship.hull = 6;
+state.combat.wave = 3;
+state.combat.asteroidHp = 0;
+advanceCombat(state, 0, () => 0);
+assert.equal(state.ship.hull, 6);
+state.combat.wave = 23;
+state.combat.asteroidHp = 0;
+advanceCombat(state, 0, () => 0);
+assert.equal(state.ship.hull, 7);
+assert.equal(state.prestige.bestWave, 24);
+
+assert.equal(claimExpeditionReward(state, 'milestone', 'first-rebirth').ok, true);
+const relic = state.loot.relic;
+assert.equal(claimExpeditionReward(state, 'milestone', 'first-rebirth').ok, false);
+assert.equal(state.loot.relic, relic);
+assert.equal(claimExpeditionReward(state, 'unknown', 'first-rebirth').ok, false);
+assert.equal(claimExpeditionReward(state, 'milestone', 'wave-30').ok, false);
+const restored = hydrateState(JSON.parse(JSON.stringify(state)));
+assert.equal(claimExpeditionReward(restored, 'milestone', 'first-rebirth').ok, false);
+
+state.ship.engine = 2;
+state.loot.plasma = 10;
+assert.equal(upgradeWorkshop(state, 'module', 'drill').ok, true);
+advanceMining(state, 10000);
+recordExpeditionMining(state, 2500);
+assert.equal(state.prestige.expeditions.contractProgress['mining-quota'], 2500);
+const oreBefore = state.prestige.expeditions.counters.activeOre;
+const contractBeforeOffline = { ...state.prestige.expeditions.contractProgress };
+state.profile.lastSeenAt = 1000;
+applyOfflineProgress(state, 14401000);
+assert.equal(state.prestige.expeditions.counters.activeOre, oreBefore);
+assert.deepEqual(state.prestige.expeditions.contractProgress, contractBeforeOffline);
+assert.equal(claimExpeditionReward(state, 'contract', 'mining-quota').ok, true);
+const lootAfter = { ...state.loot };
+assert.equal(claimExpeditionReward(state, 'contract', 'mining-quota').ok, false);
+assert.deepEqual(state.loot, lootAfter);
+recordExpeditionMining(state, 2500);
+assert.equal(claimExpeditionReward(state, 'contract', 'mining-quota').ok, false);
+
+assert.equal(upgradeWorkshop(state, 'module', 'lance').ok, true);
+assert.equal(selectWorkshopModule(state, 'lance').ok, true);
+const miningProgress = state.prestige.expeditions.contractProgress['mining-quota'];
+recordExpeditionMining(state, 10000);
+assert.equal(state.prestige.expeditions.contractProgress['mining-quota'], miningProgress);
+for (let i = 0; i < 8; i++) recordExpeditionClear(state, getWaveConfig(1));
+assert.equal(state.prestige.expeditions.contractProgress['combat-sweep'], 6);
+assert.equal(state.prestige.expeditions.contractProgress['boss-hunt'], 0);
+assert.equal(claimExpeditionReward(state, 'contract', 'combat-sweep').ok, true);
+
+advanceMining(state, 10000);
+assert.equal(upgradeWorkshop(state, 'module', 'sync').ok, true);
+assert.equal(selectWorkshopModule(state, 'sync').ok, true);
+recordExpeditionClear(state, getWaveConfig(5));
+recordExpeditionClear(state, getWaveConfig(10));
+assert.equal(state.prestige.expeditions.contractProgress['boss-hunt'], 2);
+const onlineOre = state.prestige.expeditions.counters.activeOre;
+const profileOre = state.profile.ore;
+assert.equal(claimExpeditionReward(state, 'contract', 'boss-hunt').ok, true);
+assert.equal(state.profile.ore, profileOre + 150);
+assert.equal(state.prestige.expeditions.counters.activeOre, onlineOre);
+
+state.combat.wave = getPrestigeGate(state);
+const counters = { ...state.prestige.expeditions.counters };
+assert.equal(performPrestige(state).ok, true);
+assert.deepEqual(state.prestige.expeditions.contractClaimed, []);
+assert.deepEqual(Object.values(state.prestige.expeditions.contractProgress), [0, 0, 0]);
+assert.deepEqual(state.prestige.expeditions.counters, counters);
+assert.equal(claimExpeditionReward(state, 'milestone', 'first-rebirth').ok, false);
+assert.equal(claimExpeditionReward(state, 'contract', 'boss-hunt').ok, false);
+
+const migrated = hydrateState({ ship: { engine: 6 }, prestige: { runs: 2, bestWave: 30 } });
+assert.equal(getMilestoneProgress(migrated, MILESTONES.find((m) => m.metric === 'merges')), 5);
+assert.equal(migrated.prestige.expeditions.counters.bosses, 0);
+const invalid = hydrateState({ prestige: { expeditions: { claimed: ['first-rebirth', 'first-rebirth', 'bad'], counters: { bosses: -10, activeOre: Infinity }, contractClaimed: ['bad'], contractProgress: { 'mining-quota': 999999, 'boss-hunt': -1 } } } });
+assert.deepEqual(invalid.prestige.expeditions.claimed, ['first-rebirth']);
+assert.deepEqual(invalid.prestige.expeditions.counters, { bosses: 0, activeOre: 0 });
+assert.equal(invalid.prestige.expeditions.contractProgress['mining-quota'], CONTRACTS[0].target);
+assert.equal(invalid.prestige.expeditions.contractProgress['boss-hunt'], 0);
+console.log('Expedition checks passed: locked/unfinished/duplicate claims, module-only events, offline exclusion, voyage resets, migration, progressive prestige gates and unique hull rewards.');

@@ -1,1 +1,36 @@
-{"name":"auto-drill-galaxy","private":true,"version":"0.1.0","type":"module","description":"Development scaffold for the Auto Drill Galaxy prototype package.","engines":{"node":">=18"},"scripts":{"dev":"node scripts/dev-server.mjs","start":"node scripts/dev-server.mjs","build":"node scripts/build-static.mjs","check":"node scripts/check-repo.mjs"}}
+{
+  "name": "auto-drill-galaxy",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Offline-first hybrid casual game for iOS and Android.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "start": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "check": "node scripts/check-repo.mjs && node scripts/check-platform.mjs && node scripts/check-expeditions.mjs && node scripts/check-storage.mjs && node scripts/check-routes.mjs && node scripts/check-encounters.mjs && node scripts/check-settings.mjs && node scripts/check-i18n.mjs && node scripts/check-campaign.mjs && node scripts/check-player-flow.mjs && node scripts/check-ad-policy.mjs",
+    "balance": "node scripts/simulate-balance.mjs",
+    "balance:long": "node scripts/simulate-long-term.mjs",
+    "balance:routes": "node scripts/simulate-long-term.mjs --routes",
+    "balance:bosses": "node scripts/simulate-long-term.mjs --bosses --routes",
+    "balance:month": "node scripts/simulate-monthly.mjs",
+    "balance:launch": "node scripts/simulate-launch.mjs",
+    "gemini:brief": "node scripts/prepare-gemini-release.mjs",
+    "native:sync": "npm run build && cap sync",
+    "ios:add": "cap add ios",
+    "ios:open": "cap open ios",
+    "balance:ads": "node scripts/simulate-monetization.mjs"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.6.2",
+    "@capacitor/ios": "8.6.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.2",
+    "vite": "8.3.8"
+  }
+}

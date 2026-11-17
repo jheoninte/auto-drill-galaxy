@@ -1,0 +1,524 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    {
+      "id": "sk_launch_01",
+      "family": "mining",
+      "rarity": "N",
+      "weight": 90,
+      "miningBonus": 0.45,
+      "damageBonus": 0,
+      "critBonus": 0,
+      "name": {
+        "ko": "마이크로 오거",
+        "en": "Micro Auger",
+        "ja": "マイクロオーガー"
+      },
+      "description": {
+        "ko": "보조 굴착 드릴을 가동해 초당 채굴량을 +0.45 높입니다.",
+        "en": "Deploys an auxiliary drill bit for +0.45/s mining.",
+        "ja": "補助掘削ドリルを稼働し毎秒採掘量を+0.45高めます。"
+      },
+      "unlockRuns": 1
+    },
+    {
+      "id": "sk_launch_02",
+      "family": "combat",
+      "rarity": "N",
+      "weight": 90,
+      "miningBonus": 0,
+      "damageBonus": 0.9,
+      "critBonus": 0,
+      "name": {
+        "ko": "펄스 방출기",
+        "en": "Pulse Emitter",
+        "ja": "パルスエミッター"
+      },
+      "description": {
+        "ko": "소형 에너지 파동을 방출해 초당 공격력을 +0.9 높입니다.",
+        "en": "Emits compact energy pulses for +0.9/s DPS.",
+        "ja": "小型エネルギー波動を放出し毎秒攻撃力を+0.9高めます。"
+      },
+      "unlockRuns": 1
+    },
+    {
+      "id": "sk_launch_03",
+      "family": "crit",
+      "rarity": "R",
+      "weight": 45,
+      "miningBonus": 0,
+      "damageBonus": 0.8,
+      "critBonus": 0.04,
+      "name": {
+        "ko": "위상 렌즈",
+        "en": "Phase Lens",
+        "ja": "フェーズレンズ"
+      },
+      "description": {
+        "ko": "광선 초점을 정밀 보정해 공격력 +0.8/초, 치명타 확률 +4%를 더합니다.",
+        "en": "Calibrates beam focus for +0.8/s DPS and +4% crit chance.",
+        "ja": "光線焦点を精密補正し攻撃力+0.8/秒、会心率+4%を加えます。"
+      },
+      "unlockRuns": 1
+    },
+    {
+      "id": "sk_launch_04",
+      "family": "hybrid",
+      "rarity": "R",
+      "weight": 40,
+      "miningBonus": 0.9,
+      "damageBonus": 1.1,
+      "critBonus": 0,
+      "name": {
+        "ko": "이중 짐벌",
+        "en": "Twin Gimbal",
+        "ja": "ツインジンバル"
+      },
+      "description": {
+        "ko": "채굴과 포격을 병행해 채굴 +0.9/초, 공격 +1.1/초를 제공합니다.",
+        "en": "Balances extraction and fire for +0.9/s mining and +1.1/s DPS.",
+        "ja": "採掘と砲撃を並行し採掘+0.9/秒、攻撃+1.1/秒を提供します。"
+      },
+      "unlockRuns": 1
+    },
+    {
+      "id": "sk_launch_05",
+      "family": "mining",
+      "rarity": "SR",
+      "weight": 15,
+      "miningBonus": 3.6,
+      "damageBonus": 0,
+      "critBonus": 0.01,
+      "name": {
+        "ko": "중력 회수기",
+        "en": "Gravity Scoop",
+        "ja": "グラビティスクープ"
+      },
+      "description": {
+        "ko": "국소 중력장으로 파편을 회수해 채굴 +3.6/초, 치명타 +1%를 부여합니다.",
+        "en": "Pulls ore fragments via gravity field for +3.6/s mining and +1% crit.",
+        "ja": "局所重力場で破片を回収し採掘+3.6/秒、会心+1%を付与します。"
+      },
+      "unlockRuns": 1
+    },
+    {
+      "id": "sk_launch_06",
+      "family": "combat",
+      "rarity": "SR",
+      "weight": 15,
+      "miningBonus": 0,
+      "damageBonus": 5.5,
+      "critBonus": 0.02,
+      "name": {
+        "ko": "노바 스피어",
+        "en": "Nova Spear",
+        "ja": "ノヴァスピア"
+      },
+      "description": {
+        "ko": "고열 플라스마 창을 투사해 공격 +5.5/초, 치명타 +2%를 부여합니다.",
+        "en": "Projects a superheated lance for +5.5/s DPS and +2% crit.",
+        "ja": "高熱プラズマ槍を投射し攻撃+5.5/秒、会心+2%を付与します。"
+      },
+      "unlockRuns": 1
+    }
+  ],
+  "skillLinks": [
+    {
+      "id": "link_launch_drill",
+      "moduleId": "drill",
+      "skills": [
+        "sk_launch_01",
+        "sk_hybrid_1"
+      ],
+      "bonusCap": 0.1,
+      "name": {
+        "ko": "광맥 공진",
+        "en": "Vein Resonance",
+        "ja": "鉱脈共振"
+      },
+      "description": {
+        "ko": "Micro Auger + Mining Laser 보유 시 채굴 약점 보스 단계 피해 +10% (고정 상한).",
+        "en": "With Micro Auger + Mining Laser, +10% damage on Mining-weak boss phases (capped).",
+        "ja": "Micro Auger + Mining Laser保有時、採掘弱点ボス段階ダメージ+10%(固定上限)。"
+      }
+    },
+    {
+      "id": "link_launch_lance",
+      "moduleId": "lance",
+      "skills": [
+        "sk_launch_02",
+        "sk_launch_03"
+      ],
+      "bonusCap": 0.1,
+      "name": {
+        "ko": "펄스 집속",
+        "en": "Pulse Convergence",
+        "ja": "パルス集束"
+      },
+      "description": {
+        "ko": "Pulse Emitter + Phase Lens 보유 시 전투 약점 보스 단계 피해 +10% (고정 상한).",
+        "en": "With Pulse Emitter + Phase Lens, +10% damage on Combat-weak boss phases (capped).",
+        "ja": "Pulse Emitter + Phase Lens保有時、戦闘弱点ボス段階ダメージ+10%(固定上限)。"
+      }
+    },
+    {
+      "id": "link_launch_sync",
+      "moduleId": "sync",
+      "skills": [
+        "sk_crit_1",
+        "sk_launch_04"
+      ],
+      "bonusCap": 0.1,
+      "name": {
+        "ko": "궤도 조율",
+        "en": "Orbital Harmony",
+        "ja": "軌道調律"
+      },
+      "description": {
+        "ko": "Lucky Strike + Twin Gimbal 보유 시 균형 약점 보스 단계 피해 +10% (고정 상한).",
+        "en": "With Lucky Strike + Twin Gimbal, +10% damage on Balance-weak boss phases (capped).",
+        "ja": "Lucky Strike + Twin Gimbal保有時、均衡弱点ボス段階ダメージ+10%(固定上限)。"
+      }
+    }
+  ],
+  "bosses": [
+    {
+      "id": "boss_gravity",
+      "name": {
+        "ko": "중력 편향체",
+        "en": "Gravity Deflector",
+        "ja": "重力偏向体"
+      },
+      "description": {
+        "ko": "체력 50%에서 궤도 고리를 수축하며 약점이 채굴에서 균형으로 전환됩니다.",
+        "en": "Contracts its orbital ring at 50% HP, shifting weakness from Mining to Balance.",
+        "ja": "HP50%で軌道リングを収縮し、弱点が採掘から均衡へ切り替わります。"
+      },
+      "phases": [
+        {
+          "phaseIndex": 0,
+          "module": "drill",
+          "multiplier": 0.88,
+          "color": "#60a5fa",
+          "name": {
+            "ko": "중력 외곽막",
+            "en": "Gravity Shell",
+            "ja": "重力外殻膜"
+          }
+        },
+        {
+          "phaseIndex": 1,
+          "module": "sync",
+          "multiplier": 1.12,
+          "color": "#fbbf24",
+          "name": {
+            "ko": "특이점 노출",
+            "en": "Singularity Core",
+            "ja": "特異点露出"
+          }
+        }
+      ]
+    },
+    {
+      "id": "boss_solar",
+      "name": {
+        "ko": "항성 코로나 핵",
+        "en": "Solar Corona Core",
+        "ja": "恒星コロナ核"
+      },
+      "description": {
+        "ko": "체력 50%에서 플레어를 방출하며 약점이 균형에서 전투로 전환됩니다.",
+        "en": "Emits solar flares at 50% HP, shifting weakness from Balance to Combat.",
+        "ja": "HP50%でフレアを放出し、弱点が均衡から戦闘へ切り替わります。"
+      },
+      "phases": [
+        {
+          "phaseIndex": 0,
+          "module": "sync",
+          "multiplier": 0.88,
+          "color": "#fde047",
+          "name": {
+            "ko": "코로나 방벽",
+            "en": "Corona Barrier",
+            "ja": "コロナ防壁"
+          }
+        },
+        {
+          "phaseIndex": 1,
+          "module": "lance",
+          "multiplier": 1.15,
+          "color": "#f8fafc",
+          "name": {
+            "ko": "백열 노심",
+            "en": "Incandescent Core",
+            "ja": "白熱炉心"
+          }
+        }
+      ]
+    }
+  ],
+  "permanentResearch": [
+    {
+      "id": "res_launch_03",
+      "resource": "relic",
+      "costs": [
+        2,
+        3,
+        5,
+        8,
+        13
+      ],
+      "name": {
+        "ko": "정밀 타격 보정기",
+        "en": "Precision Strike Calibrator",
+        "ja": "精密打撃補正装置"
+      },
+      "description": {
+        "ko": "치명타 피해 배율을 영구적으로 더합니다(최대 +0.25). 치명타 확률 상한과 별개입니다.",
+        "en": "Permanently adds to the critical damage multiplier (up to +0.25), independently of the critical chance cap.",
+        "ja": "クリティカルダメージ倍率を永続的に加算します（最大+0.25）。クリティカル率の上限とは別です。"
+      },
+      "levels": [
+        {
+          "critMultiplierBonus": 0.05
+        },
+        {
+          "critMultiplierBonus": 0.1
+        },
+        {
+          "critMultiplierBonus": 0.15
+        },
+        {
+          "critMultiplierBonus": 0.2
+        },
+        {
+          "critMultiplierBonus": 0.25
+        }
+      ]
+    },
+    {
+      "id": "res_launch_04",
+      "resource": "relic",
+      "costs": [
+        2,
+        4,
+        6,
+        10,
+        15
+      ],
+      "name": {
+        "ko": "광맥 정제 회수기",
+        "en": "Vein Salvage Refiner",
+        "ja": "鉱脈精製回収機"
+      },
+      "description": {
+        "ko": "웨이브 돌파 시 획득하는 광석 보상을 단리 비율로 영구 증가시킵니다.",
+        "en": "Permanently increases wave-clear ore rewards by an additive percentage.",
+        "ja": "ウェーブ突破時に獲得する鉱石報酬を単利割合で永久増加させます。"
+      },
+      "levels": [
+        {
+          "oreRewardBonusMult": 0.05
+        },
+        {
+          "oreRewardBonusMult": 0.1
+        },
+        {
+          "oreRewardBonusMult": 0.15
+        },
+        {
+          "oreRewardBonusMult": 0.22
+        },
+        {
+          "oreRewardBonusMult": 0.3
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "route_launch_08",
+      "color": "#38bdf8",
+      "dash": [
+        6,
+        3
+      ],
+      "name": {
+        "ko": "코발트 웨이브",
+        "en": "Cobalt Wave",
+        "ja": "コバルトウェーブ"
+      },
+      "description": {
+        "ko": "수정 항로 완주 기념 외형. 빔과 궤도 색만 변경됩니다.",
+        "en": "Crystal Lane completion cosmetic. Alters beam and orbit visuals only.",
+        "ja": "水晶航路完走記念外見。ビームと軌道の色のみ変更されます。"
+      }
+    },
+    {
+      "id": "route_launch_09",
+      "color": "#f472b6",
+      "dash": [
+        10,
+        3,
+        2,
+        3
+      ],
+      "name": {
+        "ko": "플라스마 아크",
+        "en": "Plasma Arc",
+        "ja": "プラズマアーク"
+      },
+      "description": {
+        "ko": "공허 경계 완주 기념 외형. 능력치 변화는 없습니다.",
+        "en": "Void Frontier completion cosmetic. No stat changes.",
+        "ja": "虚空境界完走記念外見。能力値の変化はありません。"
+      }
+    },
+    {
+      "id": "route_launch_10",
+      "color": "#94a3b8",
+      "dash": [
+        4,
+        4
+      ],
+      "name": {
+        "ko": "티타늄 그리드",
+        "en": "Titanium Grid",
+        "ja": "チタングリッド"
+      },
+      "description": {
+        "ko": "중력 균열 탐사 보상 외형. 금속성 점선 궤도를 표시합니다.",
+        "en": "Gravity Rift reward cosmetic. Displays a metallic dashed orbit.",
+        "ja": "重力亀裂探査報酬外見。金属質の点線軌道を表示します。"
+      }
+    },
+    {
+      "id": "route_launch_11",
+      "color": "#2dd4bf",
+      "dash": [
+        16,
+        4
+      ],
+      "name": {
+        "ko": "민트 스트림",
+        "en": "Mint Stream",
+        "ja": "ミントストリーム"
+      },
+      "description": {
+        "ko": "중력 균열 완주 기념 외형. 청록 장파선 궤적을 그립니다.",
+        "en": "Gravity Rift completion cosmetic. Draws a teal long-dash trail.",
+        "ja": "重力亀裂完走記念外見。青緑の長破線軌跡を描きます。"
+      }
+    },
+    {
+      "id": "route_launch_12",
+      "color": "#fb923c",
+      "dash": [
+        2,
+        6
+      ],
+      "name": {
+        "ko": "오렌지 플레어",
+        "en": "Orange Flare",
+        "ja": "オレンジフレア"
+      },
+      "description": {
+        "ko": "영구 연구 마스터리 달성 외형. 성긴 불꽃 점선을 표시합니다.",
+        "en": "Research Mastery reward cosmetic. Displays sparse ember dots.",
+        "ja": "永久研究マスタリー達成外見。疎らな炎の点線を表示します。"
+      }
+    },
+    {
+      "id": "route_launch_13",
+      "color": "#a3e635",
+      "dash": [
+        7,
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "name": {
+        "ko": "라임 펄서",
+        "en": "Lime Pulsar",
+        "ja": "ライムパルサー"
+      },
+      "description": {
+        "ko": "은하 수호자 제압 보상 외형. 다중 쇄선 궤적을 그립니다.",
+        "en": "Core Guardian reward cosmetic. Draws a multi-dot-dash trail.",
+        "ja": "銀河守護者制圧報酬外見。多重鎖線軌跡を描きます。"
+      }
+    },
+    {
+      "id": "route_launch_14",
+      "color": "#818cf8",
+      "dash": [
+        12,
+        8
+      ],
+      "name": {
+        "ko": "인디고 딥",
+        "en": "Indigo Deep",
+        "ja": "インディゴディープ"
+      },
+      "description": {
+        "ko": "은하 중심부 정복 완주 기념 외형. 심우주 남색 궤도를 표시합니다.",
+        "en": "Galactic Core conquest cosmetic. Displays a deep indigo orbit.",
+        "ja": "銀河中心部征服完走記念外見。深宇宙の藍色軌道を表示します。"
+      }
+    },
+    {
+      "id": "route_launch_15",
+      "color": "#e879f9",
+      "dash": [
+        5,
+        2,
+        1,
+        2
+      ],
+      "name": {
+        "ko": "갤럭틱 프리즘",
+        "en": "Galactic Prism",
+        "ja": "ギャラクティックプリズム"
+      },
+      "description": {
+        "ko": "캠페인 전체 완주 기념 외형. 고밀도 자홍 쇄선입니다.",
+        "en": "Full campaign completion cosmetic. High-density magenta dot-dash.",
+        "ja": "キャンペーン全課題達成記念の外観。高密度マゼンタ鎖線です。"
+      }
+    }
+  ],
+  "supporterShipColors": [
+    {
+      "id": "supporter_color_02",
+      "color": "#fbbf24",
+      "compatibleWithRoutes": true,
+      "name": {
+        "ko": "솔라 골드 선체",
+        "en": "Solar Gold Hull",
+        "ja": "ソーラーゴールド船体"
+      },
+      "description": {
+        "ko": "서포터 묶음 전용 함선 본체 색상. 무료 항로 빔/궤도와 동시 적용됩니다.",
+        "en": "Supporter pack hull color. Can be combined with any free route beam/orbit.",
+        "ja": "サポーターパック専用船体色。無料航路のビーム・軌道と同時適用可能です。"
+      }
+    },
+    {
+      "id": "supporter_color_03",
+      "color": "#34d399",
+      "compatibleWithRoutes": true,
+      "name": {
+        "ko": "에메랄드 선체",
+        "en": "Emerald Hull",
+        "ja": "エメラルド船体"
+      },
+      "description": {
+        "ko": "서포터 묶음 전용 함선 본체 색상. 무료 항로 빔/궤도와 동시 적용됩니다.",
+        "en": "Supporter pack hull color. Can be combined with any free route beam/orbit.",
+        "ja": "サポーターパック専用船体色。無料航路のビーム・軌道と同時適用可能です。"
+      }
+    }
+  ]
+}

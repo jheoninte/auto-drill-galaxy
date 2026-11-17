@@ -1,0 +1,813 @@
+{
+  "schemaVersion": 1,
+  "sectors": [
+    {
+      "id": "sector_01",
+      "order": 1,
+      "name": {
+        "ko": "출항 채굴대",
+        "en": "Departure Belt",
+        "ja": "出航採掘帯"
+      },
+      "description": {
+        "ko": "자동 채굴과 첫 합성, 첫 프레스티지까지 기초 항해술을 익히는 구역입니다.",
+        "en": "Learn automated mining, your first part merge, and reach your first prestige.",
+        "ja": "自動採掘と初合成、最初のプレステージまで基礎航法を学ぶ区域です。"
+      }
+    },
+    {
+      "id": "sector_02",
+      "order": 2,
+      "name": {
+        "ko": "수정 항로",
+        "en": "Crystal Lane",
+        "ja": "水晶航路"
+      },
+      "description": {
+        "ko": "항해 모듈의 목적별 전환과 보스 단계 공략을 본격화하는 구역입니다.",
+        "en": "Master purpose-driven module switching and multi-phase boss encounters.",
+        "ja": "航海モジュールの目的別切替とボス段階攻略を本格化する区域です。"
+      }
+    },
+    {
+      "id": "sector_03",
+      "order": 3,
+      "name": {
+        "ko": "공허 경계",
+        "en": "Void Frontier",
+        "ja": "虚空境界"
+      },
+      "description": {
+        "ko": "스킬 연계 보너스와 유물 기반 영구 연구로 심우주 벽을 돌파합니다.",
+        "en": "Break deeper space barriers using skill links and relic-funded permanent research.",
+        "ja": "スキル連携ボーナスと遺物による永久研究で深宇宙の壁を突破します。"
+      }
+    },
+    {
+      "id": "sector_04",
+      "order": 4,
+      "name": {
+        "ko": "중력 균열",
+        "en": "Gravity Rift",
+        "ja": "重力亀裂"
+      },
+      "description": {
+        "ko": "강화된 중력 보스와 모듈 숙련 도전을 병행하는 고밀도 탐사 구역입니다.",
+        "en": "High-density exploration featuring gravity bosses and module mastery trials.",
+        "ja": "強化された重力ボスとモジュール熟練挑戦を並行する高密度探査区域です。"
+      }
+    },
+    {
+      "id": "sector_05",
+      "order": 5,
+      "name": {
+        "ko": "은하 중심",
+        "en": "Galactic Core",
+        "ja": "銀河中心"
+      },
+      "description": {
+        "ko": "항성 보스를 제압하고 표준 캠페인 완주와 외형 수집을 마무리하는 최종 구역입니다.",
+        "en": "Conquer solar bosses and complete your primary galactic expedition.",
+        "ja": "恒星ボスを制圧し、標準キャンペーン完走と外見収集を締めくくる最終区域です。"
+      }
+    }
+  ],
+  "missions": [
+    {
+      "id": "campaign_01",
+      "sectorId": "sector_01",
+      "order": 1,
+      "prerequisiteId": null,
+      "title": {
+        "ko": "첫 번째 기술 확보",
+        "en": "First Tech Roll",
+        "ja": "最初の技術確保"
+      },
+      "description": {
+        "ko": "광석을 모아 스킬 1개를 획득하세요.",
+        "en": "Gather ore and acquire 1 skill.",
+        "ja": "鉱石を集めてスキルを1つ獲得しましょう。"
+      },
+      "metric": "skills",
+      "target": 1,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "ore": 10
+      }
+    },
+    {
+      "id": "campaign_02",
+      "sectorId": "sector_01",
+      "order": 2,
+      "prerequisiteId": "campaign_01",
+      "title": {
+        "ko": "소행성대 돌파",
+        "en": "Belt Breakthrough",
+        "ja": "小惑星帯突破"
+      },
+      "description": {
+        "ko": "웨이브 5에 도달해 첫 보스와 조우하세요.",
+        "en": "Reach Wave 5 to encounter the first boss.",
+        "ja": "ウェーブ5に到達し最初のボスと遭遇しましょう。"
+      },
+      "metric": "bestWave",
+      "target": 5,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "ore": 10
+      }
+    },
+    {
+      "id": "campaign_03",
+      "sectorId": "sector_01",
+      "order": 3,
+      "prerequisiteId": "campaign_02",
+      "title": {
+        "ko": "함선 첫 개조",
+        "en": "First Hull Upgrade",
+        "ja": "艦船初改造"
+      },
+      "description": {
+        "ko": "파츠 합성을 1회 실행하세요.",
+        "en": "Perform 1 part merge.",
+        "ja": "パーツ合成を1回実行しましょう。"
+      },
+      "metric": "merges",
+      "target": 1,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "plasma": 1
+      }
+    },
+    {
+      "id": "campaign_04",
+      "sectorId": "sector_01",
+      "order": 4,
+      "prerequisiteId": "campaign_03",
+      "title": {
+        "ko": "기초 기술 축적",
+        "en": "Skill Foundation",
+        "ja": "基礎技術蓄積"
+      },
+      "description": {
+        "ko": "스킬을 총 6개 보유하세요.",
+        "en": "Own a total of 6 skills.",
+        "ja": "スキルを合計6個保有しましょう。"
+      },
+      "metric": "skills",
+      "target": 6,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "iron": 3,
+        "crystal": 1
+      }
+    },
+    {
+      "id": "campaign_05",
+      "sectorId": "sector_01",
+      "order": 5,
+      "prerequisiteId": "campaign_04",
+      "title": {
+        "ko": "전경 채굴 숙달",
+        "en": "Active Mining Drill",
+        "ja": "前景採掘熟達"
+      },
+      "description": {
+        "ko": "직접 플레이로 광석 3,500개를 채굴하세요.",
+        "en": "Mine 3,500 ore during foreground play.",
+        "ja": "直接プレイで鉱石3,500個を採掘しましょう。"
+      },
+      "metric": "activeOre",
+      "target": 3500,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "ore": 250
+      }
+    },
+    {
+      "id": "campaign_06",
+      "sectorId": "sector_01",
+      "order": 6,
+      "prerequisiteId": "campaign_05",
+      "title": {
+        "ko": "출항 구역 완주",
+        "en": "Departure Complete",
+        "ja": "出航区域完走"
+      },
+      "description": {
+        "ko": "첫 프레스티지를 1회 완료하세요.",
+        "en": "Complete your first prestige.",
+        "ja": "最初のプレステージを1回完了しましょう。"
+      },
+      "metric": "runs",
+      "target": 1,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "relic": 1
+      }
+    },
+    {
+      "id": "campaign_07",
+      "sectorId": "sector_02",
+      "order": 7,
+      "prerequisiteId": "campaign_06",
+      "title": {
+        "ko": "과부하 채굴 가동",
+        "en": "Overclock Mining",
+        "ja": "過負荷採掘稼働"
+      },
+      "description": {
+        "ko": "채굴 모듈을 적용한 상태로 광석 4,000개를 채굴하세요.",
+        "en": "Mine 4,000 ore with the Mining module active.",
+        "ja": "採掘モジュール適用状態で鉱石4,000個を採掘しましょう。"
+      },
+      "metric": "drillOre",
+      "target": 4000,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": "drill",
+      "reward": {
+        "plasma": 1
+      }
+    },
+    {
+      "id": "campaign_08",
+      "sectorId": "sector_02",
+      "order": 8,
+      "prerequisiteId": "campaign_07",
+      "title": {
+        "ko": "궤도 화력 제압",
+        "en": "Orbital Suppression",
+        "ja": "軌道火力制圧"
+      },
+      "description": {
+        "ko": "전투 모듈을 적용한 상태로 적 15기를 격파하세요.",
+        "en": "Defeat 15 enemies with the Combat module active.",
+        "ja": "戦闘モジュール適用状態で敵15体を撃破しましょう。"
+      },
+      "metric": "lanceKills",
+      "target": 15,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": "lance",
+      "reward": {
+        "iron": 5,
+        "crystal": 2
+      }
+    },
+    {
+      "id": "campaign_09",
+      "sectorId": "sector_02",
+      "order": 9,
+      "prerequisiteId": "campaign_08",
+      "title": {
+        "ko": "수정 지대 돌파",
+        "en": "Crystal Breach",
+        "ja": "水晶地帯突破"
+      },
+      "description": {
+        "ko": "최고 웨이브 21에 도달하세요.",
+        "en": "Reach Best Wave 21.",
+        "ja": "最高ウェーブ21に到達しましょう。"
+      },
+      "metric": "bestWave",
+      "target": 21,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "plasma": 2
+      }
+    },
+    {
+      "id": "campaign_10",
+      "sectorId": "sector_02",
+      "order": 10,
+      "prerequisiteId": "campaign_09",
+      "title": {
+        "ko": "다중 파츠 강화",
+        "en": "Multi-Part Tuning",
+        "ja": "多重パーツ強化"
+      },
+      "description": {
+        "ko": "누적 파츠 합성을 4회 달성하세요.",
+        "en": "Reach 4 cumulative part merges.",
+        "ja": "累計パーツ合成を4回達成しましょう。"
+      },
+      "metric": "merges",
+      "target": 4,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "ore": 600
+      }
+    },
+    {
+      "id": "campaign_11",
+      "sectorId": "sector_02",
+      "order": 11,
+      "prerequisiteId": "campaign_10",
+      "title": {
+        "ko": "균형 보스 타격",
+        "en": "Balanced Strike",
+        "ja": "均衡ボス打撃"
+      },
+      "description": {
+        "ko": "균형 모듈을 적용한 상태로 보스 2기를 격파하세요.",
+        "en": "Defeat 2 bosses with the Balance module active.",
+        "ja": "均衡モジュール適用状態でボス2体を撃破しましょう。"
+      },
+      "metric": "syncBosses",
+      "target": 2,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": "sync",
+      "reward": {
+        "relic": 1
+      }
+    },
+    {
+      "id": "campaign_12",
+      "sectorId": "sector_02",
+      "order": 12,
+      "prerequisiteId": "campaign_11",
+      "title": {
+        "ko": "수정 항로 완주",
+        "en": "Crystal Lane Clear",
+        "ja": "水晶航路完走"
+      },
+      "description": {
+        "ko": "최고 웨이브 25에 도달하세요.",
+        "en": "Reach Best Wave 25.",
+        "ja": "最高ウェーブ25に到達しましょう。"
+      },
+      "metric": "bestWave",
+      "target": 25,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "route": "route_launch_08"
+      }
+    },
+    {
+      "id": "campaign_13",
+      "sectorId": "sector_03",
+      "order": 13,
+      "prerequisiteId": "campaign_12",
+      "title": {
+        "ko": "차원 도약 반복",
+        "en": "Repeated Jumps",
+        "ja": "次元跳躍反復"
+      },
+      "description": {
+        "ko": "프레스티지를 누적 6회 완료하세요.",
+        "en": "Complete 6 cumulative prestiges.",
+        "ja": "プレステージを累計6回完了しましょう。"
+      },
+      "metric": "runs",
+      "target": 6,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "relic": 1
+      }
+    },
+    {
+      "id": "campaign_14",
+      "sectorId": "sector_03",
+      "order": 14,
+      "prerequisiteId": "campaign_13",
+      "title": {
+        "ko": "연계 공명 가동",
+        "en": "Resonance Link",
+        "ja": "連携共鳴稼働"
+      },
+      "description": {
+        "ko": "스킬 연계를 1종 이상 활성화하세요(일반/희귀 스킬 조합).",
+        "en": "Activate at least 1 skill link using Common/Rare skills.",
+        "ja": "スキル連携を1種以上有効化しましょう(N/Rスキル組合せ)。"
+      },
+      "metric": "activeSkillLinks",
+      "target": 1,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "plasma": 2
+      },
+      "alternative": {
+        "metric": "bosses",
+        "target": 20
+      }
+    },
+    {
+      "id": "campaign_15",
+      "sectorId": "sector_03",
+      "order": 15,
+      "prerequisiteId": "campaign_14",
+      "title": {
+        "ko": "거대 광맥 분쇄",
+        "en": "Titan Crusher",
+        "ja": "巨大鉱脈粉砕"
+      },
+      "description": {
+        "ko": "누적 보스 15기를 격파하세요.",
+        "en": "Defeat 15 cumulative bosses.",
+        "ja": "累計ボス15体を撃破しましょう。"
+      },
+      "metric": "bosses",
+      "target": 15,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "iron": 6,
+        "crystal": 3
+      }
+    },
+    {
+      "id": "campaign_16",
+      "sectorId": "sector_03",
+      "order": 16,
+      "prerequisiteId": "campaign_15",
+      "title": {
+        "ko": "기술 무기고 확장",
+        "en": "Tech Arsenal",
+        "ja": "技術武器庫拡張"
+      },
+      "description": {
+        "ko": "스킬을 총 16개 보유하세요.",
+        "en": "Own a total of 16 skills.",
+        "ja": "スキルを合計16個保有しましょう。"
+      },
+      "metric": "skills",
+      "target": 16,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "relic": 1
+      }
+    },
+    {
+      "id": "campaign_17",
+      "sectorId": "sector_03",
+      "order": 17,
+      "prerequisiteId": "campaign_16",
+      "title": {
+        "ko": "공허 심층 채굴",
+        "en": "Void Deep Mining",
+        "ja": "虚空深層採掘"
+      },
+      "description": {
+        "ko": "채굴 모듈로 광석 18,000개를 누적 채굴하세요.",
+        "en": "Mine 18,000 cumulative ore with the Mining module.",
+        "ja": "採掘モジュールで鉱石18,000個を累計採掘しましょう。"
+      },
+      "metric": "drillOre",
+      "target": 18000,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": "drill",
+      "reward": {
+        "plasma": 3
+      }
+    },
+    {
+      "id": "campaign_18",
+      "sectorId": "sector_03",
+      "order": 18,
+      "prerequisiteId": "campaign_17",
+      "title": {
+        "ko": "공허 경계 완주",
+        "en": "Void Frontier Clear",
+        "ja": "虚空境界完走"
+      },
+      "description": {
+        "ko": "최고 웨이브 31에 도달하세요.",
+        "en": "Reach Best Wave 31.",
+        "ja": "最高ウェーブ31に到達しましょう。"
+      },
+      "metric": "bestWave",
+      "target": 31,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "route": "route_launch_09"
+      }
+    },
+    {
+      "id": "campaign_19",
+      "sectorId": "sector_04",
+      "order": 19,
+      "prerequisiteId": "campaign_18",
+      "title": {
+        "ko": "영구 연구 심화",
+        "en": "Deep Research",
+        "ja": "永久研究深化"
+      },
+      "description": {
+        "ko": "영구 연구 합계 레벨 6을 달성하세요.",
+        "en": "Reach a total of 6 levels across permanent research.",
+        "ja": "永久研究の合計レベル6を達成しましょう。"
+      },
+      "metric": "totalResearchLevels",
+      "target": 6,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "relic": 1
+      }
+    },
+    {
+      "id": "campaign_20",
+      "sectorId": "sector_04",
+      "order": 20,
+      "prerequisiteId": "campaign_19",
+      "title": {
+        "ko": "중력권 궤도 소탕",
+        "en": "Gravity Sweep",
+        "ja": "重力圏軌道掃討"
+      },
+      "description": {
+        "ko": "전투 모듈을 적용하고 적 70기를 누적 격파하세요.",
+        "en": "Defeat 70 cumulative enemies with the Combat module.",
+        "ja": "戦闘モジュール適用状態で敵70体を累計撃破しましょう。"
+      },
+      "metric": "lanceKills",
+      "target": 70,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": "lance",
+      "reward": {
+        "iron": 8,
+        "crystal": 4
+      }
+    },
+    {
+      "id": "campaign_21",
+      "sectorId": "sector_04",
+      "order": 21,
+      "prerequisiteId": "campaign_20",
+      "title": {
+        "ko": "정밀 함선 개조",
+        "en": "Precision Refit",
+        "ja": "精密艦船改造"
+      },
+      "description": {
+        "ko": "누적 파츠 합성을 10회 달성하세요.",
+        "en": "Reach 10 cumulative part merges.",
+        "ja": "累計パーツ合成を10回達成しましょう。"
+      },
+      "metric": "merges",
+      "target": 10,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "plasma": 3
+      }
+    },
+    {
+      "id": "campaign_22",
+      "sectorId": "sector_04",
+      "order": 22,
+      "prerequisiteId": "campaign_21",
+      "title": {
+        "ko": "다중 연계 구축",
+        "en": "Multi-Link Network",
+        "ja": "多重連携構築"
+      },
+      "description": {
+        "ko": "서로 다른 스킬 연계를 3종 활성화하세요.",
+        "en": "Activate 3 different skill links.",
+        "ja": "異なるスキル連携を3種有効化しましょう。"
+      },
+      "metric": "activeSkillLinks",
+      "target": 3,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "relic": 2
+      },
+      "alternative": {
+        "metric": "bosses",
+        "target": 35
+      }
+    },
+    {
+      "id": "campaign_23",
+      "sectorId": "sector_04",
+      "order": 23,
+      "prerequisiteId": "campaign_22",
+      "title": {
+        "ko": "균형 보스 숙련",
+        "en": "Sync Boss Mastery",
+        "ja": "均衡ボス熟練"
+      },
+      "description": {
+        "ko": "균형 모듈을 적용하고 보스 8기를 누적 격파하세요.",
+        "en": "Defeat 8 cumulative bosses with the Balance module.",
+        "ja": "均衡モジュール適用状態でボス8体を累計撃破しましょう。"
+      },
+      "metric": "syncBosses",
+      "target": 8,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": "sync",
+      "reward": {
+        "route": "route_launch_10"
+      }
+    },
+    {
+      "id": "campaign_24",
+      "sectorId": "sector_04",
+      "order": 24,
+      "prerequisiteId": "campaign_23",
+      "title": {
+        "ko": "중력 균열 완주",
+        "en": "Gravity Rift Clear",
+        "ja": "重力亀裂完走"
+      },
+      "description": {
+        "ko": "최고 웨이브 36에 도달하세요.",
+        "en": "Reach Best Wave 36.",
+        "ja": "最高ウェーブ36に到達しましょう。"
+      },
+      "metric": "bestWave",
+      "target": 36,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "route": "route_launch_11"
+      }
+    },
+    {
+      "id": "campaign_25",
+      "sectorId": "sector_05",
+      "order": 25,
+      "prerequisiteId": "campaign_24",
+      "title": {
+        "ko": "은하 항해 베테랑",
+        "en": "Galactic Veteran",
+        "ja": "銀河航海ベテラン"
+      },
+      "description": {
+        "ko": "프레스티지를 누적 30회 완료하세요.",
+        "en": "Complete 30 prestiges in total.",
+        "ja": "プレステージを累計30回完了しましょう。"
+      },
+      "metric": "runs",
+      "target": 30,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "relic": 2
+      }
+    },
+    {
+      "id": "campaign_26",
+      "sectorId": "sector_05",
+      "order": 26,
+      "prerequisiteId": "campaign_25",
+      "title": {
+        "ko": "초고밀도 전경 채굴",
+        "en": "Core Ore Extraction",
+        "ja": "超高密度前景採掘"
+      },
+      "description": {
+        "ko": "직접 플레이하며 광석을 누적 1,600,000개 채굴하세요.",
+        "en": "Mine 1,600,000 ore in total during active play.",
+        "ja": "プレイ中の採掘で鉱石を累計1,600,000個集めましょう。"
+      },
+      "metric": "activeOre",
+      "target": 1600000,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "iron": 10,
+        "crystal": 5
+      }
+    },
+    {
+      "id": "campaign_27",
+      "sectorId": "sector_05",
+      "order": 27,
+      "prerequisiteId": "campaign_26",
+      "title": {
+        "ko": "궁극의 기술 집약",
+        "en": "Tech Convergence",
+        "ja": "究極の技術集約"
+      },
+      "description": {
+        "ko": "중복을 포함해 스킬을 누적 84개 획득하세요.",
+        "en": "Acquire 84 skills in total, including duplicates.",
+        "ja": "重複を含めてスキルを累計84個獲得しましょう。"
+      },
+      "metric": "skills",
+      "target": 84,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "plasma": 4
+      }
+    },
+    {
+      "id": "campaign_28",
+      "sectorId": "sector_05",
+      "order": 28,
+      "prerequisiteId": "campaign_27",
+      "title": {
+        "ko": "영구 연구 마스터리",
+        "en": "Research Mastery",
+        "ja": "永久研究マスタリー"
+      },
+      "description": {
+        "ko": "영구 연구 4종의 합계 레벨 20을 달성하세요.",
+        "en": "Reach a combined level of 20 across all 4 permanent researches.",
+        "ja": "永続研究4種の合計レベル20を達成しましょう。"
+      },
+      "metric": "totalResearchLevels",
+      "target": 20,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "route": "route_launch_12"
+      }
+    },
+    {
+      "id": "campaign_29",
+      "sectorId": "sector_05",
+      "order": 29,
+      "prerequisiteId": "campaign_28",
+      "title": {
+        "ko": "은하 수호자 제압",
+        "en": "Core Guardian Slayer",
+        "ja": "銀河守護者制圧"
+      },
+      "description": {
+        "ko": "보스를 누적 175기 격파하세요.",
+        "en": "Defeat 175 bosses in total.",
+        "ja": "ボスを累計175体撃破しましょう。"
+      },
+      "metric": "bosses",
+      "target": 175,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "route": "route_launch_13"
+      }
+    },
+    {
+      "id": "campaign_30",
+      "sectorId": "sector_05",
+      "order": 30,
+      "prerequisiteId": "campaign_29",
+      "title": {
+        "ko": "은하 중심부 도달",
+        "en": "Galactic Core Arrival",
+        "ja": "銀河中心部到達"
+      },
+      "description": {
+        "ko": "최고 웨이브 40에 도달해 표준 캠페인을 완주하세요.",
+        "en": "Reach Best Wave 40 to complete the primary campaign.",
+        "ja": "最高ウェーブ40に到達し標準キャンペーンを完走しましょう。"
+      },
+      "metric": "bestWave",
+      "target": 40,
+      "scope": "lifetime",
+      "retroactive": true,
+      "moduleId": null,
+      "reward": {
+        "route": "route_launch_14"
+      },
+      "bonusReward": {
+        "route": "route_launch_15"
+      }
+    }
+  ]
+}

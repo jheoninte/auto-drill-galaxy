@@ -24,6 +24,11 @@ function resolveTarget(urlPath) {
 }
 
 createServer(async (req, res) => {
+  if (req.url === '/' || req.url === '/index.html') {
+    res.writeHead(302, { Location: '/web-prototype/index.html' });
+    res.end();
+    return;
+  }
   const target = resolveTarget(req.url || '/');
   try {
     const info = await stat(target);

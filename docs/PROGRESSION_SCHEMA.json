@@ -1,6 +1,95 @@
 {
-  "profile": {"ore":0,"darkMatter":0},
-  "ship": {"hull":1,"engine":1,"reactor":1},
+  "profile": {
+    "ore": 0,
+    "darkMatter": 0,
+    "totalOreMined": 0,
+    "lastSeenAt": 0
+  },
+  "ship": {
+    "hull": 1,
+    "engine": 1,
+    "reactor": 1,
+    "workshop": {
+      "activeModule": null,
+      "moduleLevels": {
+        "drill": 0,
+        "lance": 0,
+        "sync": 0
+      },
+      "researchLevels": {
+        "radar": 0,
+        "stabilizer": 0,
+        "res_launch_03": 0,
+        "res_launch_04": 0
+      },
+      "switchRemainingMs": 0
+    }
+  },
   "skills": [],
-  "loot": {"iron":0,"crystal":0,"plasma":0,"relic":0}
+  "tutorial": {
+    "seen": []
+  },
+  "settings": {
+    "soundEnabled": false,
+    "soundVolume": 0.5,
+    "reduceMotion": false,
+    "locale": null,
+    "supporterColor": "violet"
+  },
+  "loot": {
+    "iron": 0,
+    "crystal": 0,
+    "plasma": 0,
+    "relic": 0
+  },
+  "prestige": {
+    "runs": 0,
+    "bestWave": 1,
+    "routes": {
+      "claimed": [],
+      "tracked": null,
+      "equipped": null,
+      "counters": {
+        "drillOre": 0,
+        "lanceKills": 0,
+        "syncBosses": 0
+      }
+    },
+    "expeditions": {
+      "claimed": [],
+      "counters": {
+        "bosses": 0,
+        "activeOre": 0
+      },
+      "contractProgress": {
+        "mining-quota": 0,
+        "combat-sweep": 0,
+        "boss-hunt": 0
+      },
+      "contractClaimed": []
+    },
+    "campaign": {
+      "claimed": [],
+      "counters": {
+        "drillOre": 0,
+        "lanceKills": 0,
+        "syncBosses": 0
+      }
+    }
+  },
+  "combat": {
+    "wave": 1,
+    "asteroidHp": 150,
+    "maxAsteroidHp": 150,
+    "orbitAngle": 0
+  },
+  "monetization": {
+    "lastRewardedAt": 0,
+    "rewardIds": []
+  },
+  "session": {
+    "timeScale": 1,
+    "lastRewardSummary": "",
+    "lastRewardEvent": null
+  }
 }

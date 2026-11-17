@@ -1,0 +1,9 @@
+{
+  "appId": "com.interest.autodrillgalaxy",
+  "appName": "Auto Drill: Galaxy Miner",
+  "webDir": "dist",
+  "ios": {
+    "contentInset": "automatic",
+    "backgroundColor": "#020617"
+  }
+}

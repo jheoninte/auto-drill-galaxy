@@ -1,0 +1,5379 @@
+{
+  "status": "Current shipped web logic only; proposed 30-task campaign, new bosses, research and monetization changes are NOT implemented by this simulation.",
+  "seeds": 20,
+  "days": 30,
+  "visitsPerDay": 2,
+  "secondsPerVisit": 360,
+  "stepMs": 1000,
+  "ads": false,
+  "purchases": false,
+  "policy": "Start at 0h/12h daily; at each return mining-only offline cap 4h; every active second claim existing milestones/contracts, buy skills/merge/module/research and prestige at current gate. No decisions while absent. Upper median; milestones sampled before prestige.",
+  "results": [
+    {
+      "summary": {
+        "moduleId": "drill",
+        "checkpoints": [
+          {
+            "day": 1,
+            "bestWave": 18,
+            "runs": 1,
+            "skills": 43
+          },
+          {
+            "day": 3,
+            "bestWave": 24,
+            "runs": 10,
+            "skills": 66
+          },
+          {
+            "day": 7,
+            "bestWave": 30,
+            "runs": 19,
+            "skills": 76
+          },
+          {
+            "day": 14,
+            "bestWave": 34,
+            "runs": 27,
+            "skills": 82
+          },
+          {
+            "day": 21,
+            "bestWave": 38,
+            "runs": 31,
+            "skills": 87
+          },
+          {
+            "day": 30,
+            "bestWave": 40,
+            "runs": 35,
+            "skills": 90
+          }
+        ],
+        "waveReached": {
+          "25": {
+            "count": 20,
+            "medianDay": 3.5023032407407406,
+            "medianActiveSeconds": 2719
+          },
+          "32": {
+            "count": 20,
+            "medianDay": 8.502291666666666,
+            "medianActiveSeconds": 6318
+          },
+          "40": {
+            "count": 18,
+            "medianDay": 26.50181712962963,
+            "medianActiveSeconds": 19237
+          },
+          "45": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          },
+          "50": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          },
+          "55": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          },
+          "60": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          }
+        }
+      },
+      "sessions": [
+        {
+          "seed": 1,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.003935185185185,
+              "activeSeconds": 2500
+            },
+            "32": {
+              "day": 8.500694444444445,
+              "activeSeconds": 6180
+            },
+            "40": {
+              "day": 26.50181712962963,
+              "activeSeconds": 19237
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 43,
+              "research": {
+                "radar": 3,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 66,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 91,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.003275462962963,
+              "activeSeconds": 2443
+            },
+            "32": {
+              "day": 7.502928240740741,
+              "activeSeconds": 5653
+            },
+            "40": {
+              "day": 23.503831018518518,
+              "activeSeconds": 17251
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 41,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 28,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 3,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 4.003402777777778,
+              "activeSeconds": 3174
+            },
+            "32": {
+              "day": 9.503194444444444,
+              "activeSeconds": 7116
+            },
+            "40": {
+              "day": 29.501944444444444,
+              "activeSeconds": 21408
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 8,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 3
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 18,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 25,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 4,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 4.500613425925926,
+              "activeSeconds": 3293
+            },
+            "32": {
+              "day": 10.000486111111112,
+              "activeSeconds": 7242
+            },
+            "40": {
+              "day": 27.00236111111111,
+              "activeSeconds": 19644
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 48,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 8,
+              "skills": 66,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 17,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 37,
+              "runs": 30,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 5,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 3.5023263888888887,
+              "activeSeconds": 2721
+            },
+            "32": {
+              "day": 9.00017361111111,
+              "activeSeconds": 6495
+            },
+            "40": {
+              "day": 27.004074074074072,
+              "activeSeconds": 19792
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 42,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 66,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 91,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 6,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.501736111111111,
+              "activeSeconds": 2670
+            },
+            "32": {
+              "day": 8.502291666666666,
+              "activeSeconds": 6318
+            },
+            "40": {
+              "day": 27.00002314814815,
+              "activeSeconds": 19442
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 49,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 67,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 77,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 92,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 7,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5009722222222224,
+              "activeSeconds": 2604
+            },
+            "32": {
+              "day": 8.003692129629629,
+              "activeSeconds": 6079
+            },
+            "40": {
+              "day": 25.500706018518517,
+              "activeSeconds": 18421
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 49,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 68,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 78,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 91,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 8,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5023032407407406,
+              "activeSeconds": 2719
+            },
+            "32": {
+              "day": 9.000358796296297,
+              "activeSeconds": 6511
+            },
+            "40": {
+              "day": 27.003078703703704,
+              "activeSeconds": 19706
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 45,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 67,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 77,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 91,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 9,
+          "prestigeCount": 33,
+          "reached": {
+            "25": {
+              "day": 4.50261574074074,
+              "activeSeconds": 3466
+            },
+            "32": {
+              "day": 10.503993055555556,
+              "activeSeconds": 7905
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 8,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 3
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 16,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 32,
+              "runs": 24,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 10,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5005671296296295,
+              "activeSeconds": 2569
+            },
+            "32": {
+              "day": 8.003564814814816,
+              "activeSeconds": 6068
+            },
+            "40": {
+              "day": 25.503055555555555,
+              "activeSeconds": 18624
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 44,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 66,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 91,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 11,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.503888888888889,
+              "activeSeconds": 2856
+            },
+            "32": {
+              "day": 8.501319444444444,
+              "activeSeconds": 6234
+            },
+            "40": {
+              "day": 25.503020833333334,
+              "activeSeconds": 18621
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 40,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 9,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 12,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 4.000532407407407,
+              "activeSeconds": 2926
+            },
+            "32": {
+              "day": 9.003819444444444,
+              "activeSeconds": 6810
+            },
+            "40": {
+              "day": 28.500925925925927,
+              "activeSeconds": 20600
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 9,
+              "skills": 64,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 18,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 13,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.003391203703704,
+              "activeSeconds": 2453
+            },
+            "32": {
+              "day": 7.503368055555556,
+              "activeSeconds": 5691
+            },
+            "40": {
+              "day": 24.50028935185185,
+              "activeSeconds": 17665
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 68,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 77,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 28,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 91,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 14,
+          "prestigeCount": 33,
+          "reached": {
+            "25": {
+              "day": 4.50275462962963,
+              "activeSeconds": 3478
+            },
+            "32": {
+              "day": 11.000069444444444,
+              "activeSeconds": 7926
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 41,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 7,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 3
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 16,
+              "skills": 73,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 32,
+              "runs": 24,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 15,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.500150462962963,
+              "activeSeconds": 2533
+            },
+            "32": {
+              "day": 8.002476851851851,
+              "activeSeconds": 5974
+            },
+            "40": {
+              "day": 25.002164351851853,
+              "activeSeconds": 18187
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 66,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 16,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.003726851851852,
+              "activeSeconds": 2482
+            },
+            "32": {
+              "day": 7.503784722222222,
+              "activeSeconds": 5727
+            },
+            "40": {
+              "day": 25.001712962962962,
+              "activeSeconds": 18148
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 44,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 35,
+              "runs": 27,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 17,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5037962962962963,
+              "activeSeconds": 2848
+            },
+            "32": {
+              "day": 9.000243055555556,
+              "activeSeconds": 6501
+            },
+            "40": {
+              "day": 26.50375,
+              "activeSeconds": 19404
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 41,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 23,
+              "runs": 9,
+              "skills": 64,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 18,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 4.000277777777778,
+              "activeSeconds": 2904
+            },
+            "32": {
+              "day": 9.503275462962963,
+              "activeSeconds": 7123
+            },
+            "40": {
+              "day": 29.501527777777778,
+              "activeSeconds": 21372
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 47,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 23,
+              "runs": 9,
+              "skills": 66,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 18,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 25,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 91,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 19,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.0041319444444445,
+              "activeSeconds": 2517
+            },
+            "32": {
+              "day": 7.5039699074074075,
+              "activeSeconds": 5743
+            },
+            "40": {
+              "day": 24.00023148148148,
+              "activeSeconds": 17300
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 66,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 28,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 20,
+          "prestigeCount": 37,
+          "reached": {
+            "25": {
+              "day": 3.0005671296296295,
+              "activeSeconds": 2209
+            },
+            "32": {
+              "day": 7.00130787037037,
+              "activeSeconds": 5153
+            },
+            "40": {
+              "day": 21.50351851851852,
+              "activeSeconds": 15784
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 3,
+              "skills": 45,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 12,
+              "skills": 67,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 21,
+              "skills": 77,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 42,
+              "runs": 37,
+              "skills": 91,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "summary": {
+        "moduleId": "lance",
+        "checkpoints": [
+          {
+            "day": 1,
+            "bestWave": 18,
+            "runs": 2,
+            "skills": 43
+          },
+          {
+            "day": 3,
+            "bestWave": 24,
+            "runs": 10,
+            "skills": 65
+          },
+          {
+            "day": 7,
+            "bestWave": 30,
+            "runs": 19,
+            "skills": 74
+          },
+          {
+            "day": 14,
+            "bestWave": 34,
+            "runs": 27,
+            "skills": 81
+          },
+          {
+            "day": 21,
+            "bestWave": 38,
+            "runs": 32,
+            "skills": 85
+          },
+          {
+            "day": 30,
+            "bestWave": 40,
+            "runs": 36,
+            "skills": 88
+          }
+        ],
+        "waveReached": {
+          "25": {
+            "count": 20,
+            "medianDay": 3.501261574074074,
+            "medianActiveSeconds": 2629
+          },
+          "32": {
+            "count": 20,
+            "medianDay": 8.502766203703704,
+            "medianActiveSeconds": 6359
+          },
+          "40": {
+            "count": 17,
+            "medianDay": 24.003842592592594,
+            "medianActiveSeconds": 17612
+          },
+          "45": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          },
+          "50": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          },
+          "55": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          },
+          "60": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          }
+        }
+      },
+      "sessions": [
+        {
+          "seed": 1,
+          "prestigeCount": 37,
+          "reached": {
+            "25": {
+              "day": 2.5038657407407405,
+              "activeSeconds": 2134
+            },
+            "32": {
+              "day": 7.000810185185185,
+              "activeSeconds": 5110
+            },
+            "40": {
+              "day": 21.503622685185185,
+              "activeSeconds": 15793
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 44,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 25,
+              "runs": 12,
+              "skills": 65,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 31,
+              "runs": 21,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 80,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 42,
+              "runs": 37,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5030439814814813,
+              "activeSeconds": 2783
+            },
+            "32": {
+              "day": 9.000555555555556,
+              "activeSeconds": 6528
+            },
+            "40": {
+              "day": 27.000451388888887,
+              "activeSeconds": 19479
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 39,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 62,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 72,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 78,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 3,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 4.002974537037037,
+              "activeSeconds": 3137
+            },
+            "32": {
+              "day": 10.002268518518518,
+              "activeSeconds": 7396
+            },
+            "40": {
+              "day": 28.501909722222223,
+              "activeSeconds": 20685
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 45,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 9,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 17,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 25,
+              "skills": 80,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 4,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 4.500231481481482,
+              "activeSeconds": 3260
+            },
+            "32": {
+              "day": 10.003229166666667,
+              "activeSeconds": 7479
+            },
+            "40": {
+              "day": 29.001655092592593,
+              "activeSeconds": 21023
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 47,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 8,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 17,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 25,
+              "skills": 80,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 5,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.002453703703704,
+              "activeSeconds": 2372
+            },
+            "32": {
+              "day": 7.503726851851852,
+              "activeSeconds": 5722
+            },
+            "40": {
+              "day": 23.50113425925926,
+              "activeSeconds": 17018
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 39,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 66,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 28,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 6,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5019328703703705,
+              "activeSeconds": 2687
+            },
+            "32": {
+              "day": 8.502766203703704,
+              "activeSeconds": 6359
+            },
+            "40": {
+              "day": 25.501273148148147,
+              "activeSeconds": 18470
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 50,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 67,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 7,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.0029166666666667,
+              "activeSeconds": 2412
+            },
+            "32": {
+              "day": 8.000416666666666,
+              "activeSeconds": 5796
+            },
+            "40": {
+              "day": 23.504166666666666,
+              "activeSeconds": 17280
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 49,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 68,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 28,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 8,
+          "prestigeCount": 37,
+          "reached": {
+            "25": {
+              "day": 3.001215277777778,
+              "activeSeconds": 2265
+            },
+            "32": {
+              "day": 7.001400462962963,
+              "activeSeconds": 5161
+            },
+            "40": {
+              "day": 21.002094907407407,
+              "activeSeconds": 15301
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 45,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 12,
+              "skills": 67,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 21,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 39,
+              "runs": 33,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 42,
+              "runs": 37,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 9,
+          "prestigeCount": 33,
+          "reached": {
+            "25": {
+              "day": 4.500949074074074,
+              "activeSeconds": 3322
+            },
+            "32": {
+              "day": 10.500185185185185,
+              "activeSeconds": 7576
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 8,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 3
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 17,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 25,
+              "skills": 80,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 10,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.0037037037037035,
+              "activeSeconds": 2480
+            },
+            "32": {
+              "day": 8.003229166666667,
+              "activeSeconds": 6039
+            },
+            "40": {
+              "day": 25.001574074074075,
+              "activeSeconds": 18136
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 65,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 11,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 4.00167824074074,
+              "activeSeconds": 3025
+            },
+            "32": {
+              "day": 9.501793981481482,
+              "activeSeconds": 6995
+            },
+            "40": {
+              "day": 27.501921296296295,
+              "activeSeconds": 19966
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 38,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 9,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 18,
+              "skills": 73,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 79,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 12,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.501261574074074,
+              "activeSeconds": 2629
+            },
+            "32": {
+              "day": 8.001145833333334,
+              "activeSeconds": 5859
+            },
+            "40": {
+              "day": 23.502314814814813,
+              "activeSeconds": 17120
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 42,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 64,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 28,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 13,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.5010648148148147,
+              "activeSeconds": 2612
+            },
+            "32": {
+              "day": 8.001909722222223,
+              "activeSeconds": 5925
+            },
+            "40": {
+              "day": 24.003842592592594,
+              "activeSeconds": 17612
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 42,
+              "research": {
+                "radar": 3,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 66,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 35,
+              "runs": 27,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 14,
+          "prestigeCount": 33,
+          "reached": {
+            "25": {
+              "day": 4.50238425925926,
+              "activeSeconds": 3446
+            },
+            "32": {
+              "day": 11.0003125,
+              "activeSeconds": 7947
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 41,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 8,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 3
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 16,
+              "skills": 72,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 32,
+              "runs": 24,
+              "skills": 78,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 15,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.0038541666666667,
+              "activeSeconds": 2493
+            },
+            "32": {
+              "day": 8.001886574074074,
+              "activeSeconds": 5923
+            },
+            "40": {
+              "day": 24.001087962962963,
+              "activeSeconds": 17374
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 42,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 35,
+              "runs": 27,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 16,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 4.000208333333333,
+              "activeSeconds": 2898
+            },
+            "32": {
+              "day": 9.5015625,
+              "activeSeconds": 6975
+            },
+            "40": {
+              "day": 29.502800925925925,
+              "activeSeconds": 21482
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 44,
+              "research": {
+                "radar": 3,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 9,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 3
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 18,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 25,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 17,
+          "prestigeCount": 33,
+          "reached": {
+            "25": {
+              "day": 4.001724537037037,
+              "activeSeconds": 3029
+            },
+            "32": {
+              "day": 10.002847222222222,
+              "activeSeconds": 7446
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 40,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 9,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 18,
+              "skills": 73,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 25,
+              "skills": 79,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 18,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.501238425925926,
+              "activeSeconds": 2627
+            },
+            "32": {
+              "day": 8.503101851851852,
+              "activeSeconds": 6388
+            },
+            "40": {
+              "day": 25.0009375,
+              "activeSeconds": 18081
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 45,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 64,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 80,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 19,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.501261574074074,
+              "activeSeconds": 2629
+            },
+            "32": {
+              "day": 8.003680555555556,
+              "activeSeconds": 6078
+            },
+            "40": {
+              "day": 24.002604166666668,
+              "activeSeconds": 17505
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 42,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 73,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 35,
+              "runs": 27,
+              "skills": 79,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 20,
+          "prestigeCount": 38,
+          "reached": {
+            "25": {
+              "day": 2.5013657407407406,
+              "activeSeconds": 1918
+            },
+            "32": {
+              "day": 6.003229166666666,
+              "activeSeconds": 4599
+            },
+            "40": {
+              "day": 20.000983796296296,
+              "activeSeconds": 14485
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 3,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 26,
+              "runs": 14,
+              "skills": 67,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 32,
+              "runs": 22,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 42,
+              "runs": 38,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "summary": {
+        "moduleId": "sync",
+        "checkpoints": [
+          {
+            "day": 1,
+            "bestWave": 18,
+            "runs": 2,
+            "skills": 43
+          },
+          {
+            "day": 3,
+            "bestWave": 24,
+            "runs": 10,
+            "skills": 65
+          },
+          {
+            "day": 7,
+            "bestWave": 30,
+            "runs": 19,
+            "skills": 75
+          },
+          {
+            "day": 14,
+            "bestWave": 34,
+            "runs": 27,
+            "skills": 81
+          },
+          {
+            "day": 21,
+            "bestWave": 38,
+            "runs": 31,
+            "skills": 85
+          },
+          {
+            "day": 30,
+            "bestWave": 40,
+            "runs": 35,
+            "skills": 89
+          }
+        ],
+        "waveReached": {
+          "25": {
+            "count": 20,
+            "medianDay": 3.5019328703703705,
+            "medianActiveSeconds": 2687
+          },
+          "32": {
+            "count": 20,
+            "medianDay": 8.503252314814814,
+            "medianActiveSeconds": 6401
+          },
+          "40": {
+            "count": 15,
+            "medianDay": 26.500081018518518,
+            "medianActiveSeconds": 19087
+          },
+          "45": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          },
+          "50": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          },
+          "55": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          },
+          "60": {
+            "count": 0,
+            "medianDay": null,
+            "medianActiveSeconds": null
+          }
+        }
+      },
+      "sessions": [
+        {
+          "seed": 1,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5010069444444443,
+              "activeSeconds": 2607
+            },
+            "32": {
+              "day": 8.501469907407408,
+              "activeSeconds": 6247
+            },
+            "40": {
+              "day": 26.502777777777776,
+              "activeSeconds": 19320
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 42,
+              "research": {
+                "radar": 3,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 66,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 2,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5007060185185184,
+              "activeSeconds": 2581
+            },
+            "32": {
+              "day": 8.50082175925926,
+              "activeSeconds": 6191
+            },
+            "40": {
+              "day": 27.000925925925927,
+              "activeSeconds": 19520
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 41,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 3,
+          "prestigeCount": 33,
+          "reached": {
+            "25": {
+              "day": 4.500451388888889,
+              "activeSeconds": 3279
+            },
+            "32": {
+              "day": 10.003425925925926,
+              "activeSeconds": 7496
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 8,
+              "skills": 64,
+              "research": {
+                "radar": 4,
+                "stabilizer": 3
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 17,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 25,
+              "skills": 80,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 4,
+          "prestigeCount": 33,
+          "reached": {
+            "25": {
+              "day": 4.50087962962963,
+              "activeSeconds": 3316
+            },
+            "32": {
+              "day": 10.502673611111112,
+              "activeSeconds": 7791
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 47,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 8,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 17,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 33,
+              "runs": 24,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 5,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.0034375,
+              "activeSeconds": 2457
+            },
+            "32": {
+              "day": 8.000543981481481,
+              "activeSeconds": 5807
+            },
+            "40": {
+              "day": 24.003344907407406,
+              "activeSeconds": 17569
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 41,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 66,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 28,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 6,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5018402777777777,
+              "activeSeconds": 2679
+            },
+            "32": {
+              "day": 8.500798611111112,
+              "activeSeconds": 6189
+            },
+            "40": {
+              "day": 25.502604166666668,
+              "activeSeconds": 18585
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 49,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 66,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 7,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.004027777777778,
+              "activeSeconds": 2508
+            },
+            "32": {
+              "day": 8.00212962962963,
+              "activeSeconds": 5944
+            },
+            "40": {
+              "day": 25.001851851851853,
+              "activeSeconds": 18160
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 49,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 68,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 77,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 8,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5019328703703705,
+              "activeSeconds": 2687
+            },
+            "32": {
+              "day": 8.501122685185186,
+              "activeSeconds": 6217
+            },
+            "40": {
+              "day": 26.500081018518518,
+              "activeSeconds": 19087
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 45,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 67,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 76,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 9,
+          "prestigeCount": 32,
+          "reached": {
+            "25": {
+              "day": 4.502997685185186,
+              "activeSeconds": 3499
+            },
+            "32": {
+              "day": 11.00113425925926,
+              "activeSeconds": 8018
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 8,
+              "skills": 64,
+              "research": {
+                "radar": 4,
+                "stabilizer": 3
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 16,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 32,
+              "runs": 24,
+              "skills": 80,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 28,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 10,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.003414351851852,
+              "activeSeconds": 2455
+            },
+            "32": {
+              "day": 7.503310185185185,
+              "activeSeconds": 5686
+            },
+            "40": {
+              "day": 23.500949074074075,
+              "activeSeconds": 17002
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 65,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 28,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 11,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 4.001168981481482,
+              "activeSeconds": 2981
+            },
+            "32": {
+              "day": 9.500300925925925,
+              "activeSeconds": 6866
+            },
+            "40": {
+              "day": 28.000381944444445,
+              "activeSeconds": 20193
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 39,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 9,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 18,
+              "skills": 73,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 79,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 12,
+          "prestigeCount": 33,
+          "reached": {
+            "25": {
+              "day": 4.003657407407408,
+              "activeSeconds": 3196
+            },
+            "32": {
+              "day": 10.0021875,
+              "activeSeconds": 7389
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 9,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 17,
+              "skills": 73,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 25,
+              "skills": 80,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 30,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 39,
+              "runs": 33,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 13,
+          "prestigeCount": 34,
+          "reached": {
+            "25": {
+              "day": 3.5024305555555557,
+              "activeSeconds": 2730
+            },
+            "32": {
+              "day": 9.000046296296297,
+              "activeSeconds": 6484
+            },
+            "40": {
+              "day": 27.004074074074072,
+              "activeSeconds": 19792
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 43,
+              "research": {
+                "radar": 3,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 65,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 34,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 14,
+          "prestigeCount": 33,
+          "reached": {
+            "25": {
+              "day": 4.503020833333333,
+              "activeSeconds": 3501
+            },
+            "32": {
+              "day": 10.503472222222221,
+              "activeSeconds": 7860
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 41,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 22,
+              "runs": 7,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 3
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 28,
+              "runs": 16,
+              "skills": 72,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 32,
+              "runs": 24,
+              "skills": 79,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 38,
+              "runs": 33,
+              "skills": 87,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 15,
+          "prestigeCount": 36,
+          "reached": {
+            "25": {
+              "day": 3.003923611111111,
+              "activeSeconds": 2499
+            },
+            "32": {
+              "day": 8.00230324074074,
+              "activeSeconds": 5959
+            },
+            "40": {
+              "day": 24.002766203703704,
+              "activeSeconds": 17519
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 20,
+              "skills": 75,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 35,
+              "runs": 27,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 32,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 36,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 16,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.501400462962963,
+              "activeSeconds": 2641
+            },
+            "32": {
+              "day": 8.50162037037037,
+              "activeSeconds": 6260
+            },
+            "40": {
+              "day": 27.001006944444445,
+              "activeSeconds": 19527
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 64,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 17,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5036342592592593,
+              "activeSeconds": 2834
+            },
+            "32": {
+              "day": 9.0003125,
+              "activeSeconds": 6507
+            },
+            "40": {
+              "day": 26.50324074074074,
+              "activeSeconds": 19360
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 1,
+              "skills": 41,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 23,
+              "runs": 9,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 73,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 26,
+              "skills": 80,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 84,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 18,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5005439814814814,
+              "activeSeconds": 2567
+            },
+            "32": {
+              "day": 8.503252314814814,
+              "activeSeconds": 6401
+            },
+            "40": {
+              "day": 27.000717592592594,
+              "activeSeconds": 19502
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 46,
+              "research": {
+                "radar": 2,
+                "stabilizer": 1
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 11,
+              "skills": 65,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 74,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 82,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 86,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 90,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 19,
+          "prestigeCount": 35,
+          "reached": {
+            "25": {
+              "day": 3.5025810185185184,
+              "activeSeconds": 2743
+            },
+            "32": {
+              "day": 8.503287037037037,
+              "activeSeconds": 6404
+            },
+            "40": {
+              "day": 25.501296296296296,
+              "activeSeconds": 18472
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 2,
+              "skills": 43,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 24,
+              "runs": 10,
+              "skills": 63,
+              "research": {
+                "radar": 4,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 30,
+              "runs": 19,
+              "skills": 73,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 34,
+              "runs": 27,
+              "skills": 81,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 38,
+              "runs": 31,
+              "skills": 85,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 40,
+              "runs": 35,
+              "skills": 89,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        },
+        {
+          "seed": 20,
+          "prestigeCount": 37,
+          "reached": {
+            "25": {
+              "day": 2.502951388888889,
+              "activeSeconds": 2055
+            },
+            "32": {
+              "day": 6.502199074074074,
+              "activeSeconds": 4870
+            },
+            "40": {
+              "day": 21.002488425925925,
+              "activeSeconds": 15335
+            }
+          },
+          "checkpoints": [
+            {
+              "day": 1,
+              "activeSeconds": 720,
+              "bestWave": 18,
+              "runs": 3,
+              "skills": 45,
+              "research": {
+                "radar": 2,
+                "stabilizer": 2
+              }
+            },
+            {
+              "day": 3,
+              "activeSeconds": 2160,
+              "bestWave": 26,
+              "runs": 13,
+              "skills": 68,
+              "research": {
+                "radar": 5,
+                "stabilizer": 4
+              }
+            },
+            {
+              "day": 7,
+              "activeSeconds": 5040,
+              "bestWave": 32,
+              "runs": 22,
+              "skills": 77,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 14,
+              "activeSeconds": 10080,
+              "bestWave": 36,
+              "runs": 29,
+              "skills": 83,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 21,
+              "activeSeconds": 15120,
+              "bestWave": 39,
+              "runs": 33,
+              "skills": 88,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            },
+            {
+              "day": 30,
+              "activeSeconds": 21600,
+              "bestWave": 42,
+              "runs": 37,
+              "skills": 91,
+              "research": {
+                "radar": 5,
+                "stabilizer": 5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

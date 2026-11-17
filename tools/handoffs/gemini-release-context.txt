@@ -1,0 +1,2514 @@
+Auto Drill Galaxy release context. Current code and approved scope; planned features are not implemented unless stated.
+
+
+===== docs/RELEASE_SCOPE_V1.md =====
+# v1.0 출시 범위 확정
+
+기준: 2026-11-17 사용자 결정. iOS 우선, 무료 다운로드 + IAP/IAA, 자체 서버 없이 출시한다.
+이 문서는 첫 출시의 **개발 목표**를 확정한다. 아래 예정 콘텐츠가 현재 실행 코드에 모두 있다는 뜻은 아니다.
+
+## 플레이 분량과 완주
+
+표준 플레이는 하루 2회 × 5~8분, 약 30일(전경 플레이 약 5~8시간)이다.
+5개 구역 × 구역별 6개 순차 탐사 과제 = 30개 캠페인 과제를 제공한다.
+과제는 날짜가 아니라 이전 탐사 진행으로 열린다. 빠른 사용자는 일찍 끝낼 수 있고 쉬었다 와도 손해·연속 접속 초기화가 없다.
+기존 영구 목표 7개·항해 계약 3종은 유지한다. 캠페인 30개와 기존 목표를 같은 콘텐츠로 중복 집계하지 않는다.
+
+| 구역 | 목표 체험 시점(추정) | 성장 구간 지침 | 새 경험 |
+| --- | --- | --- | --- |
+| 1 출항 채굴대 | 세션 1~3 | 첫 뽑기·합성, W18 첫 환생 | 자동 채굴 이해, 강화 체감 |
+| 2 수정 항로 | 세션 4~8 | W20~26 | 모듈 목적 선택, 수정 보스 단계 |
+| 3 공허 경계 | 세션 9~15 | W27~32 | 스킬 연계와 보스 공략, 영구 연구 |
+| 4 중력 균열 | 세션 16~23 | W33~36 | 추가 보스 원형, 모듈 간 선택 |
+| 5 은하 중심 | 세션 24~30 | W37~40 | 두 번째 추가 보스, 탐사 완주와 외형 |
+
+구역 이름은 제작용 확정 가제이며 한영일 문구를 Gemini 초안 후 통일한다. 위 시점은 해금 타이머가 아니다.
+완주 후에는 자유 항해·계약·기록 갱신을 계속할 수 있다. 시즌 서버, 매일 갱신되는 운영 콘텐츠는 첫 버전에 넣지 않는다.
+
+캠페인 설계 규칙:
+
+- 구역별 과제 6개는 채굴·강화·보스·모듈·연계·구역 완료를 섞고 동일 숫자 반복을 피한다.
+- 희귀/최고 등급 스킬 보유, 광고 시청, 결제, 연속 출석은 필수 완료 조건으로 사용하지 않는다.
+- 무작위 스킬 과제에는 보통/희귀 등급 대체 경로를 두고, 특정 희귀 스킬을 못 뽑아 막히게 하지 않는다.
+- 채굴/격파 과제는 같은 전경 집계 규칙을 쓴다. 소급 적용 여부는 지표별 명시하고 오프라인·광고 보상과 혼합하지 않는다.
+- 캠페인 보상은 정해진 횟수의 재료·유물과 외형이다. 영구 무제한 배율은 금지하고 기존 보상과 중복 수령을 검사한다.
+
+## 수량과 구현 상태
+
+| 구성 | 출시 목표 | 현재 확인된 구현 |
+| --- | --- | --- |
+| 구역 / 캠페인 과제 | 5 / 30 | 미구현, 이번에 범위 확정 |
+| 스킬 | 18종 | 12종. 추가 6종은 기존 광석 뽑기 풀 안에서 설계 |
+| 스킬 연계 | 6종 | 3종. 추가 3종은 보너스 상한·희귀 의존도 재검증 |
+| 보스 원형 | 5종, 각 2단계 | 3종 2단계. 추가 원형 2종 필요 |
+| 항해 모듈 | 3종, 각 3단계 | 구현됨 |
+| 영구 연구 | 4종, 각 5단계 | 2종. 추가 2종은 역할 중복/복리 여부 검토 후 통합 |
+| 영구 목표 / 항해 계약 | 7 / 3 | 구현됨 |
+| 무료 항로 외형 | 15종 | 7종. 추가 8종 필요 |
+| 유료 서포터 외형 | 함선 색상 3종 묶음 | 보라색 함선 1종 구현, 나머지 선택 UI/색상 2종 필요 |
+| 언어 | 한국어·영어·일본어 | 한국어 중심/영어 혼재. i18n 분리·번역·언어 선택 미완료 |
+| 효과음 | 기본 이벤트 7종 + SR/UR 뽑기 변형 2종 | 이번 작업에서 합성음 구현·이벤트 연결 |
+
+새 보스의 실제 규칙·6개 스킬의 수치·연구 효과는 Codex 시뮬레이션을 통과해야 최종 데이터가 된다.
+Gemini가 만든 수치와 번역은 초안으로 취급한다. 범위를 늘리는 제안은 후속 버전 목록으로 보낸다.
+
+## 수익화 범위
+
+첫 출시 IAP는 광고 제거와 서포터 외형 묶음 2종의 비소모성 상품이다.
+가격은 현지화 스토어 가격으로 표시하며 실제 가격대와 상품 ID는 App Store Connect에서 확정한다.
+유료 재화, 유료 랜덤 뽑기, 구독, 배틀패스, 에너지/목숨 판매는 첫 출시에서 제외한다.
+
+광고는 선택형 보급과 환생 후 전면 광고만 사용한다. 배너·앱 시작 광고는 제외한다.
+현재 코드는 보급 60초 채굴량/3분 대기, 전면 첫 3분 제외/최소 3분 간격이다.
+출시 조정 후보는 **보급 120초 채굴량/5분 대기**, 전면 **첫 10분 제외/최소 8분 간격/세션 최대 2회**다.
+이는 이번에 확정한 실험 후보이며 아직 코드에 적용하지 않았다. 무과금/무광고 기준을 먼저 통과한 뒤 비교한다.
+추가 오프라인 배수 광고는 중복 보상/저장 경계가 복잡하므로 첫 버전에서 제외한다.
+
+유료 가치는 자주 보는 전면 광고 제거와 눈에 보이는 외형 선택에서 만든다.
+보급은 다음 뽑기/합성 선택을 앞당기되 필수 벽을 넘기는 열쇠로 만들지 않는다.
+보스 실패·저장 복원·튜토리얼 안내 중 광고를 끼우지 않으며 광고/동의 실패도 기본 플레이를 막지 않는다.
+광고 제거를 구매해도 선택형 보급은 남는다는 점을 상점에 명시한다.
+수익/광고 시청률은 실제 사용자 측정 전에는 보장하지 않는다.
+
+## 비주얼·언어·운영 경계
+
+비주얼은 `VISUAL_ASSET_PLAN.md`의 ‘네온 궤도 채굴’로 통일한다.
+고해상도 그래픽/영상 제작은 뒤로 미루고 현재 Canvas/SVG/CSS로 기능 구분을 완성한다.
+루프 음악과 녹음 음성은 첫 출시에서 제외한다. 효과음은 외부 샘플 없이 생성하는 짧은 신호음으로 통일한다.
+실제 iPhone 음질·오디오 중단 검증은 Mac 작업이다.
+
+언어는 ko/en/ja 동시 제공하며 출시 후 15개 언어를 추가할 수 있는 키/매개변수 구조를 쓴다.
+Game Center, Firebase, 계정/클라우드 저장, 푸시, 원격 설정은 첫 출시 필수 범위에서 제외한다.
+
+## 완료 판정
+
+1. 위 수량의 실제 데이터/화면/저장 이전이 구현되고 누락 번역·중복 보상 검사가 통과할 것.
+2. 30일 무광고·무과금 모델을 다시 실행해 첫 환생 중앙값 10~15분 유지, 정상 정책의 완주율 목표 85% 이상을 검토할 것.
+3. 첫날·7일·14일·30일에 다른 성장 선택/과제가 존재하고, 재료 대기만 강요하는 구간을 실제 플레이로 수정할 것.
+4. 약한 접속(하루 1회 5분), 표준(2회 6분), 집중(하루 30분), 모듈별 정책을 비교할 것.
+5. 한영일 모든 화면·구매/동의 안내·백업 메시지를 검수하고 Windows 회귀 검사와 Mac 실기기 검사에 각각 통과할 것.
+
+현재 30일 결과는 **기존 코드의 기준선**이며 신규 콘텐츠 적용 후 완주율이나 재미를 검증한 결과가 아니다.
+세부 기록은 `MONTHLY_BALANCE_REVIEW.md`, Gemini 전달문은 `GEMINI_RELEASE_BRIEF.md`를 따른다.
+
+
+===== docs/VISUAL_ASSET_PLAN.md =====
+# 출시 비주얼 방향과 에셋 목록
+
+방향 확정: **네온 궤도 채굴 / Neon Orbit Mining**.
+차분한 짙은 우주 위에서 드릴의 빛과 명확한 성장 피드백이 중심이다.
+벡터에 가까운 선명한 도형, 둥근 패널, 간결한 기술 도해 스타일로 통일한다.
+고해상도 일러스트·복잡한 3D·픽셀 아트는 현재 제작 범위에 넣지 않는다.
+
+## 공통 규격
+
+- 배경 `#020617`, 패널 `#0f172a`, 기본 글자 `#e2e8f0`, 보조 글자 `#cbd5e1`.
+- 채굴/선택 `#67e8f9`, 보스/재료 `#fbbf24`, 전투 `#fb7185`, 영구/고급 연구 `#c4b5fd`.
+- 희귀도는 N/R/SR/UR 문자와 테두리 패턴을 병행한다. 색만으로 등급/상태/모듈을 전달하지 않는다.
+- 한국어·영어·일본어 문자는 이미지에 굽지 않는다. 텍스트는 DOM, 아이콘은 독립 에셋이다.
+- 장식보다 44pt 이상 터치 영역과 읽을 수 있는 비용/보상을 우선한다. 모션 줄이기에서 의미를 잃지 않게 한다.
+- 영상/전면 섬광/상시 흔들림은 사용하지 않는다. 애니메이션은 짧은 뽑기·합성·보스 격파 강조로 제한한다.
+- 초안은 Canvas/SVG/CSS로 구현한다. 래스터 교체 시 투명 캐릭터 PNG/WebP, 배경 불투명 WebP, 원본은 별도 보관한다.
+- 크기 숫자는 제작용 기준이며 최종 iPhone 메모리/번들 크기로 검증한다. 아래 수량은 논리 에셋 수이고 PNG 파일 수가 아니다.
+
+## 확정 목록: 논리 시각 에셋 76개
+
+| 그룹 / ID 규칙 | 수량 | 초안 제작 / 최종 제작 기준 | 현재와 후속 |
+| --- | ---: | --- | --- |
+| 함선 `ship.base`, `ship.supporter.01..03` | 4 | 동일 실루엣, 기본 청록/유료 색상 3개. 최종 원본 512px, 화면 32~64px | 기본/보라색은 코드 도형. 유료 2색과 선택 UI 추가 |
+| 소행성 `asteroid.01..03` | 3 | 거친 다각형/광맥/파편, 512px 기준 | 현재 1도형, 2변형 추가 |
+| 보스 `boss.armor/crystal/void/gravity/solar` | 5 | 도형+핵심 문양, 단계별 외곽선. 보스당 1원형, 단계 차이는 효과 레이어 | 3종 이름/패턴, 2종 신규 원형 필요 |
+| 구역 배경 `sector.01..05` | 5 | 색조·별 밀도·고정 문양으로 구분. 래스터 교체 시 1080×1920, 9:16 크롭 안전 | 코드 배경부터 분리, 고급 아트 나중 |
+| 재화 `resource.ore/iron/crystal/plasma/relic/darkMatter` | 6 | 원형/막대/마름모 등 형태 구분, SVG 또는 128px | 텍스트 표기 외 식별 아이콘 추가 |
+| 스킬 `skill.<stableSkillId>` | 18 | 3계열 실루엣 + 개별 내부 문양 + 등급 테두리, SVG/128px | 현 12종+신규 6종에 같은 템플릿 적용 |
+| 모듈 `module.drill/lance/sync` | 3 | 드릴/창/동심 고리 실루엣, SVG/128px | 현재 문구 중심, 아이콘 추가 |
+| 연구 `research.radar/stabilizer/03/04` | 4 | 탐지/노심/추가 2계열, SVG/128px | 2개 기존/2개 설계 예정 |
+| UI `ui.<action>` | 12 | 설정·소리·음소거·도움말·백업·복원·뽑기·합성·환생·상점·광고·탐사, 24px 기준 | 접근 가능한 텍스트 라벨 병행 |
+| 항로 `route.01..15` | 15 | 빔/고리 색+선 패턴. 15개 래스터 대신 데이터/Canvas 사용 | 현 7개+추가 8개, 유료 선체와 분리 |
+| 앱 아이콘 `app.icon` | 1 | 청록 드릴 함선과 밝은 광맥, 글자 없음. 1024×1024 불투명 정사각형 원본 | 실제 제작/기기 축소 확인 필요 |
+
+합계 4+3+5+5+6+18+3+4+12+15+1=76. 스토어 스크린샷은 실제 앱 완성 후 촬영하는 배포 자료라 위 수에 넣지 않는다.
+보스 2단계마다 별도 스프라이트를 강제하지 않는다. 효과 레이어로 구분해 제작·메모리 비용을 줄인다.
+
+## 사운드: 기본 7종 + 뽑기 변형 2종
+
+`web-prototype/ui/sound-bank.js`의 합성음 데이터를 사용한다.
+
+| 이벤트 | 방향 | 구현 |
+| --- | --- | --- |
+| 일반 뽑기 | 밝은 3음 상승 | 연결됨 |
+| SR / UR 뽑기 | 각각 4음 / 5음 상승 | 연결됨, 총 변형 2종 |
+| 합성 | 낮은 음에서 안정된 상승 | 연결됨 |
+| 보스 격파 | 묵직한 3음 해결 | 연결됨 |
+| 환생 | 넓은 음역 5음 상승 | 연결됨 |
+| 연구/모듈 강화 | 짧은 기술음 | 연결됨 |
+| 보상 수령 | 짧은 2음 보상음 | 연결됨 |
+| 모듈/외형/추적 선택 | 작은 2음 확인음 | 연결됨 |
+
+길이는 약 0.3~0.6초, 동시 발진기 최대 16개다. 매 채굴·매 타격마다 소리를 재생하지 않는다.
+실패/부족/광고 거부에는 벌점처럼 들리는 경고음을 반복하지 않고 문구로 안내한다.
+루프 음악·음성·진동은 첫 출시 핵심 범위에서 제외하고, 진동 도입 여부는 Mac 실기기 단계에서 재검토한다.
+합성음은 외부 녹음 샘플을 포함하지 않는다. 추후 교체 파일은 출처/라이선스/수정 내역을 함께 기록한다.
+
+## 제작 순서
+
+지금: 형태/색/라벨과 사운드 이벤트 일관성 → 한영일 문구/실제 데이터 연결 → 모바일 가독성.
+나중: 승인한 스타일로 그래픽 교체 → 앱 아이콘 → iPhone 축소/성능 확인 → 스토어 이미지.
+Gemini는 스타일·문구·변형 아이디어를 제공하고, 실제 에셋 생성/삽입과 수치 검증은 별도 작업으로 수행한다.
+
+
+===== docs/LOCALIZATION_PLAN.md =====
+# 출시 언어와 추가 15개 언어 계획
+
+사용자 확정: v1.0은 `ko`, `en`, `ja`. 현재 코드의 한국어/영어 혼재는 아직 출시 번역 완료가 아니다.
+문구 추출·공통 키·언어 선택·번역 적용·UI 검수를 후속 구현한다.
+
+구조는 `locale → key → string` JSON, 문장은 `{amount}`, `{wave}`, `{name}` 같은 명명된 매개변수를 사용한다.
+다국어 문장을 조각별로 이어 붙이지 않고 완성된 문장 템플릿으로 관리한다.
+`Intl.NumberFormat`을 사용하고, 언어별 복수형이 필요하면 별도 키/규칙을 둔다.
+저장 데이터의 스킬/구역/보스 식별자는 바꾸지 않고 표시 이름만 번역 키로 가져온다.
+기기 언어 자동 감지 + 수동 언어 선택을 제공하고, 미지원/누락 키는 영어로 대체한다.
+개발 검사에서는 ko/en/ja 키 집합과 매개변수 집합이 다르면 실패하게 한다.
+
+공통 범주: navigation, settings, tutorial, resources, skills, modules, research, bosses, campaign,
+expeditions, routes, save, errors, shop, ads, privacy. 백업/광고/구매/오류 메시지도 번역 대상이다.
+스토어 가격은 번역 파일에서 만들지 않고 StoreKit 현지화 가격을 사용한다.
+기존 세이브에 포함된 영문 스킬 이름도 알려진 ID로 조회하여 표시하도록 이전한다.
+
+후속 15개 주요 언어 후보(순서는 시장 성과에 따라 조정):
+`zh-Hans`, `zh-Hant`, `es`, `pt-BR`, `fr`, `de`, `it`, `ru`, `ar`, `hi`, `id`, `th`, `vi`, `tr`, `pl`.
+이 목록은 출시 후 지원 후보이며 18개 언어를 현재 지원한다고 표시하지 않는다.
+아랍어 RTL, 힌디어/태국어 폰트·줄바꿈, 숫자/문장 확장도 받을 수 있게 고정 폭 버튼/이미지 글자를 피한다.
+RTL 실제 레이아웃과 각 언어 원어민 검수는 해당 언어 출시 전 별도 완료 조건이다.
+
+필수 검수: 320px 화면, 영어 30~40% 문장 확장, 일본어 줄바꿈, 키보드/스크린리더 라벨,
+음량·환생 안내·구매/광고 차이·백업 복원·숫자 자리수 증가. Gemini 번역은 초안이며 자동으로 승인하지 않는다.
+
+
+===== docs/MONTHLY_BALANCE_REVIEW.md =====
+# 30일 무광고·무과금 기준선
+
+2026-11-17, 현재 실행 코드로 `npm run balance:month`를 실행했다.
+결과: `tools/reports/monthly-baseline.json`. 신규 5구역/30과제/6스킬/2보스/2연구는 아직 이 모델에 없다.
+
+조건: 정책별 20시드, 30일, 매일 0h/12h 각 6분 방문(하루 12분, 총 6시간 전경 플레이),
+부재 중 채굴만 최대 4시간, 복귀/전경에서만 행동. 매초 가챠·합성·모듈·영구 연구 구매,
+기존 목표/계약 수령, 현재 해금 조건에서 즉시 환생한다. 광고/구매 없음.
+각 정책은 채굴/전투/균형 모듈 하나만 구매한다. 사용자의 실제 행동을 측정한 결과가 아니다.
+각 날짜는 그날 두 번째 방문 종료 시점의 보유/진행 상태다. 중앙값은 상위 중앙값이다.
+
+| 날짜 | 채굴 최고 W / 환생 | 전투 최고 W / 환생 | 균형 최고 W / 환생 |
+| --- | --- | --- | --- |
+| 1 | 18 / 1 | 18 / 2 | 18 / 2 |
+| 3 | 24 / 10 | 24 / 10 | 24 / 10 |
+| 7 | 30 / 19 | 30 / 19 | 30 / 19 |
+| 14 | 34 / 27 | 34 / 27 | 34 / 27 |
+| 21 | 38 / 31 | 38 / 32 | 38 / 31 |
+| 30 | 40 / 35 | 40 / 36 | 40 / 35 |
+
+30일 내 최고 W40 도달 수는 채굴 18/20, 전투 17/20, 균형 15/20이었다.
+도달한 시드만 계산한 W40 중앙 시점은 각각 약 26.50일 / 24.00일 / 26.50일이다.
+이 값은 미도달 시드를 제외한 **조건부** 중앙값이며 모든 사용자 완주 시간으로 해석하면 안 된다.
+W45 이상은 세 정책 모두 0/20이다.
+
+성장 속도는 한 달 기준으로 쓸 수 있으나, 전경 플레이 합계 6시간을 장기 대기 시간으로 늘린 것이
+재미를 보장하지 않는다. 30일 잔존율이나 광고/IAP 전환을 검증한 결과도 아니다.
+현 플레이에는 연구 조기 소진, 비슷한 환생 반복, 무작위 스킬 수집의 선택 부족이 남아 있다.
+
+채택한 다음 방향은 기존 W40 부근 성장 뼈대 위에 5구역/30과제, 보스/연계 선택과 외형 목표를 넣는 것이다.
+추가 능력치 보상으로 성장 속도가 달라지므로 새 콘텐츠를 통합한 뒤 모든 시드를 다시 실행한다.
+목표는 표준 무과금 정책의 30일 완주율 85% 이상을 검토하고 부족한 정책을 조정하는 것이다.
+느린 접속/집중 접속·광고 선택 정책 비교, 새 과제별 도달 시점과 실제 플레이테스트는 아직 남아 있다.
+
+
+===== web-prototype/index.html =====
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#020617">
+  <title>Auto Drill: Galaxy</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="game-layout">
+    <header class="panel">
+      <div class="heading-row">
+        <div><p class="eyebrow">궤도 채굴 작전</p><h1>Auto Drill: Galaxy</h1></div>
+        <div class="heading-actions"><button id="soundBtn" class="alt sound-button" aria-label="효과음 켜기" aria-pressed="false">🔇</button><button id="shopBtn" class="alt">상점</button></div>
+      </div>
+      <div class="stat" id="stats"></div>
+      <div class="stat" id="parts"></div>
+      <p class="goal" id="nextGoal"></p>
+      <div class="utility-actions"><button id="settingsBtn" class="alt save-button">설정 · 도움말</button><button id="saveBtn" class="alt save-button">저장 · 백업 / 복원</button></div>
+      <p id="saveNotice" class="status" role="status" aria-live="polite"></p>
+    </header>
+    <section class="scene" aria-label="자동 채굴 중인 함선과 소행성">
+      <canvas id="canvas" aria-hidden="true"></canvas>
+      <p id="tutorialBanner" class="tutorial-banner" role="status" aria-live="polite" hidden></p>
+      <section id="rewardCard" class="reward-card" role="status" aria-live="polite" hidden>
+        <p class="reward-label"></p><h2 class="reward-title"></h2><p class="reward-description"></p>
+      </section>
+      <div id="enemyPanel" class="enemy-panel">
+        <div class="enemy-heading"><strong id="enemyName"></strong><span id="enemyTag"></span></div>
+        <progress id="enemyHealth" max="1" value="1" aria-label="현재 소행성 체력"></progress>
+        <span id="enemyHpText" class="enemy-hp"></span>
+        <p id="bossTactic" class="boss-tactic" hidden></p>
+      </div>
+    </section>
+    <section class="panel controls" aria-label="성장과 보상">
+      <div class="actions">
+        <button id="gachaBtn">스킬 뽑기 · 50 광석</button>
+        <button id="mergeBtn" class="alt">파츠 합성 · 철 5 / 수정 2</button>
+        <button id="prestigeBtn" class="alt">프레스티지</button>
+        <button id="workshopBtn" class="alt">연구소 · 첫 합성 후 해금</button>
+        <button id="expeditionBtn" class="alt" hidden>탐사 기록 · 목표 / 계약</button>
+        <button id="rewardedBtn" class="alt" hidden>광고 보급 · 60초 채굴량</button>
+        <button id="leaderboardBtn" class="alt" hidden>리더보드</button>
+      </div>
+      <div class="stat" id="loot"></div>
+      <p id="voyageNotice" class="goal" hidden></p>
+      <p id="routeNotice" class="goal" hidden></p>
+      <details><summary>보유 스킬 <span id="skillCount">0</span>개</summary><div class="stat skill-list" id="skills"></div><p class="stat" id="skillLinks" hidden></p><p class="stat">첫 프레스티지 후 보스 연계: Basic Drill + Plasma Cutter → 굴착 공명, Laser Pointer + Auto Cannon → 집중 포화, Lucky Strike + Targeting OS → 정밀 동기화. 서로 다른 두 스킬을 모으면 해당 보스 약점 단계의 피해 +10%. 중복으로 더 증가하지 않습니다.</p></details>
+      <p class="status" id="events" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <dialog id="shopDialog" aria-labelledby="shopTitle">
+    <div class="heading-row"><h2 id="shopTitle">갤럭시 상점</h2><button id="closeShopBtn" class="alt" aria-label="상점 닫기">닫기</button></div>
+    <p class="stat" id="storeStatus">상품을 준비하고 있습니다.</p>
+    <div id="products"></div>
+    <button id="restoreBtn" class="alt" disabled>구매 복원</button>
+    <p class="status" id="shopMessage" role="status" aria-live="polite"></p>
+  </dialog>
+  <dialog id="workshopDialog" aria-labelledby="workshopTitle">
+    <div class="heading-row"><h2 id="workshopTitle">함선 연구소</h2><button id="closeWorkshopBtn" class="alt" aria-label="연구소 닫기">닫기</button></div>
+    <p id="workshopStatus" class="stat"></p>
+    <p id="workshopStats" class="stat"></p>
+    <p id="workshopTactic" class="goal" hidden></p>
+    <details><summary>첫 프레스티지 이후 보스 공략</summary><p class="stat">체력 50%에서 단계가 바뀝니다. 철갑 채굴자: 채굴 → 전투, 수정 파수꾼: 균형 → 채굴, 공허 수호자: 전투 → 균형 모듈에 약점이 있습니다. 약점 모듈은 피해 배율 +0.25, 해당 스킬 연계는 +0.10. 보스는 전환 없이도 격파할 수 있습니다.</p></details>
+    <p id="workshopMessage" class="status" role="status" aria-live="polite"></p>
+    <h3>이번 항해 모듈</h3>
+    <p class="stat">동시에 1개 적용 · 전환은 무료, 적용 후 10초 대기. 효과는 파츠 능력치에 적용됩니다. 스킬·암흑물질 효과는 그대로 유지됩니다.</p>
+    <p class="stat">프레스티지 시 플라스마와 모듈 단계가 초기화됩니다. 강화 비용은 환불되지 않습니다.</p>
+    <button id="basicModuleBtn" class="alt">기본 항해 적용 중</button>
+    <div id="voyageModules"></div>
+    <h3>영구 연구</h3>
+    <p class="stat">유물 잔량과 연구 단계는 프레스티지 후에도 유지됩니다. 탐지기는 채굴량을 높입니다. 강화 비용은 환불되지 않습니다.</p>
+    <div id="permanentResearch"></div>
+  </dialog>
+  <dialog id="expeditionDialog" aria-labelledby="expeditionTitle">
+    <div class="heading-row"><h2 id="expeditionTitle">탐사 기록</h2><button id="closeExpeditionBtn" class="alt" aria-label="탐사 기록 닫기">닫기</button></div>
+    <p class="stat">첫 프레스티지 이후의 도전입니다. 기한 없이 원하는 속도로 탐사하세요.</p>
+    <div class="actions" aria-label="탐사 기록 종류"><button id="milestoneTabBtn" class="alt" aria-pressed="true">영구 목표 7개</button><button id="contractTabBtn" class="alt" aria-pressed="false">항해 계약 3종</button><button id="routeTabBtn" class="alt" aria-pressed="false">심우주 항로 7개</button></div>
+    <p class="status" id="expeditionMessage" role="status" aria-live="polite"></p>
+    <section id="contractPanel" hidden>
+    <h3>항해 계약</h3>
+    <p class="stat">계약은 해당 모듈로 실제 플레이할 때 진행됩니다. 오프라인·광고·미션 보상은 집계되지 않습니다.</p>
+    <p class="goal" id="contractResetNotice"></p>
+    <div id="contractList"></div>
+    </section>
+    <section id="milestonePanel">
+      <h3>영구 목표 · 각 유물 +1</h3>
+      <p class="stat">영구 목표와 수령 기록은 프레스티지 후에도 유지됩니다. 기존 저장에서 보스·전경 채굴 기록은 이번 업데이트 이후부터 집계합니다.</p>
+      <div id="milestoneList"></div>
+    </section>
+    <section id="routePanel" hidden>
+      <h3>심우주 항로</h3>
+      <p id="routeStatus" class="stat"></p>
+      <p class="stat">도전하고 빔·궤도 외형을 모으세요. 외형은 능력치에 영향을 주지 않습니다.</p>
+      <details><summary>집계·저장 안내</summary>
+        <p class="stat">모듈 도전은 항로 해금 이후 직접 플레이할 때 집계합니다. 오프라인·광고 보상은 제외하며, 모든 진행과 외형은 프레스티지 후에도 유지됩니다.</p>
+        <p class="stat">목표 추적은 메인 화면 안내용입니다. 언제든 바꿀 수 있고 다른 목표의 진행도도 유지됩니다. 서포터 함선 색상과 함께 사용할 수 있습니다.</p>
+      </details>
+      <button id="defaultRouteBtn" class="alt">기본 항로 외형 적용</button>
+      <div id="routeList"></div>
+    </section>
+  </dialog>
+  <dialog id="settingsDialog" aria-labelledby="settingsTitle">
+    <div class="heading-row"><h2 id="settingsTitle">설정 · 도움말</h2><button id="closeSettingsBtn" class="alt" aria-label="설정 닫기">닫기</button></div>
+    <h3>소리와 화면</h3>
+    <label class="setting-toggle"><input id="soundEnabled" type="checkbox">효과음 사용</label>
+    <label for="soundVolume" class="stat">효과음 음량 <output id="volumeValue" for="soundVolume">50%</output></label>
+    <input id="soundVolume" type="range" min="0" max="100" step="5" value="50" aria-label="효과음 음량">
+    <label for="soundPreview" class="stat">미리 들을 효과음</label>
+    <select id="soundPreview">
+      <option value="gacha:N">일반 뽑기</option><option value="gacha:SR">SR 뽑기</option><option value="gacha:UR">UR 뽑기</option>
+      <option value="merge">파츠 합성</option><option value="boss">보스 격파</option><option value="prestige">프레스티지</option>
+      <option value="research">연구 강화</option><option value="reward">보상 수령</option><option value="equip">모듈·외형 선택</option>
+    </select>
+    <button id="testSoundBtn" class="alt">효과음 미리 듣기</button>
+    <label class="setting-toggle"><input id="reduceMotion" type="checkbox" aria-describedby="motionStatus">모션 줄이기</label>
+    <p id="motionStatus" class="stat"></p>
+    <p class="stat">설정은 자동 저장되고 백업 코드에도 포함됩니다. 이 설정은 게임 효과음에 적용됩니다. 광고 소리는 광고 화면이나 기기 음량으로 조절하세요.</p>
+    <p id="settingsMessage" class="status" role="status" aria-live="polite"></p>
+    <button id="privacyOptionsBtn" class="alt" hidden>광고 개인정보 선택</button>
+    <p id="privacyOptionsMessage" class="status" role="status" aria-live="polite"></p>
+    <h3>게임 도움말</h3>
+    <p class="stat">아래 항목을 펼쳐 언제든 다시 읽을 수 있습니다. 게임은 도움말을 읽는 동안에도 계속 진행됩니다.</p>
+    <details><summary>처음에는 무엇을 하나요?</summary><p class="stat">함선은 자동으로 광석을 채굴하고 소행성을 공격합니다. 광석 50개로 첫 스킬을 뽑으세요. 이후 뽑기 비용은 보유 스킬 수에 따라 올라갑니다.</p></details>
+    <details><summary>파츠와 연구소는 어떻게 강화하나요?</summary><p class="stat">철 5개와 수정 2개를 모아 합성하면 엔진과 리액터가 강화됩니다. 연구소에서는 플라스마로 이번 항해 모듈을, 유물로 영구 연구를 강화합니다. 모듈은 동시에 하나만 적용되며 전환 후 10초 동안 다시 바꿀 수 없습니다.</p></details>
+    <details><summary>프레스티지하면 무엇이 남나요?</summary><p class="stat">화면의 목표 웨이브에 도달하면 암흑물질을 얻고 새 항해를 시작할 수 있습니다. 광석·철·수정·플라스마·모듈·항해 계약은 초기화됩니다. 파츠·스킬·암흑물질·유물·영구 연구·영구 목표 수령 기록·항로 외형은 유지됩니다.</p></details>
+    <details><summary>보스와 스킬 연계는 어떻게 공략하나요?</summary><p class="stat">5웨이브마다 보스가 등장합니다. 첫 프레스티지 이후 체력 50%에서 약점 모듈이 바뀝니다. 보스 아래의 약점 안내와 연구소의 예상 피해를 비교하세요. 연계에 필요한 서로 다른 스킬 2종을 모으면 해당 단계의 피해가 증가합니다. 모듈을 전환하지 않아도 보스를 격파할 수 있습니다.</p></details>
+    <details><summary>앱을 꺼도 진행되나요?</summary><p class="stat">떠날 때의 채굴량으로 최대 4시간의 광석을 정산합니다. 오프라인에서는 전투·계약·항로 숙련이 진행되지 않습니다. 앱 삭제나 기기 변경 전에는 저장 · 백업 / 복원에서 백업 코드를 따로 보관하세요. 구매 복원은 상점에서 이용하며 게임 진행 복원과 별개입니다.</p></details>
+  </dialog>
+  <dialog id="saveDialog" aria-labelledby="saveTitle">
+    <div class="heading-row"><h2 id="saveTitle">저장과 복원</h2><button id="closeSaveBtn" class="alt">닫기</button></div>
+    <p class="stat">진행은 이 기기에 저장됩니다. 앱 삭제·기기 변경에 대비해 백업 코드를 따로 보관하세요. 자동 클라우드 동기화는 지원하지 않습니다.</p>
+    <p class="stat">유료 상품은 백업에 포함되지 않습니다. 같은 스토어 계정으로 상점의 구매 복원을 이용하세요.</p>
+    <button id="exportBackupBtn">현재 진행 백업 만들기</button>
+    <label for="backupCode" class="stat backup-label">백업 코드 · 복원하려면 전체 코드를 붙여넣으세요</label>
+    <textarea id="backupCode" rows="5" spellcheck="false" autocomplete="off" autocapitalize="off" maxlength="2000000"></textarea>
+    <div class="actions"><button id="reviewBackupBtn" class="alt">복원 내용 확인</button><button id="previousBackupBtn" class="alt">복원 전 백업 확인</button></div>
+    <p id="backupPreview" class="stat"></p>
+    <button id="applyBackupBtn" disabled>확인한 백업으로 복원 적용</button>
+    <p id="saveMessage" class="status" role="status" aria-live="polite"></p>
+  </dialog>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
+
+
+===== web-prototype/app.js =====
+import { loadState, saveState, saveStore } from './game/storage.js';
+import { createLifecycle } from './game/lifecycle.js';
+import { createSaveUI } from './ui/save.js';
+import {
+  advanceCombat,
+  advanceMining,
+  formatLootSummary,
+  getDerivedStats,
+  performGacha,
+  performMerge,
+  performPrestige
+} from './game/systems.js';
+import { ECONOMY, getGachaCost, getPrestigeGate, getWaveConfig } from './game/balance.js';
+import { createTutorial } from './game/tutorial.js';
+import { PRODUCTS } from './platform/catalog.js';
+import { createNativeProvider } from './platform/native.js';
+import { createPlatformServices } from './platform/services.js';
+import { createScene } from './ui/scene.js';
+import { createAudioFeedback } from './ui/audio.js';
+import { createSettingsUI } from './ui/settings.js';
+import { createRewardFeedback, describeStatChanges } from './ui/feedback.js';
+import { createWorkshopUI } from './ui/workshop.js';
+import { createExpeditionUI } from './ui/expeditions.js';
+import { getEncounter, getSkillLinks, MODULE_LABELS } from './game/encounters.js';
+
+const canvas = document.getElementById('canvas');
+const sceneRenderer = createScene(canvas);
+const stats = document.getElementById('stats');
+const parts = document.getElementById('parts');
+const skills = document.getElementById('skills');
+const loot = document.getElementById('loot');
+const events = document.getElementById('events');
+const scene = document.querySelector('.scene');
+const shopDialog = document.getElementById('shopDialog');
+const rewardedButton = document.getElementById('rewardedBtn');
+const leaderboardButton = document.getElementById('leaderboardBtn');
+
+const state = loadState();
+state.session.timeScale = 1;
+const platform = createPlatformServices({ state, provider: createNativeProvider(), persist: persistState });
+const tutorial = createTutorial(state, persistState);
+const audio = createAudioFeedback(() => state.settings.soundEnabled, () => state.settings.soundVolume);
+const settingsUI = createSettingsUI(state, { audio, persist: persistState });
+const feedback = createRewardFeedback(document.getElementById('rewardCard'));
+const lifecycle = createLifecycle(state, persistState);
+const saveUI = createSaveUI(state, { isBusy: () => platform.busy, onRestore: () => {
+  currentTutorialId = null;
+  audio.suspend();
+  audio.sync();
+  settingsUI.render();
+  lastFrameAt = performance.now();
+  lastSaveAt = lastFrameAt;
+  renderHud();
+} });
+const workshopUI = createWorkshopUI(state, {
+  isBusy: () => platform.busy,
+  onChange: (result) => {
+    state.session.lastRewardSummary = result.message;
+    audio.play(result.soundCue || 'research', { fromGesture: true });
+    persistState();
+  }
+});
+const expeditionUI = createExpeditionUI(state, {
+  isBusy: () => platform.busy,
+  onChange: (result) => {
+    state.session.lastRewardSummary = result.message;
+    audio.play(result.soundCue || 'reward', { fromGesture: true });
+    persistState();
+  }
+});
+const tutorialBanner = document.getElementById('tutorialBanner');
+let currentTutorialId = null;
+let lastFrameAt = performance.now();
+let lastSaveAt = performance.now();
+let lastHudAt = -Infinity;
+
+function persistState() {
+  const saved = saveState(state);
+  if (!saved) state.session.lastRewardSummary = '저장 공간을 확인해 주세요. 현재 진행을 저장하지 못했습니다.';
+  return saved;
+}
+
+function resize() {
+  sceneRenderer.resize();
+}
+
+function renderHud() {
+  document.getElementById('saveNotice').textContent = saveStore.message;
+  workshopUI.render();
+  expeditionUI.render();
+  const derived = getDerivedStats(state);
+  const wave = getWaveConfig(state.combat.wave);
+  const encounter = getEncounter(state);
+  scene.classList.toggle('encounter-scene', Boolean(encounter));
+  const bossTactic = document.getElementById('bossTactic');
+  bossTactic.hidden = !encounter;
+  if (encounter) bossTactic.textContent = `${encounter.phaseIndex + 1}/2 ${encounter.name} · ${MODULE_LABELS[encounter.module]} 모듈 약점${encounter.moduleBonus ? ' 적용 중' : ''} · 피해 ×${encounter.damageMultiplier.toFixed(2)}${encounter.linkBonus ? ` · ${encounter.link.name}` : ''}`;
+  const skillLinks = document.getElementById('skillLinks');
+  skillLinks.hidden = state.prestige.runs < 1;
+  if (!skillLinks.hidden) skillLinks.textContent = `보스 연계 · ${getSkillLinks(state).map((link) => `${link.name} ${link.count}/2`).join(' · ')} · 해당 약점 단계 피해 +10%`;
+  document.getElementById('enemyName').textContent = wave.name;
+  document.getElementById('enemyTag').textContent = `${wave.isBoss ? 'BOSS' : 'WAVE'} ${state.combat.wave}`;
+  document.getElementById('enemyPanel').classList.toggle('boss', wave.isBoss);
+  document.getElementById('enemyHealth').value = Math.max(0, state.combat.asteroidHp) / state.combat.maxAsteroidHp;
+  document.getElementById('enemyHpText').textContent = `${Math.ceil(Math.max(0, state.combat.asteroidHp)).toLocaleString()} / ${state.combat.maxAsteroidHp.toLocaleString()}`;
+  const audible = state.settings.soundEnabled && state.settings.soundVolume > 0;
+  document.getElementById('soundBtn').textContent = audible ? '🔊' : '🔇';
+  document.getElementById('soundBtn').setAttribute('aria-pressed', String(audible));
+  document.getElementById('soundBtn').setAttribute('aria-label', audible ? '효과음 끄기' : '효과음 켜기');
+  stats.textContent = [
+    `웨이브 ${state.combat.wave}`,
+    `광석 ${Math.floor(state.profile.ore)}`,
+    `암흑물질 ${state.profile.darkMatter}`,
+    `채굴 ${derived.miningRate.toFixed(1)}/초`,
+    `공격 ${derived.combatDps.toFixed(1)}/초`,
+    `치명타 ${(derived.critChance * 100).toFixed(0)}%`
+  ].join(' · ');
+
+  parts.textContent = [
+    `선체 ${state.ship.hull}`,
+    `엔진 ${state.ship.engine}`,
+    `리액터 ${state.ship.reactor}`,
+    `최고 웨이브 ${state.prestige.bestWave}`
+  ].join(' / ');
+
+  loot.textContent = `Loot — ${formatLootSummary(state.loot)}`;
+  const counts = new Map();
+  for (const skill of state.skills) counts.set(skill.name, (counts.get(skill.name) || 0) + 1);
+  skills.textContent = state.skills.length ? [...counts].map(([name, count]) => `${name} ×${count}`).join(' · ') : '아직 보유한 스킬이 없습니다.';
+  document.getElementById('skillCount').textContent = state.skills.length;
+  const message = state.session.lastRewardSummary || '자동 채굴 중입니다. 광석을 모아 스킬을 뽑아 보세요.';
+  if (events.textContent !== message) events.textContent = message;
+  const gachaCost = getGachaCost(state);
+  const prestigeGate = getPrestigeGate(state);
+  document.getElementById('gachaBtn').textContent = `스킬 뽑기 · ${gachaCost.toLocaleString()} 광석`;
+  document.getElementById('gachaBtn').disabled = state.profile.ore < gachaCost || platform.busy;
+  document.getElementById('mergeBtn').disabled = state.loot.iron < ECONOMY.mergeIronCost || state.loot.crystal < ECONOMY.mergeCrystalCost || platform.busy;
+  document.getElementById('prestigeBtn').disabled = state.combat.wave < prestigeGate || platform.busy;
+  document.getElementById('prestigeBtn').textContent = state.combat.wave >= prestigeGate
+    ? `프레스티지 · 암흑물질 +${Math.floor(state.combat.wave / 4)}`
+    : `프레스티지 · 웨이브 ${prestigeGate}`;
+  document.getElementById('nextGoal').textContent = state.skills.length === 0
+    ? '첫 목표 · 광석을 모아 첫 스킬 뽑기'
+    : state.ship.engine === 1
+      ? '다음 목표 · 철 5개와 수정 2개로 첫 파츠 합성'
+      : state.combat.wave < prestigeGate
+        ? `다음 목표 · 웨이브 ${prestigeGate}에서 프레스티지 해금 · 3회마다 목표 +2`
+        : '프레스티지: 광석·일반 재료·모듈 초기화 / 유물·연구・파츠·스킬 유지';
+}
+
+function renderTutorial(dtMs) {
+  const step = tutorial.tick(dtMs);
+  tutorialBanner.hidden = !step;
+  if ((step?.id || null) === currentTutorialId) return;
+  currentTutorialId = step?.id || null;
+  tutorialBanner.textContent = step?.text || '';
+  for (const buttonId of ['gachaBtn', 'mergeBtn', 'prestigeBtn']) {
+    document.getElementById(buttonId).classList.toggle('tutorial-target', step?.targetId === buttonId);
+  }
+}
+
+function updateLoop(now) {
+  const dtMs = Math.min(250, now - lastFrameAt);
+  lastFrameAt = now;
+
+  if (document.hidden) {
+    requestAnimationFrame(updateLoop);
+    return;
+  }
+
+  if (!platform.busy) {
+    advanceMining(state, dtMs);
+    const clearedWaves = advanceCombat(state, dtMs);
+    for (const cleared of clearedWaves) {
+      sceneRenderer.burst(cleared.isBoss);
+      if (cleared.isBoss) {
+        feedback.show({ label: 'BOSS CLEAR', title: `${cleared.name} 격파`, description: `광석 +${cleared.oreReward} · 플라스마 +1${cleared.bonusLoot.relic ? ' · 유물 +1' : ''}`, rarity: 'boss' });
+        audio.play('boss');
+      }
+    }
+    if (!shopDialog.open && !workshopUI.open && !expeditionUI.open && !saveUI.open && !settingsUI.open) {
+      feedback.tick(dtMs);
+      if (feedback.active) tutorialBanner.hidden = true;
+      else renderTutorial(dtMs);
+    }
+  }
+  sceneRenderer.draw(state, dtMs, platform.entitlements.supporter);
+  if (now - lastHudAt >= 100) {
+    renderHud();
+    lastHudAt = now;
+  }
+
+  if (now - lastSaveAt >= 5000) {
+    persistState();
+    lastSaveAt = now;
+  }
+
+  requestAnimationFrame(updateLoop);
+}
+
+document.getElementById('gachaBtn').onclick = () => {
+  const before = getDerivedStats(state);
+  const result = performGacha(state);
+  state.session.lastRewardSummary = result.message;
+  if (result.ok) {
+    const count = state.skills.filter((skill) => skill.id === result.skill.id).length;
+    feedback.show({ label: `${result.skill.rarity} · 누적 ${count}개`, title: result.skill.name, description: describeStatChanges(before, getDerivedStats(state)), rarity: result.skill.rarity });
+    audio.play('gacha', { rarity: result.skill.rarity, fromGesture: true });
+  }
+  persistState();
+};
+
+document.getElementById('mergeBtn').onclick = () => {
+  const before = getDerivedStats(state);
+  const result = performMerge(state);
+  state.session.lastRewardSummary = result.message;
+  if (result.ok) {
+    feedback.show({ label: `엔진 Lv.${state.ship.engine} · 리액터 Lv.${state.ship.reactor}`, title: '파츠 합성 성공', description: describeStatChanges(before, getDerivedStats(state)) });
+    sceneRenderer.burst();
+    audio.play('merge', { fromGesture: true });
+  }
+  persistState();
+};
+
+document.getElementById('prestigeBtn').onclick = async () => {
+  const result = performPrestige(state);
+  state.session.lastRewardSummary = result.message;
+  if (result.ok) {
+    feedback.show({ label: 'PRESTIGE', title: '새 탐사 시작', description: `${result.message}${state.prestige.runs === 1 ? ' · 탐사 기록 해금!' : ''}` });
+    audio.play('prestige', { fromGesture: true });
+  }
+  persistState();
+  if (result.ok) await platform.showInterstitial('prestige');
+};
+
+function renderStore() {
+  const container = document.getElementById('products');
+  container.replaceChildren();
+  document.getElementById('storeStatus').textContent = platform.capabilities.purchases
+    ? '상품 가격은 현재 스토어 계정의 통화로 표시됩니다.'
+    : '구매 기능은 앱에서 스토어 연결 후 이용할 수 있습니다.';
+  for (const entry of PRODUCTS) {
+    const product = platform.products.find((item) => item.id === entry.id);
+    const owned = platform.entitlements[entry.entitlement];
+    const card = document.createElement('section');
+    card.className = 'product';
+    const title = document.createElement('h3');
+    title.textContent = entry.name;
+    const description = document.createElement('p');
+    description.className = 'stat';
+    description.textContent = entry.description;
+    const button = document.createElement('button');
+    button.textContent = owned ? '보유 중' : product?.displayPrice || '앱에서 이용 가능';
+    button.disabled = owned || !product || platform.busy;
+    button.onclick = () => storeAction(() => platform.purchase(entry.id));
+    card.append(title, description, button);
+    container.append(card);
+  }
+  document.getElementById('restoreBtn').disabled = !platform.capabilities.purchases || platform.busy;
+  rewardedButton.hidden = !platform.capabilities.rewardedAds;
+  leaderboardButton.hidden = !platform.capabilities.gameCenter;
+  document.getElementById('privacyOptionsBtn').hidden = !platform.capabilities.privacyOptions;
+  document.getElementById('privacyOptionsBtn').disabled = platform.busy;
+}
+
+document.getElementById('privacyOptionsBtn').onclick = async () => {
+  audio.suspend();
+  const pending = platform.showPrivacyOptions();
+  renderStore();
+  const result = await pending;
+  document.getElementById('privacyOptionsMessage').textContent = result.message || '';
+  renderStore();
+};
+
+async function storeAction(action) {
+  const promise = action();
+  renderStore();
+  const result = await promise;
+  document.getElementById('shopMessage').textContent = result.message || '';
+  renderStore();
+}
+
+document.getElementById('shopBtn').onclick = () => {
+  renderStore();
+  shopDialog.showModal();
+};
+document.getElementById('closeShopBtn').onclick = () => shopDialog.close();
+document.getElementById('soundBtn').onclick = () => {
+  state.settings.soundEnabled = !(state.settings.soundEnabled && state.settings.soundVolume > 0);
+  if (state.settings.soundEnabled && state.settings.soundVolume === 0) state.settings.soundVolume = 0.5;
+  audio.sync();
+  if (state.settings.soundEnabled) audio.play('gacha', { fromGesture: true });
+  else audio.suspend();
+  persistState();
+  settingsUI.render();
+  renderHud();
+};
+document.getElementById('restoreBtn').onclick = () => storeAction(() => platform.restorePurchases());
+rewardedButton.onclick = async () => {
+  const result = await platform.showRewarded();
+  state.session.lastRewardSummary = result.message;
+};
+leaderboardButton.onclick = async () => {
+  const result = await platform.showLeaderboard();
+  state.session.lastRewardSummary = result.message;
+};
+
+addEventListener('resize', resize);
+new ResizeObserver(resize).observe(scene);
+addEventListener('pagehide', () => lifecycle.suspend({ busy: platform.busy }));
+addEventListener('pageshow', () => {
+  if (!document.hidden) lifecycle.resume({ busy: platform.busy });
+  lastFrameAt = performance.now();
+  lastSaveAt = lastFrameAt;
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    audio.suspend();
+    lifecycle.suspend({ busy: platform.busy });
+  } else {
+    lifecycle.resume({ busy: platform.busy });
+    lastFrameAt = performance.now();
+    lastSaveAt = lastFrameAt;
+    platform.initialize().then(renderStore);
+  }
+});
+
+resize();
+renderStore();
+renderHud();
+platform.initialize().then(renderStore);
+requestAnimationFrame(updateLoop);
+
+
+===== web-prototype/styles.css =====
+:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #020617; color: #e2e8f0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(ellipse at top, #132343, #020617 70%); }
+button { min-height: 46px; border: 1px solid #3b82f6; border-radius: 12px; padding: 10px 14px; background: #2563eb; color: #fff; font: inherit; font-weight: 600; cursor: pointer; touch-action: manipulation; }
+button:disabled { opacity: 0.48; cursor: default; }
+button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #67e8f9; outline-offset: 3px; }
+button:not(:disabled):active { transform: translateY(1px); }
+.alt { background: #1e293b; border-color: #475569; }
+[hidden] { display: none !important; }
+.game-layout { width: min(100%, 860px); min-height: 100svh; min-height: 100dvh; margin: auto; display: grid; grid-template-rows: auto minmax(220px, 1fr) auto; padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); gap: 10px; }
+.panel { padding: 16px; background: #0f172ae8; border: 1px solid #24334e; border-radius: 18px; }
+.heading-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.heading-row > div:first-child { min-width: 0; }
+.heading-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.sound-button { width: 44px; padding: 8px; }
+h1 { margin: 0 0 6px; font-size: clamp(18px, 4.7vw, 26px); }
+h2 { margin: 0; font-size: 22px; }
+.eyebrow { margin: 0 0 4px; color: #67e8f9; font-size: 12px; letter-spacing: 0.08em; }
+.stat { margin-top: 8px; font-size: 13px; line-height: 1.65; color: #cbd5e1; overflow-wrap: anywhere; }
+.scene { position: relative; min-width: 0; overflow: hidden; }
+.encounter-scene { min-height: 280px; }
+canvas { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.actions button { font-size: 13px; }
+summary { cursor: pointer; margin-top: 10px; color: #94a3b8; font-size: 13px; padding-block: 6px; }
+.skill-list { max-height: 90px; overflow-y: auto; }
+.status { min-height: 22px; margin: 10px 0 0; color: #67e8f9; font-size: 13px; line-height: 1.6; }
+.goal { color: #a5b4fc; font-size: 12px; line-height: 1.6; margin: 10px 0 0; }
+.tutorial-banner { position: absolute; top: 8px; left: 8px; right: 8px; z-index: 1; margin: 0; padding: 12px 14px; border: 1px solid #67e8f9; border-radius: 14px; background: #0f172af2; color: #cffafe; font-size: 14px; line-height: 1.6; text-align: center; pointer-events: none; }
+.tutorial-target { outline: 2px solid #67e8f9; outline-offset: 2px; }
+.enemy-panel { position: absolute; left: 12px; right: 12px; bottom: 0; padding: 10px 12px; background: #0f172acc; border-radius: 12px; border: 1px solid #334155; }
+.enemy-heading { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; }
+.enemy-heading span { color: #67e8f9; font-size: 11px; letter-spacing: 0.05em; }
+.enemy-hp { display: block; text-align: right; font-size: 10px; color: #94a3b8; margin-top: 3px; }
+.boss-tactic { margin: 5px 0 0; font-size: 11px; line-height: 1.5; color: #fde68a; overflow-wrap: anywhere; }
+progress { display: block; appearance: none; width: 100%; height: 6px; margin-top: 8px; border: 0; border-radius: 5px; overflow: hidden; background: #1e293b; }
+progress::-webkit-progress-bar { background: #1e293b; }
+progress::-webkit-progress-value { background: #22d3ee; }
+progress::-moz-progress-bar { background: #22d3ee; }
+.boss { border-color: #b45309; }
+.boss .enemy-heading span { color: #fbbf24; }
+.boss progress::-webkit-progress-value { background: #f59e0b; }
+.boss progress::-moz-progress-bar { background: #f59e0b; }
+.reward-card { --reward-color: #94a3b8; position: absolute; z-index: 2; left: 8px; right: 8px; top: 8px; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--reward-color); background: #0f172af5; box-shadow: 0 8px 24px #02061799; pointer-events: none; }
+.reward-card[data-rarity="R"] { --reward-color: #60a5fa; }
+.reward-card[data-rarity="SR"], .reward-card[data-rarity="upgrade"] { --reward-color: #c084fc; }
+.reward-card[data-rarity="UR"], .reward-card[data-rarity="boss"] { --reward-color: #fbbf24; }
+.reward-label { margin: 0 0 5px; font-size: 11px; font-weight: 700; color: var(--reward-color); letter-spacing: 0.08em; }
+.reward-title { font-size: 20px; color: #f8fafc; }
+.reward-description { margin: 7px 0 0; font-size: 12px; line-height: 1.5; color: #cbd5e1; }
+dialog { width: min(94vw, 460px); max-height: 85dvh; border: 1px solid #475569; border-radius: 20px; padding: 20px; background: #0f172a; color: #e2e8f0; overflow-y: auto; }
+dialog::backdrop { background: #020617ce; }
+.product { padding: 16px 0; border-bottom: 1px solid #24334e; }
+.product h3 { margin: 0; font-size: 17px; }
+.product button { width: 100%; margin-top: 12px; }
+#restoreBtn { width: 100%; margin-top: 16px; }
+#workshopDialog > .heading-row, #expeditionDialog > .heading-row { position: sticky; top: -20px; z-index: 1; background: #0f172a; padding-block: 12px; }
+#expeditionMessage:empty { display: none; }
+#expeditionDialog button[aria-pressed="true"] { border-color: #67e8f9; color: #a5f3fc; }
+.controls > .goal { margin-bottom: 0; }
+.route-reward { display: flex; align-items: center; gap: 8px; color: var(--route-color); font-size: 12px; }
+.route-swatch { display: inline-block; width: 50px; height: 10px; flex-shrink: 0; }
+.route-product .actions button { margin-top: 8px; font-size: 12px; overflow-wrap: anywhere; }
+.save-button { margin-top: 8px; font-size: 12px; min-height: 40px; }
+.utility-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.setting-toggle { display: flex; align-items: center; gap: 10px; min-height: 48px; cursor: pointer; font-size: 14px; }
+.setting-toggle input { width: 22px; height: 22px; accent-color: #22d3ee; flex-shrink: 0; }
+#soundVolume { width: 100%; min-height: 44px; accent-color: #22d3ee; margin: 4px 0 10px; }
+#testSoundBtn { width: 100%; }
+#soundPreview { display: block; width: 100%; min-height: 44px; margin-block: 8px; padding: 8px; border: 1px solid #64748b; border-radius: 10px; background: #1e293b; color: #e2e8f0; font: inherit; }
+#settingsDialog > .heading-row { position: sticky; top: -20px; z-index: 1; background: #0f172a; padding-block: 12px; }
+#settingsDialog summary { min-height: 44px; display: list-item; }
+#settingsMessage:empty { display: none; }
+#privacyOptionsMessage:empty { display: none; }
+:root[data-reduced-motion="true"] button:not(:disabled):active { transform: none; }
+#saveNotice:empty { display: none; }
+.backup-label { display: block; margin-block: 12px 6px; }
+#backupCode { display: block; width: 100%; resize: vertical; min-height: 100px; margin-bottom: 12px; border: 1px solid #64748b; border-radius: 8px; padding: 10px; background: #020617; color: #e2e8f0; font: 12px/1.5 monospace; }
+#saveDialog > button { width: 100%; }
+#backupCode:focus-visible { outline: 2px solid #67e8f9; }
+.workshop-product button { font-size: 13px; }
+@media (max-width: 360px) { .panel { padding: 12px; } .actions { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { button:not(:disabled):active { transform: none; } }
+
+
+===== web-prototype/game/balance.js =====
+export const ECONOMY = {
+  gachaCost: 50,
+  gachaCostMultiplier: 1.15,
+  mergeIronCost: 5,
+  mergeCrystalCost: 2,
+  prestigeGate: 18,
+  offlineCapMs: 4 * 60 * 60 * 1000
+};
+
+export const FIRST_RUN_DROPS = ['iron', 'crystal', 'iron', 'plasma', 'iron', 'crystal', 'iron', 'iron'];
+
+const BOSS_NAMES = ['철갑 채굴자', '수정 파수꾼', '공허 수호자'];
+
+// Three voyages at each gate, then explore two waves deeper. No timer or paid bypass.
+export function getPrestigeGate(state) {
+  return ECONOMY.prestigeGate + 2 * Math.floor(Math.max(0, state.prestige.runs) / 3);
+}
+
+export function getGachaCost(state) {
+  return Math.min(Number.MAX_SAFE_INTEGER, Math.floor(ECONOMY.gachaCost * ECONOMY.gachaCostMultiplier ** state.skills.length));
+}
+
+export const SKILL_POOL = [
+  { id: 'sk_mine_1', name: 'Basic Drill', rarity: 'N', weight: 100, miningBonus: 0.5, damageBonus: 0, critBonus: 0 },
+  { id: 'sk_dmg_1', name: 'Laser Pointer', rarity: 'N', weight: 100, miningBonus: 0, damageBonus: 1, critBonus: 0 },
+  { id: 'sk_crit_1', name: 'Lucky Strike', rarity: 'N', weight: 80, miningBonus: 0, damageBonus: 0, critBonus: 0.02 },
+  { id: 'sk_mine_2', name: 'Plasma Cutter', rarity: 'R', weight: 50, miningBonus: 1.5, damageBonus: 0, critBonus: 0 },
+  { id: 'sk_dmg_2', name: 'Auto Cannon', rarity: 'R', weight: 50, miningBonus: 0, damageBonus: 2.5, critBonus: 0 },
+  { id: 'sk_hybrid_1', name: 'Mining Laser', rarity: 'R', weight: 40, miningBonus: 0.8, damageBonus: 1.2, critBonus: 0 },
+  { id: 'sk_crit_2', name: 'Targeting OS', rarity: 'R', weight: 40, miningBonus: 0, damageBonus: 0, critBonus: 0.05 },
+  { id: 'sk_mine_3', name: 'Quantum Extractor', rarity: 'SR', weight: 15, miningBonus: 4, damageBonus: 0, critBonus: 0 },
+  { id: 'sk_dmg_3', name: 'Orbital Railgun', rarity: 'SR', weight: 15, miningBonus: 0, damageBonus: 6, critBonus: 0 },
+  { id: 'sk_hybrid_2', name: 'Void Engine', rarity: 'SR', weight: 10, miningBonus: 2.5, damageBonus: 3.5, critBonus: 0.03 },
+  { id: 'sk_crit_3', name: 'Probability Manipulator', rarity: 'UR', weight: 3, miningBonus: 0, damageBonus: 2, critBonus: 0.12 },
+  { id: 'sk_all_1', name: 'Galaxy Core', rarity: 'UR', weight: 2, miningBonus: 5, damageBonus: 8, critBonus: 0.08 }
+];
+
+export const LOOT_TABLE = [
+  { id: 'iron', weight: 45 },
+  { id: 'crystal', weight: 27 },
+  { id: 'plasma', weight: 21 },
+  { id: 'relic', weight: 7 }
+];
+
+export function getWaveConfig(wave) {
+  const isBoss = wave % 5 === 0;
+  return {
+    wave,
+    hp: Math.min(Number.MAX_SAFE_INTEGER, Math.floor(150 * 1.2 ** (wave - 1) * (isBoss ? 1.35 : 1))),
+    oreReward: Math.floor((20 + wave * 5) * (isBoss ? 1.5 : 1)),
+    materialDrops: 1,
+    isBoss,
+    name: isBoss ? BOSS_NAMES[(wave / 5 - 1) % BOSS_NAMES.length] : '소행성 광맥',
+    bonusLoot: { plasma: isBoss ? 1 : 0, relic: wave % 10 === 0 ? 1 : 0 }
+  };
+}
+
+export function rollWeighted(entries, random = Math.random) {
+  const totalWeight = entries.reduce((total, entry) => total + entry.weight, 0);
+  let remaining = random() * totalWeight;
+  for (const entry of entries) {
+    remaining -= entry.weight;
+    if (remaining < 0) return entry;
+  }
+  return entries[entries.length - 1];
+}
+
+
+===== web-prototype/game/encounters.js =====
+// HP-derived phases need no wall clock or extra save fields. All builds can win automatically.
+export const SKILL_LINKS = [
+  { id: 'drill', name: '굴착 공명', skills: ['sk_mine_1', 'sk_mine_2'] },
+  { id: 'lance', name: '집중 포화', skills: ['sk_dmg_1', 'sk_dmg_2'] },
+  { id: 'sync', name: '정밀 동기화', skills: ['sk_crit_1', 'sk_crit_2'] }
+];
+
+export const BOSS_PATTERNS = [
+  { id: 'armor', phases: [
+    { name: '장갑 굴착', module: 'drill', multiplier: 0.85, color: '#fbbf24' },
+    { name: '노심 노출', module: 'lance', multiplier: 1.15, color: '#fb7185' }
+  ] },
+  { id: 'crystal', phases: [
+    { name: '수정 공명', module: 'sync', multiplier: 0.9, color: '#c4b5fd' },
+    { name: '균열 확장', module: 'drill', multiplier: 1.1, color: '#67e8f9' }
+  ] },
+  { id: 'void', phases: [
+    { name: '공허 응축', module: 'lance', multiplier: 0.9, color: '#fb7185' },
+    { name: '위상 붕괴', module: 'sync', multiplier: 1.1, color: '#c4b5fd' }
+  ] }
+];
+export const MODULE_LABELS = { drill: '채굴', lance: '전투', sync: '균형' };
+
+export function getSkillLinks(state) {
+  const owned = new Set(state.skills.map((skill) => skill.id));
+  return SKILL_LINKS.map((link) => ({ ...link, count: link.skills.filter((id) => owned.has(id)).length,
+    active: link.skills.every((id) => owned.has(id)) }));
+}
+
+export function getEncounter(state) {
+  const wave = state.combat.wave;
+  if (wave % 5 !== 0 || state.prestige.runs < 1) return null;
+  const pattern = BOSS_PATTERNS[(wave / 5 - 1) % BOSS_PATTERNS.length];
+  const halfHp = state.combat.maxAsteroidHp / 2;
+  const phaseIndex = state.combat.asteroidHp > halfHp ? 0 : 1;
+  const phase = pattern.phases[phaseIndex];
+  const link = getSkillLinks(state).find((entry) => entry.id === phase.module);
+  const moduleBonus = state.ship.workshop.activeModule === phase.module
+    && state.ship.workshop.moduleLevels[phase.module] > 0 ? 0.25 : 0;
+  const linkBonus = link.active ? 0.1 : 0;
+  return { pattern: pattern.id, phaseIndex, ...phase, link, moduleBonus, linkBonus,
+    damageMultiplier: phase.multiplier + moduleBonus + linkBonus,
+    boundaryHp: phaseIndex === 0 ? halfHp : 0 };
+}
+
+
+===== web-prototype/game/expeditions.js =====
+export const MILESTONES = [
+  { id: 'first-rebirth', title: '차원의 도약', metric: 'runs', target: 1, reward: { relic: 1 } },
+  { id: 'wave-20', title: '심우주 개척자', metric: 'bestWave', target: 20, reward: { relic: 1 } },
+  { id: 'skills-15', title: '기술 수집가', metric: 'skills', target: 15, reward: { relic: 1 } },
+  { id: 'merge-5', title: '함선 개조 전문가', metric: 'merges', target: 5, reward: { relic: 1 } },
+  { id: 'boss-10', title: '거대 소행성 분쇄자', metric: 'bosses', target: 10, reward: { relic: 1 } },
+  { id: 'ore-50k', title: '은하계 광부', metric: 'activeOre', target: 50000, reward: { relic: 1 } },
+  { id: 'wave-30', title: '변방의 지배자', metric: 'bestWave', target: 30, reward: { relic: 1 } }
+];
+export const CONTRACTS = [
+  { id: 'mining-quota', title: '과부하 채굴 할당량', moduleId: 'drill', description: '채굴 모듈로 전경 채굴 광석 2,500개', target: 2500, reward: { iron: 3, crystal: 1 } },
+  { id: 'combat-sweep', title: '궤도 소탕 작전', moduleId: 'lance', description: '전투 모듈을 적용하고 적 6기 격파', target: 6, reward: { plasma: 1 } },
+  { id: 'boss-hunt', title: '보스 정밀 타격', moduleId: 'sync', description: '균형 모듈을 적용하고 보스 2기 격파', target: 2, reward: { ore: 150 } }
+];
+export const isExpeditionUnlocked = (state) => state.prestige.runs >= 1;
+export const createExpeditionState = () => ({
+  claimed: [], counters: { bosses: 0, activeOre: 0 },
+  contractProgress: Object.fromEntries(CONTRACTS.map(({ id }) => [id, 0])), contractClaimed: []
+});
+const finiteCount = (value, max = Number.MAX_SAFE_INTEGER) => Number.isFinite(value) ? Math.max(0, Math.min(max, value)) : 0;
+export function hydrateExpeditions(raw) {
+  const result = createExpeditionState();
+  const ids = (value, entries) => Array.isArray(value) ? [...new Set(value.filter((id) => entries.some((entry) => entry.id === id)))] : [];
+  result.claimed = ids(raw?.claimed, MILESTONES);
+  result.contractClaimed = ids(raw?.contractClaimed, CONTRACTS);
+  result.counters.bosses = Math.floor(finiteCount(raw?.counters?.bosses));
+  result.counters.activeOre = finiteCount(raw?.counters?.activeOre);
+  for (const entry of CONTRACTS) result.contractProgress[entry.id] = finiteCount(raw?.contractProgress?.[entry.id], entry.target);
+  return result;
+}
+
+export function getMilestoneProgress(state, entry) {
+  const values = { runs: state.prestige.runs, bestWave: state.prestige.bestWave, skills: state.skills.length,
+    merges: Math.max(0, state.ship.engine - 1), ...state.prestige.expeditions.counters };
+  return Math.min(entry.target, values[entry.metric] || 0);
+}
+
+// Record only actual foreground simulation events, never reward grants or offline mining.
+export function recordExpeditionMining(state, amount) {
+  const expedition = state.prestige.expeditions;
+  const gain = finiteCount(amount);
+  expedition.counters.activeOre = finiteCount(expedition.counters.activeOre + gain);
+  if (isExpeditionUnlocked(state) && state.ship.workshop.activeModule === 'drill') addContractProgress(expedition, 'mining-quota', gain);
+}
+export function recordExpeditionClear(state, wave) {
+  const expedition = state.prestige.expeditions;
+  if (wave.isBoss) expedition.counters.bosses = finiteCount(expedition.counters.bosses + 1);
+  if (!isExpeditionUnlocked(state)) return;
+  if (state.ship.workshop.activeModule === 'lance') addContractProgress(expedition, 'combat-sweep', 1);
+  if (state.ship.workshop.activeModule === 'sync' && wave.isBoss) addContractProgress(expedition, 'boss-hunt', 1);
+}
+function addContractProgress(expedition, id, amount) {
+  if (expedition.contractClaimed.includes(id)) return;
+  const entry = CONTRACTS.find((entry) => entry.id === id);
+  expedition.contractProgress[id] = Math.min(entry.target, expedition.contractProgress[id] + amount);
+}
+export function resetVoyageContracts(state) {
+  const expedition = state.prestige.expeditions;
+  expedition.contractProgress = createExpeditionState().contractProgress;
+  expedition.contractClaimed = [];
+}
+export function claimExpeditionReward(state, kind, id) {
+  const entries = kind === 'milestone' ? MILESTONES : kind === 'contract' ? CONTRACTS : [];
+  const entry = entries.find((entry) => entry.id === id);
+  if (!entry || !isExpeditionUnlocked(state)) return { ok: false, message: '첫 프레스티지 후 탐사 기록이 열립니다.' };
+  const expedition = state.prestige.expeditions;
+  const claimed = kind === 'milestone' ? expedition.claimed : expedition.contractClaimed;
+  const progress = kind === 'milestone' ? getMilestoneProgress(state, entry) : expedition.contractProgress[id];
+  if (claimed.includes(id)) return { ok: false, message: '이미 수령한 보상입니다.' };
+  if (progress < entry.target) return { ok: false, message: '아직 목표를 달성하지 않았습니다.' };
+  claimed.push(id);
+  for (const [resource, amount] of Object.entries(entry.reward)) {
+    if (resource === 'ore') state.profile.ore = Math.min(Number.MAX_SAFE_INTEGER, state.profile.ore + amount);
+    else state.loot[resource] = Math.min(Number.MAX_SAFE_INTEGER, state.loot[resource] + amount);
+  }
+  return { ok: true, message: `${entry.title} 보상을 수령했습니다.` };
+}
+
+
+===== web-prototype/game/lifecycle.js =====
+import { hydrateState } from './state.js';
+import { applyOfflineProgress } from './systems.js';
+
+// Capture once: pagehide/visibilitychange may both fire; SDK saves can occur while hidden.
+export function createLifecycle(state, persist, now = Date.now) {
+  let snapshot = null;
+  return {
+    suspend({ busy = false } = {}) {
+      if (snapshot) return;
+      snapshot = { state: hydrateState(state), busy };
+      snapshot.state.profile.lastSeenAt = now();
+      persist();
+    },
+    resume({ busy = false } = {}) {
+      if (!snapshot) return false;
+      const previous = snapshot;
+      snapshot = null;
+      if (!previous.busy && !busy) {
+        const ore = previous.state.profile.ore;
+        applyOfflineProgress(previous.state, now());
+        const gain = previous.state.profile.ore - ore;
+        state.profile.ore += gain;
+        state.profile.totalOreMined += gain;
+        if (gain > 0) state.session.lastRewardSummary = previous.state.session.lastRewardSummary;
+      }
+      state.profile.lastSeenAt = now();
+      persist();
+      return true;
+    }
+  };
+}
+
+
+===== web-prototype/game/routes.js =====
+// Permanent exploration goals. Rewards change the beam/orbit only, never economy or paid hulls.
+export const ROUTES = [
+  { id: 'sector-25', title: '성계 경계 돌파', motto: '첫 성계를 넘어 미지의 궤도로', metric: 'bestWave', target: 25, description: '최고 웨이브 25 도달', theme: '새벽 이온 궤적', color: '#fda4af', dash: [] },
+  { id: 'voyager-10', title: '베테랑 항해사', motto: '열 번의 차원 도약을 견딘 선체', metric: 'runs', target: 10, description: '프레스티지 누적 10회', theme: '워프 에메랄드', color: '#6ee7b7', dash: [8, 4] },
+  { id: 'drill-mastery', title: '과부하 채굴 숙련', motto: '식지 않는 드릴로 소행성을 가른다', metric: 'drillOre', target: 25000, description: '채굴 모듈로 직접 플레이하며 광석 25,000개 채굴', theme: '마그마 앰버', color: '#fbbf24', dash: [3, 5] },
+  { id: 'lance-mastery', title: '궤도 소탕 숙련', motto: '빈틈없는 화력으로 궤도를 제압한다', metric: 'lanceKills', target: 100, description: '전투 모듈을 적용하고 적 누적 100기 격파', theme: '크림슨 펄스', color: '#fb7185', dash: [12, 4, 3, 4] },
+  { id: 'sync-mastery', title: '양자 균형 숙련', motto: '완벽한 동기화로 거대 보스를 격파', metric: 'syncBosses', target: 20, description: '균형 모듈을 적용하고 보스 누적 20기 격파', theme: '아스트랄 화이트', color: '#f8fafc', dash: [2, 3, 8, 3] },
+  { id: 'sector-32', title: '암흑 성운 개척', motto: '짙은 어둠을 가르는 고출력 광선', metric: 'bestWave', target: 32, description: '최고 웨이브 32 도달', theme: '네뷸라 바이올렛', color: '#c4b5fd', dash: [14, 6] },
+  { id: 'sector-40', title: '은하 중심부 도달', motto: '중력의 심장부에서 빛나는 항적', metric: 'bestWave', target: 40, description: '최고 웨이브 40 도달', theme: '솔라 골드 코로나', color: '#fde047', dash: [1, 4] }
+];
+export const isRouteUnlocked = (state) => state.prestige.runs >= 5 || state.prestige.bestWave >= 25;
+export const createRouteState = () => ({ claimed: [], tracked: null, equipped: null, counters: { drillOre: 0, lanceKills: 0, syncBosses: 0 } });
+export function hydrateRoutes(raw) {
+  const result = createRouteState();
+  const known = (id) => ROUTES.some((entry) => entry.id === id);
+  result.claimed = Array.isArray(raw?.claimed) ? [...new Set(raw.claimed.filter(known))] : [];
+  result.tracked = known(raw?.tracked) ? raw.tracked : null;
+  result.equipped = result.claimed.includes(raw?.equipped) ? raw.equipped : null;
+  for (const entry of ROUTES.filter((entry) => entry.metric in result.counters)) {
+    const value = raw?.counters?.[entry.metric];
+    result.counters[entry.metric] = Number.isFinite(value) ? Math.min(entry.target, Math.max(0, value)) : 0;
+    if (entry.metric !== 'drillOre') result.counters[entry.metric] = Math.floor(result.counters[entry.metric]);
+  }
+  return result;
+}
+export function getRouteProgress(state, entry) {
+  const value = entry.metric === 'runs' ? state.prestige.runs : entry.metric === 'bestWave' ? state.prestige.bestWave : state.prestige.routes.counters[entry.metric];
+  return Math.min(entry.target, Math.max(0, value || 0));
+}
+export function recordRouteMining(state, amount) {
+  if (!isRouteUnlocked(state) || state.ship.workshop.activeModule !== 'drill' || !Number.isFinite(amount) || amount <= 0) return;
+  const counters = state.prestige.routes.counters;
+  counters.drillOre = Math.min(25000, counters.drillOre + amount);
+}
+export function recordRouteClear(state, wave) {
+  if (!isRouteUnlocked(state)) return;
+  const counters = state.prestige.routes.counters;
+  if (state.ship.workshop.activeModule === 'lance') counters.lanceKills = Math.min(100, counters.lanceKills + 1);
+  if (state.ship.workshop.activeModule === 'sync' && wave.isBoss) counters.syncBosses = Math.min(20, counters.syncBosses + 1);
+}
+export function claimRoute(state, id) {
+  const entry = ROUTES.find((entry) => entry.id === id);
+  if (!entry || !isRouteUnlocked(state)) return { ok: false, message: '프레스티지 5회 또는 최고 웨이브 25에서 심우주 항로가 열립니다.' };
+  const routes = state.prestige.routes;
+  if (routes.claimed.includes(id)) return { ok: false, message: '이미 해금한 항로입니다.' };
+  if (getRouteProgress(state, entry) < entry.target) return { ok: false, message: '아직 목표를 달성하지 않았습니다.' };
+  routes.claimed.push(id);
+  return { ok: true, message: `${entry.theme} 외형을 해금했습니다. 적용 버튼으로 선택하세요.` };
+}
+export function trackRoute(state, id) {
+  if (id !== null && (!isRouteUnlocked(state) || !ROUTES.some((entry) => entry.id === id))) return { ok: false, message: '지금 선택할 수 없는 목표입니다.' };
+  state.prestige.routes.tracked = id;
+  return { ok: true, message: id ? '선택한 목표를 메인 화면에 표시합니다. 다른 항로의 진행도도 유지됩니다.' : '목표 추적을 해제했습니다.' };
+}
+export function equipRoute(state, id) {
+  if (id !== null && (!ROUTES.some((entry) => entry.id === id) || !state.prestige.routes.claimed.includes(id))) return { ok: false, message: '목표 달성 후 외형을 먼저 해금해 주세요.' };
+  state.prestige.routes.equipped = id;
+  return { ok: true, message: id ? `${ROUTES.find((entry) => entry.id === id).theme} 적용. 채굴량과 공격력은 그대로입니다.` : '기본 항로 외형을 적용했습니다.' };
+}
+export const getRouteTheme = (state) => ROUTES.find((entry) => entry.id === state.prestige.routes.equipped) || null;
+
+
+===== web-prototype/game/settings.js =====
+export const createSettings = () => ({ soundEnabled: false, soundVolume: 0.5, reduceMotion: false });
+
+export function hydrateSettings(raw) {
+  return { soundEnabled: raw?.soundEnabled === true,
+    soundVolume: typeof raw?.soundVolume === 'number' && Number.isFinite(raw.soundVolume)
+      ? Math.max(0, Math.min(1, raw.soundVolume)) : 0.5,
+    reduceMotion: raw?.reduceMotion === true };
+}
+
+export const shouldReduceMotion = (settings, systemReduced) => Boolean(systemReduced || settings.reduceMotion);
+
+
+===== web-prototype/game/state.js =====
+import { getWaveConfig } from './balance.js';
+import { TUTORIAL_IDS } from './tutorial.js';
+import { createWorkshopState, hydrateWorkshop } from './workshop.js';
+import { createExpeditionState, hydrateExpeditions } from './expeditions.js';
+import { createRouteState, hydrateRoutes } from './routes.js';
+import { createSettings, hydrateSettings } from './settings.js';
+
+export const SAVE_KEY = 'auto-drill-galaxy-save-v2';
+
+export function createInitialState() {
+  const now = Date.now();
+  return {
+    profile: {
+      ore: 0,
+      darkMatter: 0,
+      totalOreMined: 0,
+      lastSeenAt: now
+    },
+    ship: {
+      hull: 1,
+      engine: 1,
+      reactor: 1,
+      workshop: createWorkshopState()
+    },
+    skills: [],
+    tutorial: {
+      seen: []
+    },
+    settings: createSettings(),
+    loot: {
+      iron: 0,
+      crystal: 0,
+      plasma: 0,
+      relic: 0
+    },
+    prestige: {
+      runs: 0,
+      bestWave: 1,
+      expeditions: createExpeditionState(),
+      routes: createRouteState()
+    },
+    monetization: {
+      lastRewardedAt: 0,
+      rewardIds: []
+    },
+    combat: {
+      wave: 1,
+      asteroidHp: getWaveConfig(1).hp,
+      maxAsteroidHp: getWaveConfig(1).hp,
+      orbitAngle: 0
+    },
+    session: {
+      timeScale: 1,
+      lastRewardSummary: ''
+    }
+  };
+}
+
+export function hydrateState(rawState) {
+  const state = createInitialState();
+  if (!rawState || typeof rawState !== 'object') return state;
+
+  const number = (value, fallback = 0, min = 0, max = Number.MAX_SAFE_INTEGER) =>
+    Number.isFinite(Number(value)) && value !== null ? Math.min(max, Math.max(min, Number(value))) : fallback;
+  const integer = (value, fallback = 0, min = 0, max = Number.MAX_SAFE_INTEGER) => Math.floor(number(value, fallback, min, max));
+  for (const key of ['ore', 'darkMatter', 'totalOreMined']) state.profile[key] = number(rawState.profile?.[key]);
+  state.profile.lastSeenAt = number(rawState.profile?.lastSeenAt, Date.now());
+  for (const key of ['hull', 'engine', 'reactor']) state.ship[key] = integer(rawState.ship?.[key], 1, 1);
+  state.ship.workshop = hydrateWorkshop(rawState.ship?.workshop);
+  for (const key of ['iron', 'crystal', 'plasma', 'relic']) {
+    const value = rawState.loot?.[key];
+    state.loot[key] = Number.isFinite(value) ? Math.max(0, Math.min(Number.MAX_SAFE_INTEGER, Math.floor(value))) : 0;
+  }
+  state.prestige.runs = integer(rawState.prestige?.runs);
+  state.prestige.bestWave = integer(rawState.prestige?.bestWave, 1, 1, 1000);
+  state.prestige.expeditions = hydrateExpeditions(rawState.prestige?.expeditions);
+  state.prestige.routes = hydrateRoutes(rawState.prestige?.routes);
+  state.monetization.lastRewardedAt = number(rawState.monetization?.lastRewardedAt);
+  state.monetization.rewardIds = Array.isArray(rawState.monetization?.rewardIds)
+    ? rawState.monetization.rewardIds.filter((entry) => typeof entry === 'string').slice(-100)
+    : [];
+  state.combat.wave = integer(rawState.combat?.wave, 1, 1, 1000);
+  state.prestige.bestWave = Math.max(state.prestige.bestWave, state.combat.wave);
+  state.combat.maxAsteroidHp = number(rawState.combat?.maxAsteroidHp, getWaveConfig(state.combat.wave).hp, 1, Number.MAX_VALUE);
+  state.combat.asteroidHp = number(rawState.combat?.asteroidHp, state.combat.maxAsteroidHp, 0, state.combat.maxAsteroidHp);
+  state.combat.orbitAngle = number(rawState.combat?.orbitAngle, 0, 0, Math.PI * 2);
+  state.settings = hydrateSettings(rawState.settings);
+  state.tutorial.seen = Array.isArray(rawState.tutorial?.seen)
+    ? [...new Set(rawState.tutorial.seen.filter((entry) => TUTORIAL_IDS.includes(entry)))]
+    : [];
+  state.skills = Array.isArray(rawState.skills)
+    ? rawState.skills
+        .filter((entry) => entry && typeof entry === 'object')
+        .map((entry) => ({
+          id: typeof entry.id === 'string' ? entry.id : `skill-${Math.random().toString(36).slice(2, 8)}`,
+          name: typeof entry.name === 'string' ? entry.name : 'Unknown Skill',
+          rarity: typeof entry.rarity === 'string' ? entry.rarity : 'N',
+          miningBonus: number(entry.miningBonus),
+          damageBonus: number(entry.damageBonus),
+          critBonus: number(entry.critBonus, 0, 0, 1)
+        }))
+    : [];
+
+  const hpRatio = state.combat.asteroidHp / state.combat.maxAsteroidHp;
+  state.combat.maxAsteroidHp = getWaveConfig(state.combat.wave).hp;
+  state.combat.asteroidHp = state.combat.maxAsteroidHp * hpRatio;
+
+  return state;
+}
+
+
+===== web-prototype/game/storage.js =====
+import { createInitialState, hydrateState, SAVE_KEY } from './state.js';
+import { applyOfflineProgress } from './systems.js';
+
+export const BACKUP_KEY = `${SAVE_KEY}-backup`;
+export const RECOVERY_KEY = `${SAVE_KEY}-recovery`;
+export const BEFORE_RESTORE_KEY = `${SAVE_KEY}-before-restore`;
+const FORMAT = 'auto-drill-galaxy';
+const VERSION = 1;
+const MAX_BYTES = 2_000_000;
+
+// Detect accidental truncation/edits, not a security or anti-cheat signature.
+function checksum(text) {
+  let hash = 2166136261;
+  for (let i = 0; i < text.length; i++) hash = Math.imul(hash ^ text.charCodeAt(i), 16777619);
+  return (hash >>> 0).toString(16);
+}
+
+export function serializeState(state, now = Date.now()) {
+  const clean = hydrateState(state);
+  clean.profile.lastSeenAt = now;
+  const { session, ...data } = clean;
+  const payload = JSON.stringify(data);
+  return JSON.stringify({ format: FORMAT, version: VERSION, checksum: checksum(payload), payload });
+}
+
+export function parseSave(text) {
+  if (typeof text !== 'string' || text.length > MAX_BYTES) throw new Error('백업 크기를 확인해 주세요.');
+  let value;
+  try { value = JSON.parse(text); } catch { throw new Error('백업 형식을 읽을 수 없습니다.'); }
+  if (value?.format !== undefined || value?.version !== undefined) {
+    if (value.format !== FORMAT || value.version !== VERSION) throw new Error('지원하지 않는 백업 버전입니다. 최신 앱에서 확인해 주세요.');
+    if (typeof value.payload !== 'string' || checksum(value.payload) !== value.checksum) throw new Error('백업이 손상되었습니다.');
+    try { value = JSON.parse(value.payload); } catch { throw new Error('백업 내용이 손상되었습니다.'); }
+  }
+  if (!value || Array.isArray(value) || !value.profile || !value.ship || !value.combat ||
+      typeof value.profile !== 'object' || typeof value.ship !== 'object' || typeof value.combat !== 'object' ||
+      !Number.isFinite(value.profile.ore) || !Number.isFinite(value.combat.wave) || value.combat.wave < 1) {
+    throw new Error('게임 진행 데이터가 아닙니다.');
+  }
+  return hydrateState(value);
+}
+
+export function createSaveStore(getStorage = () => globalThis.localStorage, now = Date.now) {
+  let blocked = false;
+  let message = '';
+  function load() {
+    blocked = false;
+    message = '';
+    try {
+      const storage = getStorage();
+      const primary = storage.getItem(SAVE_KEY);
+      const backup = storage.getItem(BACKUP_KEY);
+      if (!primary && !backup) return createInitialState();
+      let state;
+      try { state = parseSave(primary); }
+      catch (error) {
+        // A newer app's save must not be replaced by an older backup automatically.
+        if (primary && /버전/.test(error.message)) throw error;
+        state = parseSave(backup);
+        message = '자동 백업에서 진행을 복구했습니다. 저장 메뉴에서 백업을 보관해 주세요.';
+      }
+      applyOfflineProgress(state, now());
+      if (!save(state)) message = '불러온 진행을 저장하지 못했습니다. 저장 메뉴에서 백업을 보관해 주세요.';
+      return state;
+    } catch (error) {
+      blocked = true;
+      message = `저장을 읽지 못해 원본을 보존 중입니다. 자동 저장을 중단했습니다. 저장 메뉴에서 백업을 복원해 주세요.${/버전/.test(error.message) ? ` ${error.message}` : ''}`;
+      return createInitialState();
+    }
+  }
+  function save(state) {
+    if (blocked) return false;
+    try {
+      const storage = getStorage();
+      const previous = storage.getItem(SAVE_KEY);
+      if (previous) {
+        let valid = false;
+        try { parseSave(previous); valid = true; } catch { /* Preserve unreadable data. */ }
+        if (valid) storage.setItem(BACKUP_KEY, previous);
+        else if (!storage.getItem(RECOVERY_KEY)) storage.setItem(RECOVERY_KEY, previous);
+      }
+      const timestamp = now();
+      storage.setItem(SAVE_KEY, serializeState(state, timestamp));
+      state.profile.lastSeenAt = timestamp;
+      if (message.startsWith('진행을 저장하지') || message.startsWith('불러온 진행을')) message = '';
+      return true;
+    } catch {
+      message = '진행을 저장하지 못했습니다. 저장 공간을 확인하고 백업 코드를 보관해 주세요.';
+      return false;
+    }
+  }
+  function restore(text, current) {
+    const candidate = parseSave(text);
+    const timestamp = now();
+    // Imported offline time is consumed; ads use the stricter of both histories.
+    candidate.profile.lastSeenAt = timestamp;
+    candidate.monetization.lastRewardedAt = Math.max(current.monetization.lastRewardedAt, candidate.monetization.lastRewardedAt);
+    candidate.monetization.rewardIds = [...new Set([...candidate.monetization.rewardIds, ...current.monetization.rewardIds])].slice(-100);
+    const storage = getStorage();
+    const originals = { primary: storage.getItem(SAVE_KEY), backup: storage.getItem(BACKUP_KEY) };
+    // Both writes must succeed before replacing progress. Retain the first damaged original.
+    storage.setItem(BEFORE_RESTORE_KEY, serializeState(current, timestamp));
+    if (!storage.getItem(RECOVERY_KEY)) storage.setItem(RECOVERY_KEY, JSON.stringify(originals));
+    storage.setItem(SAVE_KEY, serializeState(candidate, timestamp));
+    Object.assign(current, candidate);
+    blocked = false;
+    message = '백업을 복원했습니다. 이전 진행은 복원 전 백업으로 보관했습니다.';
+    return current;
+  }
+  return { load, save, restore, get message() { return message; }, get blocked() { return blocked; },
+    readPrevious: () => getStorage().getItem(BEFORE_RESTORE_KEY) };
+}
+
+export const saveStore = createSaveStore();
+export const loadState = () => saveStore.load();
+export const saveState = (state) => saveStore.save(state);
+
+
+===== web-prototype/game/systems.js =====
+import { ECONOMY, FIRST_RUN_DROPS, SKILL_POOL, LOOT_TABLE, getGachaCost, getPrestigeGate, getWaveConfig, rollWeighted } from './balance.js';
+import { getWorkshopEffects, resetVoyageModules } from './workshop.js';
+import { recordExpeditionMining, recordExpeditionClear, resetVoyageContracts } from './expeditions.js';
+import { recordRouteMining, recordRouteClear } from './routes.js';
+import { getEncounter } from './encounters.js';
+
+const MERGE_IRON_COST = ECONOMY.mergeIronCost;
+const MERGE_CRYSTAL_COST = ECONOMY.mergeCrystalCost;
+const OFFLINE_CAP_MS = ECONOMY.offlineCapMs;
+
+export function getDerivedStats(state) {
+  const skillTotals = state.skills.reduce(
+    (totals, skill) => {
+      totals.miningBonus += Number(skill.miningBonus) || 0;
+      totals.damageBonus += Number(skill.damageBonus) || 0;
+      totals.critBonus += Number(skill.critBonus) || 0;
+      return totals;
+    },
+    { miningBonus: 0, damageBonus: 0, critBonus: 0 }
+  );
+
+  const darkMatter = Math.max(0, state.profile.darkMatter);
+  const prestigeEffect = darkMatter / (darkMatter + 10);
+  const workshop = getWorkshopEffects(state);
+  const miningRate = (
+    1.8 +
+    state.ship.engine * 0.45 +
+    state.ship.reactor * 0.25 +
+    skillTotals.miningBonus
+  ) * (1 + prestigeEffect) + (1.8 + state.ship.engine * 0.45 + state.ship.reactor * 0.25) * workshop.miningMult + workshop.miningBonus;
+
+  const combatDps = (
+    4.5 +
+    state.ship.hull * 0.4 +
+    state.ship.reactor * 0.8 +
+    skillTotals.damageBonus
+  ) * (1 + prestigeEffect) + (4.5 + state.ship.hull * 0.4 + state.ship.reactor * 0.8) * workshop.damageMult + workshop.damageBonus;
+
+  const critChance = Math.min(0.65, 0.08 + prestigeEffect * 0.01 + skillTotals.critBonus);
+
+  return {
+    miningRate,
+    combatDps,
+    critChance,
+    critMultiplier: 2.2
+  };
+}
+
+export function advanceMining(state, dtMs) {
+  state.ship.workshop.switchRemainingMs = Math.max(0, state.ship.workshop.switchRemainingMs - Math.max(0, dtMs));
+  const { miningRate } = getDerivedStats(state);
+  const oreGain = miningRate * (dtMs / 1000) * state.session.timeScale;
+  state.profile.ore += oreGain;
+  state.profile.totalOreMined += oreGain;
+  recordExpeditionMining(state, oreGain);
+  recordRouteMining(state, oreGain);
+}
+
+export function advanceCombat(state, dtMs, random = Math.random) {
+  const clearedWaves = [];
+  if (!Number.isFinite(dtMs) || dtMs < 0) return clearedWaves;
+  let remaining = dtMs / 1000 * state.session.timeScale;
+  if (!Number.isFinite(remaining) || remaining < 0) return clearedWaves;
+  state.combat.orbitAngle = (state.combat.orbitAngle + remaining * 1.6 * (1 + state.ship.engine * 0.08)) % (Math.PI * 2);
+  // Spend time, not overflow damage: phases and newly reached waves have their own multipliers.
+  while (remaining > 0 || state.combat.asteroidHp <= 0) {
+    if (state.combat.asteroidHp <= 0) {
+      clearedWaves.push(resolveWaveClear(state, random));
+      continue;
+    }
+    const { combatDps, critChance, critMultiplier } = getDerivedStats(state);
+    const encounter = getEncounter(state);
+    const dps = combatDps * (1 + critChance * (critMultiplier - 1)) * (encounter?.damageMultiplier ?? 1);
+    if (!Number.isFinite(dps) || dps <= 0) break;
+    const boundary = encounter?.boundaryHp ?? 0;
+    const secondsToBoundary = (state.combat.asteroidHp - boundary) / dps;
+    if (remaining < secondsToBoundary) {
+      state.combat.asteroidHp -= dps * remaining;
+      break;
+    }
+    remaining = Math.max(0, remaining - secondsToBoundary);
+    state.combat.asteroidHp = boundary;
+  }
+  return clearedWaves;
+}
+
+export function performGacha(state, random = Math.random) {
+  const cost = getGachaCost(state);
+  if (state.profile.ore < cost) {
+    return { ok: false, message: `스킬 뽑기에 광석 ${cost}개가 필요합니다.` };
+  }
+
+  state.profile.ore -= cost;
+  const roll = rollWeighted(SKILL_POOL, random);
+  state.skills.push({ ...roll });
+  return { ok: true, message: `${roll.name} 획득!`, skill: { ...roll }, cost };
+}
+
+export function performMerge(state) {
+  if (state.loot.iron < MERGE_IRON_COST || state.loot.crystal < MERGE_CRYSTAL_COST) {
+    return {
+      ok: false,
+      message: `합성에 철 ${MERGE_IRON_COST}개와 수정 ${MERGE_CRYSTAL_COST}개가 필요합니다.`
+    };
+  }
+
+  state.loot.iron -= MERGE_IRON_COST;
+  state.loot.crystal -= MERGE_CRYSTAL_COST;
+  state.ship.engine += 1;
+  state.ship.reactor += 1;
+
+  return { ok: true, message: '파츠 합성 완료! 엔진과 리액터가 강화되었습니다.' };
+}
+
+export function performPrestige(state) {
+  const gate = getPrestigeGate(state);
+  if (state.combat.wave < gate) {
+    return { ok: false, message: `웨이브 ${gate}에서 프레스티지가 열립니다.` };
+  }
+
+  const reward = Math.max(1, Math.floor(state.combat.wave / 4));
+  state.profile.darkMatter += reward;
+  state.profile.ore = 0;
+  state.loot = { iron: 0, crystal: 0, plasma: 0, relic: state.loot.relic };
+  resetVoyageModules(state);
+  resetVoyageContracts(state);
+  state.combat.wave = 1;
+  state.combat.maxAsteroidHp = getWaveConfig(1).hp;
+  state.combat.asteroidHp = state.combat.maxAsteroidHp;
+  state.prestige.runs += 1;
+
+  return { ok: true, message: `프레스티지 완료! 암흑물질 +${reward}` };
+}
+
+export function applyOfflineProgress(state, now) {
+  const elapsedMs = Math.max(0, now - state.profile.lastSeenAt);
+  const cappedMs = Math.min(elapsedMs, OFFLINE_CAP_MS);
+
+  if (cappedMs < 1000) {
+    state.profile.lastSeenAt = now;
+    return;
+  }
+
+  const { miningRate } = getDerivedStats(state);
+  const oreGain = miningRate * (cappedMs / 1000);
+  state.profile.ore += oreGain;
+  state.profile.totalOreMined += oreGain;
+  state.profile.lastSeenAt = now;
+  state.session.lastRewardSummary = `${formatDuration(cappedMs)} 동안 모은 광석 +${Math.floor(oreGain)}`;
+}
+
+export function formatLootSummary(loot) {
+  return `철 ${loot.iron} · 수정 ${loot.crystal} · 플라스마 ${loot.plasma} · 유물 ${loot.relic}`;
+}
+
+function resolveWaveClear(state, random) {
+  const clearedWave = getWaveConfig(state.combat.wave);
+  recordExpeditionClear(state, clearedWave);
+  recordRouteClear(state, clearedWave);
+  const nextWave = state.combat.wave + 1;
+  const bonusOre = clearedWave.oreReward;
+
+  state.combat.wave = nextWave;
+  state.combat.maxAsteroidHp = getWaveConfig(nextWave).hp;
+  state.combat.asteroidHp = state.combat.maxAsteroidHp;
+  state.profile.ore += bonusOre;
+  state.profile.totalOreMined += bonusOre;
+  for (let drop = 0; drop < clearedWave.materialDrops; drop += 1) {
+    const guaranteedDrop = state.prestige.runs === 0 ? FIRST_RUN_DROPS[clearedWave.wave - 1] : null;
+    state.loot[guaranteedDrop || rollWeighted(LOOT_TABLE, random).id] += 1;
+  }
+  state.loot.plasma += clearedWave.bonusLoot.plasma;
+  state.loot.relic += clearedWave.bonusLoot.relic;
+
+  if (nextWave % 4 === 0 && nextWave > state.prestige.bestWave) {
+    state.ship.hull += 1;
+  }
+
+  state.prestige.bestWave = Math.max(state.prestige.bestWave, nextWave);
+  state.session.lastRewardSummary = clearedWave.isBoss
+    ? `${clearedWave.name} 격파! 광석 +${bonusOre} · 플라스마 +1${clearedWave.bonusLoot.relic ? ' · 유물 +1' : ''}`
+    : `웨이브 ${nextWave - 1} 돌파! 광석 +${bonusOre}`;
+  return { wave: clearedWave.wave, isBoss: clearedWave.isBoss, name: clearedWave.name, oreReward: bonusOre, bonusLoot: { ...clearedWave.bonusLoot } };
+}
+
+function formatDuration(durationMs) {
+  const totalMinutes = Math.floor(durationMs / 60000);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  if (hours && minutes) return `${hours}시간 ${minutes}분`;
+  if (hours) return `${hours}시간`;
+  return totalMinutes ? `${minutes}분` : `${Math.floor(durationMs / 1000)}초`;
+}
+
+
+===== web-prototype/game/tutorial.js =====
+import { ECONOMY, getPrestigeGate } from './balance.js';
+
+export const TUTORIAL_IDS = ['intro', 'first-skill', 'first-wave', 'rising-threat', 'merge', 'prestige'];
+
+export function createTutorial(state, onShow = () => {}) {
+  let current = null;
+  let remainingMs = 0;
+  const canMerge = () => state.loot.iron >= ECONOMY.mergeIronCost && state.loot.crystal >= ECONOMY.mergeCrystalCost;
+  const steps = [
+    { id: 'intro', when: () => state.skills.length === 0, text: () => '자동으로 광석이 모입니다. 첫 스킬을 뽑아 보세요.', targetId: () => 'gachaBtn' },
+    { id: 'first-skill', when: () => state.skills.length > 0, text: () => '스킬 획득! 종류에 따라 채굴·공격·치명타가 강화됩니다.' },
+    { id: 'first-wave', when: () => state.prestige.bestWave >= 2, text: () => '첫 웨이브 돌파! 광석과 파츠 합성 재료를 획득했습니다.' },
+    { id: 'rising-threat', when: () => state.prestige.bestWave >= 4, text: () => '소행성이 점점 단단해집니다. 다음 스킬 비용을 확인하세요.', targetId: () => 'gachaBtn' },
+    {
+      id: 'merge',
+      when: () => canMerge() || state.ship.engine > 1,
+      text: () => canMerge() ? '재료가 모였습니다. 파츠를 합성해 엔진과 리액터를 강화하세요.' : '파츠 강화 완료! 채굴량과 공격력이 함께 올랐습니다.',
+      targetId: () => canMerge() ? 'mergeBtn' : null
+    },
+    {
+      id: 'prestige',
+      when: () => state.combat.wave >= getPrestigeGate(state),
+      text: () => '프레스티지가 열렸습니다. 파츠·스킬을 유지하고 암흑물질을 얻으세요.',
+      targetId: () => 'prestigeBtn'
+    }
+  ];
+
+  return {
+    tick(dtMs) {
+      if (current) {
+        remainingMs -= Math.max(0, dtMs);
+        if (remainingMs > 0) return current;
+        current = null;
+        return null;
+      }
+      const next = steps.find((step) => !state.tutorial.seen.includes(step.id) && step.when());
+      if (!next) return null;
+      current = { id: next.id, text: next.text(), targetId: next.targetId?.() || null };
+      remainingMs = 4000;
+      state.tutorial.seen.push(next.id);
+      onShow();
+      return current;
+    }
+  };
+}
+
+
+===== web-prototype/game/workshop.js =====
+// Costs are paid for the next level; effects describe the entire attained level.
+export const VOYAGE_MODULES = [
+  { id: 'drill', name: '채굴 과부하 코어', costs: [2, 5, 10], levels: [
+    { miningMult: 0.25, damageMult: -0.10 },
+    { miningMult: 0.50, damageMult: -0.15 },
+    { miningMult: 0.85, damageMult: -0.20 }
+  ] },
+  { id: 'lance', name: '궤도 플라스마 창', costs: [2, 5, 10], levels: [
+    { miningMult: -0.10, damageMult: 0.30 },
+    { miningMult: -0.15, damageMult: 0.60 },
+    { miningMult: -0.20, damageMult: 1.00 }
+  ] },
+  { id: 'sync', name: '양자 동기화 엔진', costs: [3, 7, 14], levels: [
+    { miningMult: 0.15, damageMult: 0.15 },
+    { miningMult: 0.30, damageMult: 0.30 },
+    { miningMult: 0.50, damageMult: 0.50 }
+  ] }
+];
+
+export const PERMANENT_RESEARCH = [
+  { id: 'radar', name: '고대 유물 탐지기', costs: [1, 2, 4, 7, 12], levels: [
+    { miningBonus: 0.25 }, { miningBonus: 0.5 }, { miningBonus: 0.75 }, { miningBonus: 1 }, { miningBonus: 1.5 }
+  ] },
+  { id: 'stabilizer', name: '반응로 출력 안정화', costs: [1, 2, 4, 7, 12], levels: [
+    { damageBonus: 0.5 }, { damageBonus: 1 }, { damageBonus: 1.5 }, { damageBonus: 2 }, { damageBonus: 3 }
+  ] }
+];
+
+export const MODULE_SWITCH_MS = 10000;
+export const createWorkshopState = () => ({
+  activeModule: null,
+  moduleLevels: { drill: 0, lance: 0, sync: 0 },
+  researchLevels: { radar: 0, stabilizer: 0 },
+  switchRemainingMs: 0
+});
+
+export function hydrateWorkshop(raw) {
+  const result = createWorkshopState();
+  for (const [entries, key] of [[VOYAGE_MODULES, 'moduleLevels'], [PERMANENT_RESEARCH, 'researchLevels']]) {
+    for (const entry of entries) {
+      const level = raw?.[key]?.[entry.id];
+      result[key][entry.id] = Number.isFinite(level) ? Math.max(0, Math.min(entry.levels.length, Math.floor(level))) : 0;
+    }
+  }
+  if (VOYAGE_MODULES.some((entry) => entry.id === raw?.activeModule) && result.moduleLevels[raw.activeModule] > 0) {
+    result.activeModule = raw.activeModule;
+  }
+  result.switchRemainingMs = Number.isFinite(raw?.switchRemainingMs)
+    ? Math.max(0, Math.min(MODULE_SWITCH_MS, raw.switchRemainingMs)) : 0;
+  return result;
+}
+
+export const isWorkshopUnlocked = (state) => state.ship.engine >= 2 || state.prestige.runs > 0;
+
+export function getWorkshopEffects(state) {
+  const lab = state.ship.workshop;
+  const module = VOYAGE_MODULES.find((entry) => entry.id === lab?.activeModule);
+  const effect = { miningMult: 0, damageMult: 0, miningBonus: 0, damageBonus: 0,
+    ...module?.levels[lab?.moduleLevels[module.id] - 1] };
+  for (const entry of PERMANENT_RESEARCH) {
+    const level = entry.levels[(lab?.researchLevels[entry.id] || 0) - 1];
+    effect.miningBonus += level?.miningBonus || 0;
+    effect.damageBonus += level?.damageBonus || 0;
+  }
+  return effect;
+}
+
+export function upgradeWorkshop(state, kind, id) {
+  const entries = kind === 'module' ? VOYAGE_MODULES : kind === 'research' ? PERMANENT_RESEARCH : [];
+  const entry = entries.find((item) => item.id === id);
+  if (!entry) return { ok: false, message: '알 수 없는 연구입니다.' };
+  if (!isWorkshopUnlocked(state)) return { ok: false, message: '첫 파츠 합성 후 연구소가 열립니다.' };
+  const lab = state.ship.workshop;
+  const levels = kind === 'module' ? lab.moduleLevels : lab.researchLevels;
+  const cost = entry.costs[levels[id]];
+  if (cost === undefined) return { ok: false, message: '최대 단계입니다.' };
+  const resource = kind === 'module' ? 'plasma' : 'relic';
+  if (!Number.isFinite(state.loot[resource]) || state.loot[resource] < cost) {
+    return { ok: false, message: `${resource === 'plasma' ? '플라스마' : '유물'} ${cost}개가 필요합니다.` };
+  }
+  state.loot[resource] -= cost;
+  levels[id] += 1;
+  if (kind === 'module' && !lab.activeModule && lab.switchRemainingMs === 0) {
+    lab.activeModule = id;
+    lab.switchRemainingMs = MODULE_SWITCH_MS;
+  }
+  return { ok: true, message: `${entry.name} Lv.${levels[id]} ${kind === 'module' ? '강화' : '연구'} 완료!` };
+}
+
+export function selectWorkshopModule(state, id) {
+  const lab = state.ship.workshop;
+  if (!isWorkshopUnlocked(state)) return { ok: false, message: '첫 파츠 합성 후 연구소가 열립니다.' };
+  if (id !== null && !VOYAGE_MODULES.some((entry) => entry.id === id && lab.moduleLevels[id] > 0)) {
+    return { ok: false, message: '먼저 해당 모듈을 강화해 주세요.' };
+  }
+  if (lab.activeModule === id) return { ok: false, message: '이미 적용 중입니다.' };
+  if (lab.switchRemainingMs > 0) return { ok: false, message: '전환 대기 중입니다.' };
+  lab.activeModule = id;
+  lab.switchRemainingMs = MODULE_SWITCH_MS;
+  return { ok: true, message: id === null ? '기본 항해로 전환했습니다.' : `${VOYAGE_MODULES.find((entry) => entry.id === id).name} 적용!` };
+}
+
+export function resetVoyageModules(state) {
+  const researchLevels = state.ship.workshop.researchLevels;
+  state.ship.workshop = { ...createWorkshopState(), researchLevels };
+}
+
+
+===== web-prototype/ui/audio.js =====
+import { getSoundCue } from './sound-bank.js';
+
+export function createAudioFeedback(isEnabled, getVolume = () => 1) {
+  let context = null;
+  let master = null;
+  let generation = 0;
+  const voices = new Set();
+  const volume = () => {
+    const value = getVolume();
+    return isEnabled() && Number.isFinite(value) ? Math.max(0, Math.min(1, value)) : 0;
+  };
+  function silence() {
+    generation += 1;
+    for (const voice of voices) {
+      try { voice.stop(); } catch {}
+    }
+    voices.clear();
+  }
+  function sync() {
+    const value = volume();
+    if (master) master.gain.setValueAtTime(value, context.currentTime);
+    if (value === 0) silence();
+  }
+
+  function schedule(kind, rarity) {
+    const notes = getSoundCue(kind, rarity);
+    if (voices.size + notes.length > 16) silence();
+    for (const [index, frequency] of notes.entries()) {
+      const startAt = context.currentTime + index * 0.08;
+      const oscillator = context.createOscillator();
+      const gain = context.createGain();
+      oscillator.type = 'sine';
+      oscillator.frequency.value = frequency;
+      gain.gain.setValueAtTime(0, startAt);
+      gain.gain.linearRampToValueAtTime(0.06, startAt + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.001, startAt + 0.2);
+      oscillator.connect(gain);
+      gain.connect(master);
+      voices.add(oscillator);
+      oscillator.start(startAt);
+      oscillator.stop(startAt + 0.22);
+      oscillator.onended = () => { voices.delete(oscillator); oscillator.disconnect(); gain.disconnect(); };
+    }
+  }
+
+  return {
+    play(kind, { rarity, fromGesture = false } = {}) {
+      if (volume() === 0) return;
+      try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!context && fromGesture && AudioContextClass) {
+          context = new AudioContextClass();
+          master = context.createGain();
+          master.connect(context.destination);
+        }
+        if (!context) return;
+        sync();
+        if (context.state === 'running') schedule(kind, rarity);
+        else if (fromGesture) {
+          const requestedGeneration = generation;
+          context.resume().then(() => {
+            if (generation === requestedGeneration && volume() > 0) { sync(); schedule(kind, rarity); }
+          }).catch(() => {});
+        }
+      } catch {}
+    },
+    sync,
+    suspend() {
+      silence();
+      if (context?.state === 'running') context.suspend().catch(() => {});
+    }
+  };
+}
+
+
+===== web-prototype/ui/expeditions.js =====
+import { MILESTONES, CONTRACTS, isExpeditionUnlocked, getMilestoneProgress, claimExpeditionReward } from '../game/expeditions.js';
+import { createRouteUI } from './routes.js';
+import { ROUTES, isRouteUnlocked, getRouteProgress } from '../game/routes.js';
+
+const rewardText = (reward) => Object.entries(reward).map(([key, value]) => `${{ ore: '광석', iron: '철', crystal: '수정', plasma: '플라스마', relic: '유물' }[key]} +${value}`).join(' · ');
+const milestoneDescriptions = { runs: '프레스티지', bestWave: '최고 웨이브', skills: '보유 스킬', merges: '누적 파츠 합성', bosses: '보스 격파', activeOre: '전경 플레이 채굴 광석' };
+
+export function createExpeditionUI(state, { onChange, isBusy }) {
+  const dialog = document.getElementById('expeditionDialog');
+  const openButton = document.getElementById('expeditionBtn');
+  const routeUI = createRouteUI(state, {onChange, isBusy, dialog});
+  const cards = [];
+  for (const [entries, kind, container] of [[MILESTONES, 'milestone', 'milestoneList'], [CONTRACTS, 'contract', 'contractList']]) {
+    for (const entry of entries) {
+      const card = document.createElement('section');
+      card.className = 'product';
+      const title = document.createElement('h3');
+      title.textContent = entry.title;
+      const description = document.createElement('p');
+      description.className = 'stat';
+      description.textContent = `${entry.description || `${milestoneDescriptions[entry.metric]} ${entry.target.toLocaleString()} 달성`} · ${rewardText(entry.reward)}`;
+      const progress = document.createElement('p');
+      progress.className = 'stat';
+      const button = document.createElement('button');
+      button.onclick = () => {
+        if (isBusy() || document.hidden) return;
+        const result = claimExpeditionReward(state, kind, entry.id);
+        document.getElementById('expeditionMessage').textContent = result.message;
+        if (result.ok) onChange(result);
+        render();
+      };
+      card.append(title, description, progress, button);
+      document.getElementById(container).append(card);
+      cards.push({ entry, kind, progress, button });
+    }
+  }
+  function showPanel(kind) {
+    for (const id of ['milestone', 'contract', 'route']) {
+      document.getElementById(`${id}Panel`).hidden = id !== kind;
+      document.getElementById(`${id}TabBtn`).setAttribute('aria-pressed', String(id === kind));
+    }
+    dialog.scrollTop = 0;
+  }
+  document.getElementById('milestoneTabBtn').onclick = () => showPanel('milestone');
+  document.getElementById('contractTabBtn').onclick = () => showPanel('contract');
+  document.getElementById('routeTabBtn').onclick = () => showPanel('route');
+  openButton.onclick = () => {
+    showPanel(MILESTONES.some((entry) => !state.prestige.expeditions.claimed.includes(entry.id) && getMilestoneProgress(state, entry) >= entry.target) ? 'milestone'
+      : isRouteUnlocked(state) && ROUTES.some((entry) => !state.prestige.routes.claimed.includes(entry.id) && getRouteProgress(state, entry) >= entry.target) ? 'route' : 'contract');
+    dialog.showModal(); render();
+  };
+  document.getElementById('closeExpeditionBtn').onclick = () => dialog.close();
+  function render() {
+    const readyRoutes = routeUI.render();
+    const unlocked = isExpeditionUnlocked(state);
+    openButton.hidden = !unlocked;
+    document.getElementById('voyageNotice').hidden = !unlocked;
+    if (!unlocked) return;
+    const expedition = state.prestige.expeditions;
+    let ready = readyRoutes;
+    let readyContracts = 0;
+    for (const card of cards) {
+      const { entry, kind, button, progress } = card;
+      const claimed = (kind === 'milestone' ? expedition.claimed : expedition.contractClaimed).includes(entry.id);
+      const value = kind === 'milestone' ? getMilestoneProgress(state, entry) : expedition.contractProgress[entry.id];
+      const complete = value >= entry.target;
+      if (complete && !claimed) { ready++; if (kind === 'contract') readyContracts++; }
+      if (!dialog.open) continue;
+      progress.textContent = `${Math.floor(value).toLocaleString()} / ${entry.target.toLocaleString()}${kind === 'contract' && !claimed ? ` · ${state.ship.workshop.activeModule === entry.moduleId ? '해당 모듈 적용 중' : '해당 모듈 적용 시 진행'}` : ''}`;
+      button.textContent = `${entry.title} · ${claimed ? '수령 완료' : '보상 수령'}`;
+      button.disabled = claimed || !complete || isBusy();
+    }
+    openButton.textContent = ready ? `탐사 기록 · 보상 ${ready}개` : '탐사 기록 · 목표 / 계약';
+    document.getElementById('contractResetNotice').textContent = readyContracts
+      ? `미수령 계약 보상 ${readyContracts}개가 있습니다. 프레스티지 전에 수령하세요.`
+      : '계약은 항해당 종류별 1회 수령 · 프레스티지 시 진행도와 수령 상태 초기화';
+    document.getElementById('voyageNotice').textContent = readyContracts
+      ? `계약 보상 ${readyContracts}개 수령 가능 · 프레스티지 시 계약 초기화`
+      : '항해 계약 진행도·미수령 계약 보상은 프레스티지 시 초기화됩니다.';
+  }
+  return { render, get open() { return dialog.open; } };
+}
+
+
+===== web-prototype/ui/feedback.js =====
+export function describeStatChanges(before, after) {
+  const changes = [];
+  const mining = after.miningRate - before.miningRate;
+  const damage = after.combatDps - before.combatDps;
+  const crit = (after.critChance - before.critChance) * 100;
+  if (mining > 0.0001) changes.push(`채굴 +${mining.toFixed(1)}/초`);
+  if (damage > 0.0001) changes.push(`공격 +${damage.toFixed(1)}/초`);
+  if (crit > 0.0001) changes.push(`치명타 +${crit.toFixed(1)}%p`);
+  return changes.join(' · ') || '현재 능력치 상한에 도달했습니다.';
+}
+
+export function createRewardFeedback(element) {
+  let remainingMs = 0;
+  return {
+    get active() { return remainingMs > 0; },
+    show({ label, title, description, rarity = 'upgrade' }) {
+      element.dataset.rarity = rarity;
+      element.querySelector('.reward-label').textContent = label;
+      element.querySelector('.reward-title').textContent = title;
+      element.querySelector('.reward-description').textContent = description;
+      element.hidden = false;
+      remainingMs = 4500;
+    },
+    tick(dtMs) {
+      if (remainingMs <= 0) return;
+      remainingMs -= dtMs;
+      if (remainingMs <= 0) element.hidden = true;
+    }
+  };
+}
+
+
+===== web-prototype/ui/routes.js =====
+import { ROUTES, isRouteUnlocked, getRouteProgress, claimRoute, trackRoute, equipRoute, getRouteTheme } from '../game/routes.js';
+
+export function createRouteUI(state, { onChange, isBusy, dialog }) {
+  function act(action, soundCue = 'equip') {
+    if (isBusy() || document.hidden) return;
+    const result = action();
+    document.getElementById('expeditionMessage').textContent = result.message;
+    if (result.ok) onChange({ ...result, soundCue });
+    render();
+  }
+  const cards = ROUTES.map((entry) => {
+    const card = document.createElement('section');
+    card.className = 'product route-product';
+    const title = document.createElement('h3');
+    title.textContent = entry.title;
+    const description = document.createElement('p');
+    description.className = 'stat';
+    description.textContent = entry.description;
+    const motto = document.createElement('p');
+    motto.className = 'goal';
+    motto.textContent = entry.motto;
+    const reward = document.createElement('p');
+    reward.className = 'route-reward';
+    reward.style.setProperty('--route-color', entry.color);
+    const swatch = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    swatch.setAttribute('class', 'route-swatch');
+    swatch.setAttribute('viewBox', '0 0 50 10');
+    swatch.setAttribute('aria-hidden', 'true');
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    for (const [key, value] of Object.entries({x1:0,x2:50,y1:5,y2:5,stroke:entry.color,'stroke-width':3,'stroke-dasharray':entry.dash.join(' ')})) line.setAttribute(key, String(value));
+    swatch.append(line);
+    reward.append(swatch, `${entry.theme} · 빔 / 궤도 외형`);
+    const progress = document.createElement('p');
+    progress.className = 'stat';
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+    const track = document.createElement('button');
+    track.className = 'alt';
+    const claim = document.createElement('button');
+    track.onclick = () => act(() => trackRoute(state, state.prestige.routes.tracked === entry.id ? null : entry.id));
+    claim.onclick = () => act(() => state.prestige.routes.claimed.includes(entry.id) ? equipRoute(state, entry.id) : claimRoute(state, entry.id), state.prestige.routes.claimed.includes(entry.id) ? 'equip' : 'reward');
+    actions.append(track, claim);
+    card.append(title, motto, description, reward, progress, actions);
+    document.getElementById('routeList').append(card);
+    return {entry, progress, track, claim};
+  });
+  document.getElementById('defaultRouteBtn').onclick = () => act(() => equipRoute(state, null));
+  function render() {
+    const routes = state.prestige.routes;
+    const unlocked = isRouteUnlocked(state);
+    const tracked = ROUTES.find((entry) => entry.id === routes.tracked);
+    const theme = getRouteTheme(state);
+    const notice = document.getElementById('routeNotice');
+    notice.hidden = !unlocked;
+    notice.textContent = tracked
+      ? `항로 목표 · ${tracked.title} ${Math.floor(getRouteProgress(state, tracked)).toLocaleString()} / ${tracked.target.toLocaleString()}${routes.claimed.includes(tracked.id) ? ' · 해금 완료' : ''}`
+      : '심우주 항로가 열렸습니다. 탐사 기록에서 다음 도전을 선택하세요.';
+    let ready = 0;
+    for (const {entry, progress, track, claim} of cards) {
+      const value = getRouteProgress(state, entry);
+      const claimed = routes.claimed.includes(entry.id);
+      if (unlocked && !claimed && value >= entry.target) ready++;
+      if (!dialog.open) continue;
+      progress.textContent = `${Math.floor(value).toLocaleString()} / ${entry.target.toLocaleString()}${claimed ? ' · 해금 완료' : ''}`;
+      track.textContent = `${entry.title} · ${routes.tracked === entry.id ? '추적 해제' : '목표 추적'}`;
+      track.setAttribute('aria-pressed', String(routes.tracked === entry.id));
+      track.disabled = !unlocked || isBusy();
+      claim.textContent = `${entry.theme} · ${!unlocked ? '항로 해금 후 이용' : routes.equipped === entry.id ? '적용 중' : claimed ? '외형 적용' : '외형 해금'}`;
+      claim.disabled = !unlocked || isBusy() || routes.equipped === entry.id || (!claimed && value < entry.target);
+    }
+    if (dialog.open) {
+      document.getElementById('routeStatus').textContent = unlocked
+        ? `외형 ${routes.claimed.length} / ${ROUTES.length} · 현재 ${theme?.theme || '기본 항로'}`
+        : '프레스티지 5회 또는 최고 웨이브 25에서 해금됩니다. 웨이브·환생 기록은 소급 반영합니다.';
+      document.getElementById('defaultRouteBtn').disabled = routes.equipped === null || isBusy();
+    }
+    return ready;
+  }
+  return {render};
+}
+
+
+===== web-prototype/ui/save.js =====
+import { parseSave, serializeState, saveStore } from '../game/storage.js';
+
+export function createSaveUI(state, { isBusy, onRestore }) {
+  const dialog = document.getElementById('saveDialog');
+  const code = document.getElementById('backupCode');
+  const preview = document.getElementById('backupPreview');
+  const message = document.getElementById('saveMessage');
+  const apply = document.getElementById('applyBackupBtn');
+  let reviewed = null;
+  const invalidate = () => { reviewed = null; apply.disabled = true; preview.textContent = ''; };
+  function review() {
+    invalidate();
+    try {
+      const candidate = parseSave(code.value);
+      reviewed = code.value;
+      preview.textContent = `복원할 진행: 웨이브 ${candidate.combat.wave} · 프레스티지 ${candidate.prestige.runs}회 · 스킬 ${candidate.skills.length}개 · 암흑물질 ${candidate.profile.darkMatter}. 적용하면 현재 진행이 교체됩니다. 이전 진행은 복원 전 백업으로 보관합니다.`;
+      apply.disabled = isBusy();
+      message.textContent = '내용을 확인한 뒤 복원 적용을 눌러 주세요. 백업의 오프라인 시간은 보상하지 않습니다.';
+    } catch (error) { message.textContent = error.message; }
+  }
+  document.getElementById('saveBtn').onclick = () => {
+    invalidate();
+    code.value = '';
+    message.textContent = saveStore.message || '5초마다 자동 저장합니다. 중요한 진행은 백업 코드를 따로 보관해 주세요.';
+    dialog.showModal();
+  };
+  document.getElementById('closeSaveBtn').onclick = () => dialog.close();
+  code.oninput = invalidate;
+  document.getElementById('exportBackupBtn').onclick = () => {
+    invalidate();
+    code.value = serializeState(state);
+    code.focus();
+    code.select();
+    message.textContent = '현재 진행의 백업 코드입니다. 전체를 복사해 메모나 파일로 보관해 주세요.';
+  };
+  document.getElementById('reviewBackupBtn').onclick = review;
+  document.getElementById('previousBackupBtn').onclick = () => {
+    invalidate();
+    try {
+      const previous = saveStore.readPrevious();
+      if (!previous) { message.textContent = '복원 전 백업이 없습니다.'; return; }
+      code.value = previous;
+      review();
+    } catch { message.textContent = '저장 공간에 접근할 수 없습니다.'; }
+  };
+  apply.onclick = () => {
+    if (isBusy() || reviewed === null || reviewed !== code.value) return;
+    try {
+      saveStore.restore(reviewed, state);
+      invalidate();
+      message.textContent = saveStore.message;
+      onRestore();
+    } catch (error) {
+      message.textContent = `복원하지 못했습니다. ${error.message} 저장 공간과 백업 코드를 확인해 주세요.`;
+    }
+  };
+  return { get open() { return dialog.open; } };
+}
+
+
+===== web-prototype/ui/scene.js =====
+import { getWaveConfig } from '../game/balance.js';
+import { getRouteTheme } from '../game/routes.js';
+import { getEncounter } from '../game/encounters.js';
+import { shouldReduceMotion } from '../game/settings.js';
+
+export function createScene(canvas) {
+  const context = canvas.getContext('2d');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let width = 1;
+  let height = 1;
+  let burstAgeMs = Infinity;
+  let burstColor = '#67e8f9';
+
+  function resize() {
+    const bounds = canvas.parentElement.getBoundingClientRect();
+    width = Math.max(1, bounds.width);
+    height = Math.max(1, bounds.height);
+    const pixelRatio = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(width * pixelRatio);
+    canvas.height = Math.round(height * pixelRatio);
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+  }
+
+  return {
+    resize,
+    burst(isBoss = false) {
+      burstAgeMs = 0;
+      burstColor = isBoss ? '#fbbf24' : '#67e8f9';
+    },
+    draw(state, dtMs, supporter) {
+      burstAgeMs += dtMs;
+      const wave = getWaveConfig(state.combat.wave);
+      const route = getRouteTheme(state);
+      const encounter = getEncounter(state);
+      const motionReduced = shouldReduceMotion(state.settings, reducedMotion.matches);
+      const centerX = width * 0.5;
+      const hudHeight = encounter ? 115 : 65;
+      const centerY = (height - hudHeight) * 0.5;
+      const orbitRadius = Math.max(20, Math.min(120, width * 0.35, (height - hudHeight - 15) * 0.38));
+      const asteroidRadius = Math.min(68, orbitRadius * 0.55);
+      const angle = motionReduced ? -0.7 : state.combat.orbitAngle;
+      const shipX = centerX + Math.cos(angle) * orbitRadius;
+      const shipY = centerY + Math.sin(angle) * orbitRadius;
+
+      context.clearRect(0, 0, width, height);
+      for (let index = 0; index < 100; index += 1) {
+        context.fillStyle = index % 8 === 0 ? '#60a5fa' : '#94a3b8';
+        context.fillRect((index * 137) % width, (index * 71) % height, 1.5, 1.5);
+      }
+      context.strokeStyle = route ? `${route.color}88` : wave.isBoss ? '#f59e0b44' : '#60a5fa44';
+      context.setLineDash(route?.dash || []);
+      context.lineWidth = 1;
+      context.beginPath();
+      context.arc(centerX, centerY, orbitRadius, 0, Math.PI * 2);
+      context.stroke();
+
+      context.strokeStyle = route ? `${route.color}aa` : wave.isBoss ? '#fb923c66' : '#22d3ee66';
+      context.lineWidth = 3;
+      context.beginPath();
+      context.moveTo(shipX, shipY);
+      context.lineTo(centerX, centerY);
+      context.stroke();
+      context.setLineDash([]);
+
+      context.beginPath();
+      const corners = wave.isBoss ? 12 : 9;
+      for (let index = 0; index <= corners; index += 1) {
+        const cornerAngle = index / corners * Math.PI * 2;
+        const radius = asteroidRadius * (index % 2 === 0 ? 1 : 0.83);
+        const cornerX = centerX + Math.cos(cornerAngle) * radius;
+        const cornerY = centerY + Math.sin(cornerAngle) * radius;
+        if (index === 0) context.moveTo(cornerX, cornerY);
+        else context.lineTo(cornerX, cornerY);
+      }
+      context.closePath();
+      context.fillStyle = wave.isBoss ? '#713f12' : '#334155';
+      context.strokeStyle = encounter?.color || (wave.isBoss ? '#fbbf24' : '#64748b');
+      context.lineWidth = wave.isBoss ? 3 : 2;
+      context.fill();
+      context.stroke();
+
+      if (encounter) {
+        context.strokeStyle = encounter.color;
+        context.lineWidth = 2;
+        context.setLineDash(encounter.phaseIndex === 0 ? [6, 4] : []);
+        context.beginPath();
+        context.arc(centerX, centerY, asteroidRadius + 7, 0, Math.PI * 2);
+        context.stroke();
+        context.setLineDash([]);
+      }
+
+      context.fillStyle = wave.isBoss ? '#fb923c' : '#38bdf8';
+      context.beginPath();
+      context.arc(centerX, centerY, asteroidRadius * 0.35, 0, Math.PI * 2);
+      context.fill();
+
+      context.save();
+      context.translate(shipX, shipY);
+      context.rotate(Math.atan2(centerY - shipY, centerX - shipX));
+      context.fillStyle = supporter ? '#c084fc' : '#67e8f9';
+      context.beginPath();
+      context.moveTo(17, 0);
+      context.lineTo(-11, -11);
+      context.lineTo(-5, 0);
+      context.lineTo(-11, 11);
+      context.closePath();
+      context.fill();
+      context.restore();
+
+      if (!motionReduced && burstAgeMs < 550) {
+        const progress = burstAgeMs / 550;
+        context.globalAlpha = 1 - progress;
+        context.strokeStyle = burstColor;
+        context.lineWidth = 3;
+        context.beginPath();
+        context.arc(centerX, centerY, asteroidRadius + progress * orbitRadius, 0, Math.PI * 2);
+        context.stroke();
+        context.globalAlpha = 1;
+      }
+    }
+  };
+}
+
+
+===== web-prototype/ui/settings.js =====
+import { shouldReduceMotion } from '../game/settings.js';
+
+export function createSettingsUI(state, { audio, persist }) {
+  const dialog = document.getElementById('settingsDialog');
+  const enabled = document.getElementById('soundEnabled');
+  const volume = document.getElementById('soundVolume');
+  const reduce = document.getElementById('reduceMotion');
+  const system = matchMedia('(prefers-reduced-motion: reduce)');
+  const message = document.getElementById('settingsMessage');
+  function render() {
+    document.documentElement.dataset.reducedMotion = String(shouldReduceMotion(state.settings, system.matches));
+    enabled.checked = state.settings.soundEnabled;
+    volume.value = String(Math.round(state.settings.soundVolume * 100));
+    document.getElementById('volumeValue').textContent = `${volume.value}%`;
+    volume.setAttribute('aria-valuetext', `${volume.value}%`);
+    reduce.checked = state.settings.reduceMotion;
+    document.getElementById('motionStatus').textContent = system.matches
+      ? '기기의 모션 줄이기가 켜져 있어 항상 적용됩니다.'
+      : '켜면 함선 회전과 격파 파동을 멈춥니다. 채굴과 전투 속도는 같습니다.';
+    document.getElementById('testSoundBtn').disabled = !enabled.checked || state.settings.soundVolume === 0;
+  }
+  function change() {
+    audio.sync();
+    const saved = persist();
+    message.textContent = saved ? '설정을 저장했습니다.' : '설정을 저장하지 못했습니다. 저장 공간을 확인해 주세요.';
+    render();
+  }
+  enabled.onchange = () => {
+    state.settings.soundEnabled = enabled.checked;
+    change();
+    if (enabled.checked) audio.play('gacha', { fromGesture: true });
+  };
+  volume.oninput = () => {
+    state.settings.soundVolume = Math.max(0, Math.min(100, Number(volume.value))) / 100;
+    audio.sync();
+    document.getElementById('volumeValue').textContent = `${volume.value}%`;
+    volume.setAttribute('aria-valuetext', `${volume.value}%`);
+    document.getElementById('testSoundBtn').disabled = !state.settings.soundEnabled || state.settings.soundVolume === 0;
+  };
+  volume.onchange = change;
+  reduce.onchange = () => { state.settings.reduceMotion = reduce.checked; change(); };
+  document.getElementById('testSoundBtn').onclick = () => {
+    const [kind, rarity] = document.getElementById('soundPreview').value.split(':');
+    audio.play(kind, { rarity, fromGesture: true });
+  };
+  document.getElementById('settingsBtn').onclick = () => {
+    message.textContent = '';
+    render();
+    dialog.showModal();
+    dialog.scrollTop = 0;
+  };
+  document.getElementById('closeSettingsBtn').onclick = () => dialog.close();
+  system.addEventListener('change', render);
+  render();
+  return { render, get open() { return dialog.open; } };
+}
+
+
+===== web-prototype/ui/sound-bank.js =====
+// Original synthesized interface cues; no external audio samples or music licenses.
+export const SOUND_CUES = {
+  gacha: [523.25, 659.25, 783.99],
+  merge: [329.63, 440, 659.25],
+  boss: [261.63, 392, 523.25],
+  prestige: [261.63, 392, 523.25, 783.99, 1046.5],
+  research: [440, 554.37, 880],
+  reward: [659.25, 880],
+  equip: [392, 523.25]
+};
+export function getSoundCue(kind, rarity) {
+  if (kind === 'gacha' && rarity === 'UR') return [523.25, 659.25, 783.99, 1046.5, 1318.51];
+  if (kind === 'gacha' && rarity === 'SR') return [523.25, 659.25, 783.99, 1046.5];
+  return SOUND_CUES[kind] || SOUND_CUES.gacha;
+}
+
+
+===== web-prototype/ui/workshop.js =====
+import { VOYAGE_MODULES, PERMANENT_RESEARCH, isWorkshopUnlocked, selectWorkshopModule, upgradeWorkshop } from '../game/workshop.js';
+import { getDerivedStats } from '../game/systems.js';
+import { getEncounter, MODULE_LABELS } from '../game/encounters.js';
+
+function effectText(effect = {}) {
+  const output = [];
+  if (effect.miningMult) output.push(`파츠 채굴 ${effect.miningMult > 0 ? '+' : ''}${Math.round(effect.miningMult * 100)}%`);
+  if (effect.damageMult) output.push(`파츠 공격 ${effect.damageMult > 0 ? '+' : ''}${Math.round(effect.damageMult * 100)}%`);
+  if (effect.miningBonus) output.push(`채굴 +${effect.miningBonus}/초`);
+  if (effect.damageBonus) output.push(`공격 +${effect.damageBonus}/초`);
+  return output.join(' · ') || '효과 없음';
+}
+
+export function createWorkshopUI(state, { onChange, isBusy }) {
+  const dialog = document.getElementById('workshopDialog');
+  const status = document.getElementById('workshopMessage');
+  const cards = [];
+  function act(action, soundCue = 'research') {
+    if (isBusy() || document.hidden) return;
+    const result = action();
+    status.textContent = result.message;
+    if (result.ok) onChange({ ...result, soundCue });
+    render();
+  }
+  for (const [entries, kind, target] of [[VOYAGE_MODULES, 'module', 'voyageModules'], [PERMANENT_RESEARCH, 'research', 'permanentResearch']]) {
+    for (const entry of entries) {
+      const card = document.createElement('section');
+      card.className = 'product workshop-product';
+      const title = document.createElement('h3');
+      const effect = document.createElement('p');
+      effect.className = 'stat';
+      const preview = document.createElement('p');
+      preview.className = 'stat';
+      const upgrade = document.createElement('button');
+      upgrade.onclick = () => act(() => upgradeWorkshop(state, kind, entry.id));
+      card.append(title, effect, preview, upgrade);
+      let select;
+      if (kind === 'module') {
+        select = document.createElement('button');
+        select.className = 'alt';
+        select.onclick = () => act(() => selectWorkshopModule(state, entry.id), 'equip');
+        card.append(select);
+      }
+      document.getElementById(target).append(card);
+      cards.push({ entry, kind, title, effect, preview, upgrade, select });
+    }
+  }
+  const basic = document.getElementById('basicModuleBtn');
+  basic.onclick = () => act(() => selectWorkshopModule(state, null), 'equip');
+  document.getElementById('workshopBtn').onclick = () => {
+    dialog.showModal();
+    render();
+  };
+  document.getElementById('closeWorkshopBtn').onclick = () => dialog.close();
+  function render() {
+    const lab = state.ship.workshop;
+    const unlocked = isWorkshopUnlocked(state);
+    const active = VOYAGE_MODULES.find((entry) => entry.id === lab.activeModule);
+    const wait = Math.ceil(lab.switchRemainingMs / 1000);
+    document.getElementById('workshopBtn').textContent = unlocked ? '연구소 · 모듈 / 영구 연구' : '연구소 · 첫 합성 후 해금';
+    if (!dialog.open) return;
+    const stats = getDerivedStats(state);
+    const encounter = getEncounter(state);
+    document.getElementById('workshopTactic').hidden = !encounter;
+    if (encounter) document.getElementById('workshopTactic').textContent = `현재 보스: ${encounter.name} · ${MODULE_LABELS[encounter.module]} 모듈로 약점 공략 시 피해 배율 +0.25. 전환 전 현재 모듈의 공격 효과와 10초 대기를 확인하세요.`;
+    document.getElementById('workshopStatus').textContent = `${unlocked ? `적용: ${active?.name || '기본 항해'}` : '첫 파츠 합성 후 이용할 수 있습니다.'} · 플라스마 ${state.loot.plasma} / 유물 ${state.loot.relic}`;
+    document.getElementById('workshopStats').textContent = `현재 채굴 ${stats.miningRate.toFixed(1)}/초 · 공격 ${stats.combatDps.toFixed(1)}/초${wait ? ` · 전환 대기 ${wait}초` : ''}`;
+    basic.textContent = lab.activeModule ? '기본 항해로 전환' : '기본 항해 적용 중';
+    basic.disabled = !unlocked || !lab.activeModule || wait > 0 || isBusy();
+    for (const card of cards) {
+      const { entry, kind, title, effect, preview, upgrade, select } = card;
+      const level = (kind === 'module' ? lab.moduleLevels : lab.researchLevels)[entry.id];
+      const cost = entry.costs[level];
+      const resource = kind === 'module' ? 'plasma' : 'relic';
+      const resourceName = kind === 'module' ? '플라스마' : '유물';
+      title.textContent = `${entry.name} · ${level}/${entry.levels.length}`;
+      effect.textContent = `현재: ${effectText(entry.levels[level - 1])}`;
+      if (encounter && kind === 'module' && level > 0) {
+        const candidate = { ...state, ship: { ...state.ship, workshop: { ...lab, activeModule: entry.id } } };
+        const derived = getDerivedStats(candidate);
+        const damage = derived.combatDps * (1 + derived.critChance * (derived.critMultiplier - 1)) * getEncounter(candidate).damageMultiplier;
+        effect.textContent += ` · 적용 시 현 단계 피해 ${damage.toFixed(1)}/초`;
+      }
+      preview.textContent = cost === undefined ? '최대 단계 달성' : `다음: ${effectText(entry.levels[level])}`;
+      upgrade.textContent = cost === undefined ? `${entry.name} 최대 단계` : `${entry.name} 강화 · ${resourceName} ${cost}`;
+      upgrade.disabled = !unlocked || cost === undefined || state.loot[resource] < cost || isBusy();
+      if (select) {
+        select.textContent = lab.activeModule === entry.id ? `${entry.name} 적용 중` : `${entry.name} 적용`;
+        select.setAttribute('aria-pressed', String(lab.activeModule === entry.id));
+        select.disabled = !unlocked || level === 0 || lab.activeModule === entry.id || wait > 0 || isBusy();
+      }
+    }
+  }
+  return { render, get open() { return dialog.open; } };
+}
+
+
+===== web-prototype/platform/catalog.js =====
+export const PRODUCTS = [
+  {
+    id: 'autodrill.remove_ads',
+    entitlement: 'removeAds',
+    name: '광고 제거',
+    description: '자동 전면 광고를 영구 제거합니다. 보상형 광고는 선택해서 이용할 수 있습니다.',
+    type: 'non-consumable'
+  },
+  {
+    id: 'autodrill.supporter',
+    entitlement: 'supporter',
+    name: '갤럭시 서포터',
+    description: '전용 보라색 함선 외형을 영구 해금합니다.',
+    type: 'non-consumable'
+  }
+];
+
+export const AD_POLICY = {
+  rewardedCooldownMs: 180000,
+  rewardedMiningSeconds: 60,
+  interstitialFirstDelayMs: 180000,
+  interstitialCooldownMs: 180000,
+  interstitialPlacement: 'prestige'
+};
+
+
+===== web-prototype/platform/native.js =====
+import { Capacitor, registerPlugin } from '@capacitor/core';
+
+export function createNativeProvider() {
+  if (!Capacitor.isNativePlatform() || !Capacitor.isPluginAvailable('AutoDrillNative')) return null;
+  return registerPlugin('AutoDrillNative');
+}
+
+
+===== web-prototype/platform/services.js =====
+import { AD_POLICY, PRODUCTS } from './catalog.js';
+import { getDerivedStats } from '../game/systems.js';
+
+const unavailable = () => ({ ok: false, message: '이 기능은 앱 버전에서 지원합니다.' });
+
+export function createPlatformServices({ state, provider = null, persist, now = Date.now }) {
+  let busy = false;
+  let products = [];
+  let entitlements = { removeAds: false, supporter: false };
+  let nativeCapabilities = {};
+  let consent = { canRequestAds: false, privacyOptionsRequired: false };
+  let capabilities = { purchases: false, rewardedAds: false, interstitialAds: false, gameCenter: false, privacyOptions: false };
+  const startedAt = now();
+  let lastInterstitialAt = startedAt;
+
+  function updateEntitlements(value) {
+    entitlements = { removeAds: value?.removeAds === true, supporter: value?.supporter === true };
+  }
+
+  function refreshCapabilities() {
+    capabilities = {
+      purchases: nativeCapabilities.purchases === true,
+      rewardedAds: nativeCapabilities.rewardedAds === true && consent.canRequestAds,
+      interstitialAds: nativeCapabilities.interstitialAds === true && consent.canRequestAds,
+      gameCenter: nativeCapabilities.gameCenter === true,
+      privacyOptions: nativeCapabilities.privacyOptions === true && consent.privacyOptionsRequired
+    };
+  }
+
+  async function exclusive(action) {
+    if (busy) return { ok: false, message: '진행 중인 요청이 있습니다.' };
+    busy = true;
+    try {
+      return await action();
+    } catch {
+      return { ok: false, message: '연결을 확인한 뒤 다시 시도해 주세요.' };
+    } finally {
+      busy = false;
+    }
+  }
+
+  return {
+    get busy() { return busy; },
+    get entitlements() { return { ...entitlements }; },
+    get capabilities() { return { ...capabilities }; },
+    get products() { return products.map((product) => ({ ...product })); },
+
+    async initialize() {
+      if (!provider) return unavailable();
+      return exclusive(async () => {
+        const result = await provider.initialize();
+        nativeCapabilities = result.capabilities || {};
+        consent = { canRequestAds: result.consent?.canRequestAds === true, privacyOptionsRequired: result.consent?.privacyOptionsRequired === true };
+        refreshCapabilities();
+        updateEntitlements(result.entitlements);
+        if (capabilities.purchases) {
+          const response = await provider.getProducts({ productIds: PRODUCTS.map((product) => product.id) });
+          products = (Array.isArray(response.products) ? response.products : []).filter((product) =>
+            PRODUCTS.some((entry) => entry.id === product.id) && typeof product.displayPrice === 'string'
+          );
+        }
+        return { ok: true, message: '앱 서비스가 준비되었습니다.' };
+      });
+    },
+
+    async showPrivacyOptions() {
+      if (!capabilities.privacyOptions || typeof provider?.showPrivacyOptions !== 'function') return unavailable();
+      return exclusive(async () => {
+        consent.canRequestAds = false;
+        refreshCapabilities();
+        const result = await provider.showPrivacyOptions();
+        if (result.shown !== true || typeof result.consent?.canRequestAds !== 'boolean' || typeof result.consent?.privacyOptionsRequired !== 'boolean') {
+          return { ok: false, message: '개인정보 선택을 확인하지 못했습니다. 다시 시도해 주세요.' };
+        }
+        consent = { canRequestAds: result.consent.canRequestAds, privacyOptionsRequired: result.consent.privacyOptionsRequired };
+        refreshCapabilities();
+        return { ok: true, message: '개인정보 선택을 업데이트했습니다.' };
+      });
+    },
+
+    async purchase(productId) {
+      if (!capabilities.purchases || !products.some((product) => product.id === productId)) return unavailable();
+      if (entitlements[PRODUCTS.find((product) => product.id === productId).entitlement]) {
+        return { ok: false, message: '이미 보유한 상품입니다.' };
+      }
+      return exclusive(async () => {
+        const result = await provider.purchase({ productId });
+        if (result.status === 'pending') return { ok: false, message: '구매 승인을 기다리고 있습니다.' };
+        if (result.status !== 'purchased' || result.verified !== true) {
+          return { ok: false, message: '구매가 완료되지 않았습니다.' };
+        }
+        const entitlement = PRODUCTS.find((product) => product.id === productId).entitlement;
+        if (result.entitlements?.[entitlement] !== true) {
+          return { ok: false, message: '구매 권한을 확인하지 못했습니다. 구매 복원을 시도해 주세요.' };
+        }
+        updateEntitlements(result.entitlements);
+        return { ok: true, message: '구매가 완료되었습니다.' };
+      });
+    },
+
+    async restorePurchases() {
+      if (!capabilities.purchases) return unavailable();
+      return exclusive(async () => {
+        const result = await provider.restorePurchases();
+        if (result.verified !== true) return { ok: false, message: '구매 내역을 확인하지 못했습니다.' };
+        updateEntitlements(result.entitlements);
+        return { ok: true, message: '구매 내역을 복원했습니다.' };
+      });
+    },
+
+    async showRewarded() {
+      if (!capabilities.rewardedAds) return unavailable();
+      if (now() - state.monetization.lastRewardedAt < AD_POLICY.rewardedCooldownMs) {
+        return { ok: false, message: '보급품을 받은 뒤 3분 후 다시 이용할 수 있습니다.' };
+      }
+      return exclusive(async () => {
+        const result = await provider.showRewarded({ placement: 'supply' });
+        if (result.rewardEarned !== true || typeof result.rewardId !== 'string' || !result.rewardId) {
+          return { ok: false, message: '광고 보상이 지급되지 않았습니다.' };
+        }
+        if (state.monetization.rewardIds.includes(result.rewardId)) {
+          return { ok: false, message: '이미 지급된 보상입니다.' };
+        }
+        const ore = getDerivedStats(state).miningRate * AD_POLICY.rewardedMiningSeconds;
+        state.profile.ore += ore;
+        state.profile.totalOreMined += ore;
+        state.monetization.lastRewardedAt = now();
+        state.monetization.rewardIds = [...state.monetization.rewardIds, result.rewardId].slice(-100);
+        persist(state);
+        return { ok: true, message: `보급품 수령: 광석 +${Math.floor(ore)}` };
+      });
+    },
+
+    async showInterstitial(placement) {
+      if (!capabilities.interstitialAds || entitlements.removeAds || placement !== AD_POLICY.interstitialPlacement) {
+        return { ok: false, skipped: true };
+      }
+      if (now() - startedAt < AD_POLICY.interstitialFirstDelayMs || now() - lastInterstitialAt < AD_POLICY.interstitialCooldownMs) {
+        return { ok: false, skipped: true };
+      }
+      return exclusive(async () => {
+        const result = await provider.showInterstitial({ placement });
+        if (result.shown === true) lastInterstitialAt = now();
+        return { ok: result.shown === true };
+      });
+    },
+
+    async showLeaderboard() {
+      if (!capabilities.gameCenter) return unavailable();
+      return exclusive(async () => {
+        const result = await provider.showLeaderboard();
+        return { ok: result.shown === true, message: result.shown === true ? '리더보드를 열었습니다.' : '로그인 상태를 확인해 주세요.' };
+      });
+    }
+  };
+}

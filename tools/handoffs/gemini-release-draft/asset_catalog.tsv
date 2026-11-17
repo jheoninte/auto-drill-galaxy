@@ -1,0 +1,77 @@
+id	category	priority	format	sourceSize	usage	silhouette	color	motionFallback
+ship.base	ship	P0	canvas/svg	512x512	기본 플레이어 드릴 함선	예리한 삼각 화살촉	#67e8f9	정적 각도 고정
+ship.supporter.01	ship	P1	canvas/svg	512x512	서포터 외형 1 (바이올렛)	동일 삼각 화살촉	#c084fc	정적 각도 고정
+ship.supporter.02	ship	P1	canvas/svg	512x512	서포터 외형 2 (솔라 골드)	동일 삼각 화살촉	#fbbf24	정적 각도 고정
+ship.supporter.03	ship	P1	canvas/svg	512x512	서포터 외형 3 (에메랄드)	동일 삼각 화살촉	#34d399	정적 각도 고정
+asteroid.01	asteroid	P0	canvas/svg	512x512	일반 소행성 광맥	9각 불규칙 다각형	#334155/#38bdf8	정적 도형 유지
+asteroid.02	asteroid	P1	canvas/svg	512x512	고밀도 철질 소행성	11각 톱니 다각형	#1e293b/#94a3b8	정적 도형 유지
+asteroid.03	asteroid	P1	canvas/svg	512x512	결정질 소행성	7각 각진 프리즘형	#1e1b4b/#67e8f9	정적 도형 유지
+boss.armor	boss	P0	canvas/svg	512x512	5웨이브 주기 장갑 보스	12각 톱니 장갑판	#713f12/#fbbf24	2단계 외곽선 실선 전환
+boss.crystal	boss	P0	canvas/svg	512x512	10웨이브 주기 수정 보스	8각 프리즘 결정체	#1e1b4b/#c4b5fd	2단계 내부 균열선 표시
+boss.void	boss	P0	canvas/svg	512x512	15웨이브 주기 공허 보스	이중 반전 오각형	#1f122b/#fb7185	2단계 외곽 도형 반전
+boss.gravity	boss	P1	canvas/svg	512x512	구역 4 추가 중력 보스	궤도 고리 10각형	#172554/#60a5fa	2단계 내측 링 수축
+boss.solar	boss	P1	canvas/svg	512x512	구역 5 추가 항성 보스	16각 코로나 플레어	#451a03/#fde047	2단계 코어 백열 점등
+sector.01	background	P0	canvas/webp	1080x1920	구역 1 출항 채굴대 배경	성긴 점묘 별자리	#020617/#38bdf8	단색 딥네이비 고정
+sector.02	background	P1	canvas/webp	1080x1920	구역 2 수정 항로 배경	육각 결정 격자	#091326/#67e8f9	단색 딥네이비 고정
+sector.03	background	P1	canvas/webp	1080x1920	구역 3 공허 경계 배경	십자 성단 원환	#050816/#c4b5fd	단색 딥네이비 고정
+sector.04	background	P1	canvas/webp	1080x1920	구역 4 중력 균열 배경	동심 중력파 링	#0a0f24/#fb7185	단색 딥네이비 고정
+sector.05	background	P1	canvas/webp	1080x1920	구역 5 은하 중심 배경	방사형 코로나 광선	#0d1117/#fbbf24	단색 딥네이비 고정
+resource.ore	resource	P0	svg	128x128	기본 채굴 광석 아이콘	원형 광석 결정	#38bdf8	정적 SVG
+resource.iron	resource	P0	svg	128x128	합성 재료 철 아이콘	사각 금속 주괴	#94a3b8	정적 SVG
+resource.crystal	resource	P0	svg	128x128	합성 재료 수정 아이콘	세로 마름모 결정	#67e8f9	정적 SVG
+resource.plasma	resource	P0	svg	128x128	모듈 강화 플라스마 아이콘	이중 원형 에너지구	#fb7185	정적 SVG
+resource.relic	resource	P0	svg	128x128	영구 연구 유물 아이콘	삼각 고대 유물석	#c4b5fd	정적 SVG
+resource.darkMatter	resource	P0	svg	128x128	프레스티지 암흑물질 아이콘	육각 중력 코어	#fbbf24	정적 SVG
+skill.sk_mine_1	skill	P0	svg	128x128	Basic Drill 아이콘	드릴 비트 + N테두리	#67e8f9	정적 SVG
+skill.sk_dmg_1	skill	P0	svg	128x128	Laser Pointer 아이콘	조준 십자 + N테두리	#fb7185	정적 SVG
+skill.sk_crit_1	skill	P0	svg	128x128	Lucky Strike 아이콘	사각 별빛 + N테두리	#fbbf24	정적 SVG
+skill.sk_mine_2	skill	P0	svg	128x128	Plasma Cutter 아이콘	이중 드릴 + R테두리	#60a5fa	정적 SVG
+skill.sk_dmg_2	skill	P0	svg	128x128	Auto Cannon 아이콘	이중 포신 + R테두리	#60a5fa	정적 SVG
+skill.sk_hybrid_1	skill	P0	svg	128x128	Mining Laser 아이콘	광선+드릴 + R테두리	#60a5fa	정적 SVG
+skill.sk_crit_2	skill	P0	svg	128x128	Targeting OS 아이콘	동심 조준원 + R테두리	#60a5fa	정적 SVG
+skill.sk_mine_3	skill	P0	svg	128x128	Quantum Extractor 아이콘	삼중 나선 + SR테두리	#c084fc	정적 SVG
+skill.sk_dmg_3	skill	P0	svg	128x128	Orbital Railgun 아이콘	레일 가속기 + SR테두리	#c084fc	정적 SVG
+skill.sk_hybrid_2	skill	P0	svg	128x128	Void Engine 아이콘	공허 코어 + SR테두리	#c084fc	정적 SVG
+skill.sk_crit_3	skill	P0	svg	128x128	Probability Manipulator 아이콘	육각 주사위 + UR테두리	#fbbf24	정적 SVG
+skill.sk_all_1	skill	P0	svg	128x128	Galaxy Core 아이콘	은하 소용돌이 + UR테두리	#fbbf24	정적 SVG
+skill.sk_launch_01	skill	P1	svg	128x128	신규 채굴 스킬 1 아이콘	측면 드릴 + N테두리	#67e8f9	정적 SVG
+skill.sk_launch_02	skill	P1	svg	128x128	신규 전투 스킬 2 아이콘	펄스 파동 + N테두리	#fb7185	정적 SVG
+skill.sk_launch_03	skill	P1	svg	128x128	신규 치명 스킬 3 아이콘	초점 렌즈 + R테두리	#60a5fa	정적 SVG
+skill.sk_launch_04	skill	P1	svg	128x128	신규 복합 스킬 4 아이콘	쌍둥이 궤도 + R테두리	#60a5fa	정적 SVG
+skill.sk_launch_05	skill	P1	svg	128x128	신규 채굴 스킬 5 아이콘	중력 집게 + SR테두리	#c084fc	정적 SVG
+skill.sk_launch_06	skill	P1	svg	128x128	신규 전투 스킬 6 아이콘	초신성 창 + SR테두리	#c084fc	정적 SVG
+module.drill	module	P0	svg	128x128	채굴 과부하 코어 아이콘	하향 드릴 화살표	#67e8f9	정적 SVG
+module.lance	module	P0	svg	128x128	궤도 플라스마 창 아이콘	예리한 창끝 삼각형	#fb7185	정적 SVG
+module.sync	module	P0	svg	128x128	양자 동기화 엔진 아이콘	맞물린 동심원 고리	#c4b5fd	정적 SVG
+research.radar	research	P0	svg	128x128	고대 유물 탐지기 아이콘	부채꼴 레이더 파형	#c4b5fd	정적 SVG
+research.stabilizer	research	P0	svg	128x128	반응로 출력 안정화 아이콘	육각 방패 노심	#c4b5fd	정적 SVG
+research.res_launch_03	research	P1	svg	128x128	신규 정밀 연구 3 아이콘	십자 캘리퍼스 눈금	#c4b5fd	정적 SVG
+research.res_launch_04	research	P1	svg	128x128	신규 효율 연구 4 아이콘	순환 화살표 육각형	#c4b5fd	정적 SVG
+ui.settings	ui	P0	svg	24x24	설정 버튼 아이콘	6톱니 기어	#cbd5e1	정적 SVG
+ui.sound	ui	P0	svg	24x24	효과음 켜짐 아이콘	스피커와 음파	#67e8f9	정적 SVG
+ui.mute	ui	P0	svg	24x24	효과음 꺼짐 아이콘	스피커와 X표시	#94a3b8	정적 SVG
+ui.help	ui	P0	svg	24x24	도움말 아이콘	원형 물음표	#cbd5e1	정적 SVG
+ui.backup	ui	P0	svg	24x24	백업 내보내기 아이콘	상향 화살표 상자	#67e8f9	정적 SVG
+ui.restore	ui	P0	svg	24x24	백업 복원 아이콘	하향 화살표 상자	#fbbf24	정적 SVG
+ui.gacha	ui	P0	svg	24x24	스킬 뽑기 아이콘	사각 별빛 카드	#60a5fa	정적 SVG
+ui.merge	ui	P0	svg	24x24	파츠 합성 아이콘	결합되는 두 쐐기	#67e8f9	정적 SVG
+ui.prestige	ui	P0	svg	24x24	프레스티지 아이콘	상승 소용돌이 별	#c4b5fd	정적 SVG
+ui.shop	ui	P0	svg	24x24	상점 버튼 아이콘	보석 육각형	#fbbf24	정적 SVG
+ui.ad	ui	P0	svg	24x24	보급 광고 아이콘	재생 삼각형 캡슐	#34d399	정적 SVG
+ui.expedition	ui	P0	svg	24x24	탐사 기록 아이콘	나침반 별침	#a5b4fc	정적 SVG
+route.01	route	P0	canvas	data	새벽 이온 궤적	실선 궤도	#fda4af	색+실선 고정
+route.02	route	P0	canvas	data	워프 에메랄드	[8, 4] 파선	#6ee7b7	색+파선 고정
+route.03	route	P0	canvas	data	마그마 앰버	[3, 5] 점선	#fbbf24	색+점선 고정
+route.04	route	P0	canvas	data	크림슨 펄스	[12, 4, 3, 4] 일점쇄선	#fb7185	색+쇄선 고정
+route.05	route	P0	canvas	data	아스트랄 화이트	[2, 3, 8, 3] 이점쇄선	#f8fafc	색+쇄선 고정
+route.06	route	P0	canvas	data	네뷸라 바이올렛	[14, 6] 장파선	#c4b5fd	색+장파선 고정
+route.07	route	P0	canvas	data	솔라 골드 코로나	[1, 4] 미세점선	#fde047	색+점선 고정
+route.08	route	P1	canvas	data	신규 항로 08 (코발트 웨이브)	[6, 3] 균등파선	#38bdf8	색+파선 고정
+route.09	route	P1	canvas	data	신규 항로 09 (플라스마 아크)	[10, 3, 2, 3] 쇄선	#f472b6	색+쇄선 고정
+route.10	route	P1	canvas	data	신규 항로 10 (티타늄 그리드)	[4, 4] 블록선	#94a3b8	색+블록선 고정
+route.11	route	P1	canvas	data	신규 항로 11 (민트 스트림)	[16, 4] 초장파선	#2dd4bf	색+파선 고정
+route.12	route	P1	canvas	data	신규 항로 12 (오렌지 플레어)	[2, 6] 성긴점선	#fb923c	색+점선 고정
+route.13	route	P1	canvas	data	신규 항로 13 (라임 펄서)	[7, 3, 2, 3, 2, 3] 다중쇄선	#a3e635	색+쇄선 고정
+route.14	route	P1	canvas	data	신규 항로 14 (인디고 딥)	[12, 8] 심우주파선	#818cf8	색+파선 고정
+route.15	route	P1	canvas	data	신규 항로 15 (갤럭틱 프리즘)	[5, 2, 1, 2] 고밀도쇄선	#e879f9	색+쇄선 고정
+app.icon	icon	P0	png	1024x1024	iOS 앱 아이콘 (글자 없음)	딥네이비 배경 위 청록 드릴선과 황금 소행성 광맥	#020617/#67e8f9/#fbbf24	정적 1024px 불투명
